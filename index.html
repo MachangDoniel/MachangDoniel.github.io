@@ -2,621 +2,779 @@
 <html lang="en">
 
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" href="img/favicon.png" type="image/png">
-	<title>Doniel Portfolio</title>
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="vendors/linericon/style.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-	<!-- main css -->
-	<link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <title>Doniel Tripura - Portfolio</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .project-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background: #f9f9f9;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .btn-project {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-project:hover {
+            background-color: #0056b3;
+        }
+
+        .cv-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cv-option {
+            display: block;
+            margin-bottom: 10px;
+            padding: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .cv-option:hover {
+            background-color: #f1f1f1;
+        }
+
+        .download-cv:hover .cv-dropdown {
+            display: block;
+        }
+
+        /* Thesis Card Style */
+        .thesis-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #eaf0f7;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .thesis-card h4 {
+            font-size: 1.3rem;
+            color: #007bff;
+        }
+
+        .thesis-card p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Icon and Emoji Styling */
+        .icon-text {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon-text i {
+            margin-right: 8px;
+            color: #007bff;
+        }
+
+        .contact-btn,
+        .download-btn {
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact-btn:hover,
+        .download-btn:hover {
+            background-color: #218838;
+        }
+
+        .social-links a {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+
+        .social-links a:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 
 <body>
 
-	<!--================ Start Header Area =================-->
-	<header class="header_area">
-		<div class="main_menu">
-			<nav class="navbar navbar-expand-lg navbar-light">
-				<div class="container">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt="" style="max-height: 60px;"></a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<ul class="nav navbar-nav menu_nav justify-content-end">
-							<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">About</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
-							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Pages</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="#">Elements</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">Portfolio Details</a></li>
-								</ul>
-							</li>
-							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Blog</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">Blog Details</a></li>
-								</ul>
-							</li>
-							<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</div>
-	</header>
-	<!--================ End Header Area =================-->
+    <!-- Header Section -->
+    <header class="header_area">
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt="" style="max-height: 60px;"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav justify-content-end">
+                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+							<li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+							<li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="#leadership">Leadership</a></li> -->
+                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-	<!--================ Start Home Banner Area =================-->
+	<!-- Home Banner Section -->
 	<section class="home_banner_area">
 		<div class="banner_inner">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="banner_content">
-							<h3 class="text-uppercase">Hell0</h3>
 							<h1 class="text-uppercase">I am Doniel Tripura</h1>
-							<h5 class="text-uppercase"></h5>
+							<p>Competitive Programmer | Full-Stack Developer | Teaching Assistant | Machine Learning Enthusiast | Researcher</p>
 							<div class="d-flex align-items-center">
-								<a class="primary_btn" href="contact.html"><span>Contact Me</span></a>
-								<a class="primary_btn tr-bg" href="#"><span>Get CV</span></a>
+								<div class="download-cv">
+									<button class="primary_btn download-btn">Download CV</button>
+									<div class="cv-dropdown">
+										<a href="resume/SE_CV.pdf" class="cv-option" target="_blank">Software Engineer CV</a>
+										<a href="resume/Academic_CV.pdf" class="cv-option" target="_blank">Lecturer CV</a>
+									</div>
+								</div>
+								<a class="primary_btn contact-btn" href="mailto:donieltripura121@gmail.com"><span>Contact Me</span></a>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-5">
 						<div class="home_right_img">
-							<img class="" src="img/banner/home-right.png" alt="">
+							<img class="img-fluid" src="img/banner/home-right.png" alt="Doniel Tripura">
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!--================ End Home Banner Area =================-->
 
-	<!--================ Start About Us Area =================-->
-	<section class="about_area section_gap">
+
+	<!-- About Section -->
+	<section id="about" class="about_area section_gap">
 		<div class="container">
 			<div class="row justify-content-start align-items-center">
 				<div class="col-lg-5">
 					<div class="about_img">
-						<img class="" src="img/about-us.png" alt="">
+						<img class="img-fluid" src="img/about-us.png" alt="About Me">
 					</div>
 				</div>
-
 				<div class="offset-lg-1 col-lg-5">
 					<div class="main_title text-left">
-						<h2>let’s <br>
-							Introduce about <br>
-							myself</h2>
-						<p>
-							Hello, I am Doniel Tripura, I am currently engaged the Department of Computer Science and Engineering in KUET.
-						</p>
-						<p>
-							
-						</p>
-						<a class="primary_btn" href="#"><span>Download CV</span></a>
+						<h2>About Me</h2>
+						<p>I am <strong>Doniel Tripura</strong>, a Computer Science and Engineering student at <strong>KUET</strong> with a CGPA of <strong>3.70/4.00</strong>. I specialize in <strong>Machine Learning</strong>, <strong>AI</strong>, and <strong>Data Science</strong>. I am passionate about using these technologies to solve real-world problems, especially in the healthcare domain.</p>
+						<p>As a competitive programmer, I have ranked in several national programming contests. I am also a <strong>Teaching Assistant at <a href="https://www.ostad.app" target="_blank">Ostad</a></strong>, helping students prepare for coding interviews.</p>
+						<p>In my academic and personal projects, I’ve used various technologies like <strong>Python, TensorFlow, Swift, Java, PHP, MySQL</strong>, and more.
+						<p><a href="#projects">View projects</a></p>
+						<p><a class="primary_btn" href="mailto:donieltripura121@gmail.com"><span>Get in Touch</span></a></p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!--================ End About Us Area =================-->
 
-	<!-- ================ Srart Brand Area ================= -->
-	<!-- <section class="brand_area section_gap_bottom">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-6">
-					<div class="row">
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo1.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo2.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo3.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo4.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo5.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo6.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo7.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo8.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo9.png" alt="">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="offset-lg-2 col-lg-4 col-md-6">
-					<div class="client-info">
-						<div class="d-flex mb-50">
-							<span class="lage">10</span>
-							<span class="smll">Years Experience Working</span>
-						</div>
-						<div class="call-now d-flex">
-							<div>
-								<span class="fa fa-phone"></span>
-							</div>
-							<div class="ml-15">
-								<p>call us now</p>
-								<h3>(+1)-800-555-6789</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-	<!--================ End Brand Area =================-->
 
-	<!--================ Start Features Area =================-->
-	<!-- <section class="features_area">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8 text-center">
-					<div class="main_title">
-						<h2>service offers </h2>
-						<p>
-							Is give may shall likeness made yielding spirit a itself togeth created 
-							after sea <br> is in beast beginning signs open god you're gathering ithe
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="row feature_inner">
-				<div class="col-lg-3 col-md-6">
-					<div class="feature_item">
-						<img src="img/services/s1.png" alt="">
-						<h4>Wp developing</h4>
-						<p>Creeping for female light years that lesser can't evening heaven isn't bearing tree</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="feature_item">
-						<img src="img/services/s2.png" alt="">
-						<h4>UI/ux design</h4>
-						<p>Creeping for female light years that lesser can't evening heaven isn't bearing tree</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="feature_item">
-						<img src="img/services/s3.png" alt="">
-						<h4>Web design</h4>
-						<p>Creeping for female light years that lesser can't evening heaven isn't bearing tree</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="feature_item">
-						<img src="img/services/s4.png" alt="">
-						<h4>seo optimize</h4>
-						<p>Creeping for female light years that lesser can't evening heaven isn't bearing tree</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-	<!--================ End Features Area =================-->
 
-	<!--================Start Portfolio Area =================-->
-	<!-- <section class="portfolio_area" id="portfolio">
+
+
+	<!-- Achievements Section -->
+	<section id="achievements" class="achievements_area section_gap">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title text-left">
-						<h2>quality work <br>
-							Recently done project </h2>
+						<h2>Achievements</h2>
 					</div>
 				</div>
 			</div>
-			<div class="filters portfolio-filter">
-				<ul>
-					<li class="active" data-filter="*">all</li>
-					<li data-filter=".popular">popular</li>
-					<li data-filter=".latest"> latest</li>
-					<li data-filter=".following">following</li>
-					<li data-filter=".upcoming">upcoming</li>
-				</ul>
+
+			<!-- Academic Achievements -->
+			<div class="row">
+				<div class="col-lg-12">
+					<h3>Academic Achievements</h3>
+				</div>
+				<!-- Achievement 1: Dean's Award -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-trophy" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Dean's Award - Khulna University of Engineering and Technology (KUET)</h4>
+						<p><strong>Session:</strong> 2029-2020</p>
+						<p>Received the prestigious Dean's Award for academic excellence and outstanding performance in Computer Science and Engineering.</p>
+					</div>
+				</div>
+
+        	</div>
+
+			<!-- Programming Achievements -->
+			<div class="row">
+				<div class="col-lg-12">
+					<h3>Programming Profiles</h3>
+				</div>
+				
+				<!-- Achievement 5 -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-user" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Specialist - Codeforces (Max Rating: 1501)</h4>
+						<p>Ongoing</p>
+						<a href="https://codeforces.com/profile/Machang" target="_blank">View Profile</a>
+					</div>
+				</div>
+
+				<!-- Achievement 6 -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-user" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>3 Star - CodeChef (Max Rating: 1766, Country Rank: 294, Global Rank: 7278)</h4>
+						<p>Ongoing</p>
+						<a href="https://www.codechef.com/users/mr_machang" target="_blank">View Profile</a>
+					</div>
+				</div>
 			</div>
-	
-			<div class="filters-content">
-				<div class="row portfolio-grid justify-content-center">
-					<div class="col-lg-4 col-md-6 all latest">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p1.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p1.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">minimal design</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
+
+			<!-- Contest Programming -->
+			<div class="row">
+				<div class="col-lg-12">
+					<h3>Contest Programming</h3>
+				</div>
+				<!-- Achievement 1 -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-trophy" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Ranked 5th - PSTU IT Carnival Programming Contest</h4>
+						<p>November 2024</p>
+						<a href="https://toph.co/c/pstu-it-carnival-2024-south-zone/standings" target="_blank">View Link</a>
 					</div>
-					<div class="col-lg-4 col-md-6 all popular">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p2.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p2.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">Paint wall</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
+				</div>
+				<!-- Achievement 2 -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Ranked 35th - Khulna Regional Inter University Programming Contest</h4>
+						<p>November 2024</p>
+						<a href="https://toph.co/c/khulna-regional-inter-university-kriupc/standings" target="_blank">View Link</a>
 					</div>
-					<div class="col-lg-4 col-md-6 all latest">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p3.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p3.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">female light</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
+				</div>
+				<!-- Achievement 3 -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Ranked 59th - UIU Inter-University Programming Contest</h4>
+						<p>January 2025</p>
+						<a href="https://bapsoj.org/contests/uiu-inter-university-programming-contest-2025/standings" target="_blank">View Link</a>
 					</div>
-					<div class="col-lg-4 col-md-6 all popular">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p4.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p4.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">fourth air</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
+				</div>
+
+				<!-- Achievement 4 -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Ranked 170th - ICPC Dhaka Regional 2024</h4>
+						<p>January 2025</p>
+						<a href="https://icpc.global/regionals/finder/Dhaka-2025/standings" target="_blank">View Link</a>
 					</div>
-					<div class="col-lg-4 col-md-6 all following">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p6.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p5.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">together sign</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
+				</div>
+
+				<!-- Achievement 7 -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Ranked 21st & 20th - Intra KUET Programming Contest 2022 & 2023</h4>
+						<p>Intra KUET Programming Contests</p>
 					</div>
-					<div class="col-lg-4 col-md-6 all upcoming">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p5.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p6.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">multiply fowl</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
+				</div>
+			</div>
+
+			<!-- Datathon -->
+			<div class="row">
+				<div class="col-lg-12">
+					<h3>DataThon</h3>
+				</div>
+
+				<!-- Achievement 8 -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Selected as one of the Top Team - BitFest KUET Datathon 2025</h4>
+						<p>January 2025</p>
+						<a href="https://www.linkedin.com/feed/update/urn:li:activity:7279315707564044288/" target="_blank">View Results</a>
 					</div>
-					<div class="col-lg-4 col-md-6 all upcoming following">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p7.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p7.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">green heaven</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
+				</div>
+
+			</div>
+
+
+			<!-- Other Achievements -->
+			<div class="row">
+				<div class="col-lg-12">
+					<h3>Other Achievements</h3>
+				</div>
+				<!-- Achievement 9 -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Ranked 3rd - Science Olympiad 2019</h4>
+						<p>By BAS-FSIBL</p>
 					</div>
-					<div class="col-lg-4 col-md-6 all following">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p8.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p8.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4>fly male</h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
+				</div>
+				<!-- Achievement 10 -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Second Runner Up - Quiz Competition on Digital Udbhaboni Mela 2018</h4>
+						<p>Digital Udbhaboni Mela</p>
 					</div>
-					<div class="col-lg-4 col-md-6 all upcoming">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p9.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p9.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">season face</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
+				</div>
+
+				<!-- Achievement 11 -->
+				<div class="col-lg-4">
+					<div class="project-card">
+						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Second Runner Up - Math Olympiad 2012 (Primary Category)</h4>
+						<p>Math Olympiad 2012</p>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section> -->
-	<!--================End Portfolio Area =================-->
+	</section>
 
-	<!--================ Start Testimonial Area =================-->
-	<!-- <div class="testimonial_area section_gap_bottom">
+
+	<!-- Research Section -->
+	<section id="research" class="research_area section_gap">
 		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8 text-center">
-					<div class="main_title">
-						<h2>client say about me</h2>
-						<p>Is give may shall likeness made yielding spirit a itself togeth created after sea is in beast <br>
-							 beginning signs open god you're gathering ithe</p>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main_title text-left">
+						<h2>Research</h2>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="testi_slider owl-carousel">
-        			<div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t1.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Elite Martin</h4>
-									<p>Him, made can't called over won't there on divide there male fish beast own his day third seed sixth seas unto. Saw from </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div>
-        			<div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t2.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Davil Saden</h4>
-									<p>Him, made can't called over won't there on divide there male fish beast own his day third seed sixth seas unto. Saw from </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div>
-        			<div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t1.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Elite Martin</h4>
-									<p>Him, made can't called over won't there on divide there male fish beast own his day third seed sixth seas unto. Saw from </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div>
-        			<div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t2.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Davil Saden</h4>
-									<p>Him, made can't called over won't there on divide there male fish beast own his day third seed sixth seas unto. Saw from </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div>
-        			<div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t1.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Elite Martin</h4>
-									<p>Him, made can't called over won't there on divide there male fish beast own his day third seed sixth seas unto. Saw from </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div>
-        			<div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t2.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Davil Saden</h4>
-									<p>Him, made can't called over won't there on divide there male fish beast own his day third seed sixth seas unto. Saw from </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div>
-        		</div>
-			</div>
-		</div>
-	</div> -->
-	<!--================ End Testimonial Area =================-->
-
-	<!--================ Start Newsletter Area =================-->
-	<!-- <section class="newsletter_area">
-		<div class="container">
-			<div class="row justify-content-center align-items-center">
+				<!-- Thesis 1: Enhancing Diabetes Prediction Accuracy Using Deep Learning -->
 				<div class="col-lg-12">
-					<div class="subscription_box text-center">
-						<h2 class="text-uppercase text-white">get update from anywhere</h2>
-						<p class="text-white">
-							Bearing Void gathering light light his eavening unto dont afraid. 
-						</p>
-						<div class="subcribe-form" id="mc_embed_signup">
-							<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscription relative">
-								<input name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required="" type="email">
-								<div style="position: absolute; left: -5000px;">
-									<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-								</div>
-								<button class="primary-btn hover d-inline">Get Started</button>
-								<div class="info"></div>
-							</form>
-						</div>
+					<div class="thesis-card">
+						<h4><i class="fa fa-book" style="font-size: 1.5rem; color: #007bff;"></i> Thesis: Enhancing Diabetes Prediction Accuracy Using Ensemble Technique and Deep Learning</h4>
+						<p><strong>Time Period:</strong> March 2024 - Present</p>
+						<p><strong>Technologies Used:</strong> Python, TensorFlow, XGBoost, ResNet50, Random Forest, KNN</p>
+						<p>This research aims to enhance the accuracy of diabetes prediction by integrating deep learning models (ResNet50, ResNet15) and machine learning algorithms (XGBoost, Random Forest, KNN). The models are trained with real-time data collected from <strong>Khulna Medical College (KMC)</strong>, aiming to improve predictive healthcare analytics.</p>
+						<p><strong>Key Focus:</strong> Real-time data processing, ensemble learning, and predictive analytics for healthcare improvement.</p>
+						<p><strong>GitHub Repository:</strong> <a href="https://github.com/MachangDoniel/Diabetes-Prediction" target="_blank">View Repository</a></p>
+					</div>
+				</div>
+
+				<!-- Research Paper or Article (if applicable) -->
+				<!-- Example for additional research papers -->
+				<!-- <div class="col-lg-12">
+					<div class="thesis-card">
+						<h4><i class="fa fa-paperclip" style="font-size: 1.5rem; color: #007bff;"></i> Research Paper on AI & ML in Healthcare</h4>
+						<p><strong>Time Period:</strong> June 2023 - August 2023</p>
+						<p><strong>Technologies Used:</strong> Python, Scikit-learn, TensorFlow</p>
+						<p>This paper focuses on the role of <strong>Artificial Intelligence (AI)</strong> and <strong>Machine Learning (ML)</strong> in healthcare. The paper highlights the potential of predictive models in improving patient care and healthcare operations, based on various real-time datasets.</p>
+						<p><strong>Published in:</strong> <a href="https://www.examplejournal.com" target="_blank">Healthcare AI Journal</a></p>
+						<p><strong>GitHub Repository:</strong> <a href="https://github.com/MachangDoniel/AI-Healthcare" target="_blank">View Repository</a></p>
+					</div>
+				</div> -->
+
+				<!-- Additional Research Projects -->
+				<div class="col-lg-12">
+					<div class="thesis-card">
+						<h4><i class="fa fa-flask" style="font-size: 1.5rem; color: #007bff;"></i> Project: Real-Time Data Analytics for Healthcare</h4>
+						<p><strong>Time Period:</strong> January 2024 - May 2025</p>
+						<p><strong>Technologies Used:</strong> Python, Pandas, Matplotlib, MySQL</p>
+						<p>This project involves building a real-time analytics platform for healthcare data. The platform processes large volumes of healthcare data to provide insights into disease trends, patient demographics, and healthcare resource allocation.</p>
+						<p><strong>GitHub Repository:</strong> <a href="https://github.com/MachangDoniel/Healthcare-Analytics" target="_blank">View Repository</a></p>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section> -->
-	<!--================ End Newsletter Area =================-->
+	</section>
 
-	<!--================Footer Area =================-->
-	<!-- <footer class="footer_area">
+
+
+
+    <!-- Projects Section -->
+	<section id="projects" class="projects_area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main_title text-left">
+						<h2>Projects</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- Project 1: Foodier (iOS App) -->
+				<div class="col-lg-4 col-md-6">
+					<div class="project-card">
+						<h4><a href="https://github.com/MachangDoniel/Foodier">Foodier (iOS App)</a></h4>
+						<p><strong>Time Period:</strong> September 2023 - January 2024</p>
+						<p><strong>Technologies Used:</strong> Swift, SwiftUI, Firebase</p>
+						<p>A dual iOS app focused on managing restaurant orders and user experience. The app supports real-time updates and user-friendly interfaces for efficient restaurant management.</p>
+						<a class="btn-project" href="https://github.com/MachangDoniel/Foodier">View Project</a>
+					</div>
+				</div>
+
+				<!-- Project 2: KUET-BANK (Android & Web) -->
+				<div class="col-lg-4 col-md-6">
+					<div class="project-card">
+						<h4><a href="https://github.com/MachangDoniel/KUET-BANK">KUET-BANK (Android & Web)</a></h4>
+						<p><strong>Time Period:</strong> September 2022 - February 2024</p>
+						<p><strong>Technologies Used:</strong> Java, PHP, MySQL, Firebase</p>
+						<p>A bank management system that features secure logins, real-time transactions, loan management, and customer account tracking for a better banking experience.</p>
+						<a class="btn-project" href="https://github.com/MachangDoniel/KUET-BANK">View Project</a>
+					</div>
+				</div>
+
+				<!-- Project 3: DoRa Block Battle (Game) -->
+				<div class="col-lg-4 col-md-6">
+					<div class="project-card">
+						<h4><a href="https://github.com/MachangDoniel/DoRa-Block-Battle">DoRa Block Battle (Game)</a></h4>
+						<p><strong>Time Period:</strong> July 2022 - September 2022</p>
+						<p><strong>Technologies Used:</strong> Python, Tkinter, MinMax Algorithm</p>
+						<p>An interactive AI-based game that supports single and multiplayer modes, using advanced algorithms like MinMax and Alpha-Beta Pruning for decision-making and gameplay enhancement.</p>
+						<a class="btn-project" href="https://github.com/MachangDoniel/DoRa-Block-Battle">View Project</a>
+					</div>
+				</div>
+
+				<!-- Project 4: KUET-BANK (Web-based) -->
+				<div class="col-lg-4 col-md-6">
+					<div class="project-card">
+						<h4><a href="https://github.com/MachangDoniel/KUET-BANK">KUET-BANK (Web-based Bank Management System)</a></h4>
+						<p><strong>Time Period:</strong> February 2023 - February 2024</p>
+						<p><strong>Technologies Used:</strong> Laravel, PHP, MySQL, Bootstrap</p>
+						<p>A web-based bank management system designed for both customers and employees. Features include customer account management, loan applications, and real-time transactions.</p>
+						<a class="btn-project" href="https://github.com/MachangDoniel/KUET-BANK">View Project</a>
+					</div>
+				</div>
+
+				<!-- Project 5: Heart (Android App for Patient Data) -->
+				<div class="col-lg-4 col-md-6">
+					<div class="project-card">
+						<h4><a href="https://github.com/MachangDoniel/Heart">Heart (Android App for Patient Data)</a></h4>
+						<p><strong>Time Period:</strong> September 2021 - December 2021</p>
+						<p><strong>Technologies Used:</strong> Android Studio, Firebase</p>
+						<p>An Android application developed for managing patient heart rate data, with real-time data synchronization and a user-friendly interface for doctors and patients.</p>
+						<a class="btn-project" href="https://github.com/MachangDoniel/Heart">View Project</a>
+					</div>
+				</div>
+
+				<!-- Project 6: Night Security Light (Arduino-based System) -->
+				<div class="col-lg-4 col-md-6">
+					<div class="project-card">
+						<h4><a href="https://github.com/MachangDoniel/Night_Security_Light">Night Security Light (Arduino-based System)</a></h4>
+						<p><strong>Time Period:</strong> March 2022 - May 2022</p>
+						<p><strong>Technologies Used:</strong> Arduino Uno, PIR Sensor, LDR, Bluetooth</p>
+						<p>Built an automatic night security light system using Arduino, integrating motion detection (PIR sensor) and ambient light measurement (LDR) for smart home security.</p>
+						<a class="btn-project" href="https://github.com/MachangDoniel/Night_Security_Light">View Project</a>
+					</div>
+				</div>
+
+				<!-- Project 7: Alphabet Detection (Image Processing) -->
+				<div class="col-lg-4 col-md-6">
+					<div class="project-card">
+						<h4><a href="https://github.com/MachangDoniel/Alphabet-Detection">Alphabet Detection (Image Processing)</a></h4>
+						<p><strong>Time Period:</strong> March 2023 - October 2023</p>
+						<p><strong>Technologies Used:</strong> OpenCV, Python</p>
+						<p>Developed a real-time image processing system for detecting and recognizing English alphabets, leveraging computer vision techniques for improved accuracy.</p>
+						<a class="btn-project" href="https://github.com/MachangDoniel/Alphabet-Detection">View Project</a>
+					</div>
+				</div>
+
+				<!-- Project 8: Automatic Bill Generator (Desktop App) -->
+				<div class="col-lg-4 col-md-6">
+					<div class="project-card">
+						<h4><a href="https://github.com/MachangDoniel/Automatic-Bill-Generator">Automatic Bill Generator (Desktop App)</a></h4>
+						<p><strong>Time Period:</strong> September 2022 - December 2023</p>
+						<p><strong>Technologies Used:</strong> Java, MySQL</p>
+						<p>A desktop application designed to automate the calculation of teacher payments based on their departmental activities and generate detailed reports.</p>
+						<a class="btn-project" href="https://github.com/MachangDoniel/Automatic-Bill-Generator">View Project</a>
+					</div>
+				</div>
+
+				<!-- Project 9: Auto Birthday Wisher (Python Script) -->
+				<div class="col-lg-4 col-md-6">
+					<div class="project-card">
+						<h4><a href="https://github.com/MachangDoniel/Auto-Birthday-Wisher">Auto Birthday Wisher (Python Script)</a></h4>
+						<p><strong>Time Period:</strong> January 2023 - February 2023</p>
+						<p><strong>Technologies Used:</strong> Python, SMTP</p>
+						<p>A Python script developed to automatically send birthday wishes via email or messaging apps, with scheduled execution using cron jobs.</p>
+						<a class="btn-project" href="https://github.com/MachangDoniel/Auto-Birthday-Wisher">View Project</a>
+					</div>
+				</div>
+
+				<!-- Project 10: Hospital Management System (Laravel Web) -->
+				<div class="col-lg-4 col-md-6">
+					<div class="project-card">
+						<h4><a href="https://github.com/MachangDoniel/Hospital_Management_System">Hospital Management System (Laravel Web)</a></h4>
+						<p><strong>Time Period:</strong> February 2023 - September 2023</p>
+						<p><strong>Technologies Used:</strong> Laravel, PHP, MySQL</p>
+						<p>A web-based hospital management system with modules for patient record management, appointment scheduling, and billing, designed to optimize hospital operations.</p>
+						<a class="btn-project" href="https://github.com/MachangDoniel/Hospital_Management_System">View Project</a>
+					</div>
+				</div>
+
+				<!-- Project 11: Kokborok Compiler (Compiler Design) -->
+				<div class="col-lg-4 col-md-6">
+					<div class="project-card">
+						<h4><a href="https://github.com/MachangDoniel/Kokborok-Compiler">Kokborok Compiler (Compiler Design)</a></h4>
+						<p><strong>Time Period:</strong> September 2021 - December 2021</p>
+						<p><strong>Technologies Used:</strong> C, Lexical Analysis, Syntax Parsing</p>
+						<p>Developed a compiler for the Kokborok language as part of a Compiler Design course, incorporating lexical, syntax, and semantic analysis.</p>
+						<a class="btn-project" href="https://github.com/MachangDoniel/Kokborok-Compiler">View Project</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Experience Section -->
+	<section id="experience" class="experience_area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main_title text-left">
+						<h2>Experience</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- Experience 1: Teaching Assistant at Ostad -->
+				<div class="col-lg-12">
+					<div class="project-card">
+						<i class="fa fa-chalkboard-teacher" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Teaching Assistant - Ostad (Remote)</h4>
+						<p><strong>Time Period:</strong> January 2025 - Present</p>
+						<p><strong>Responsibilities:</strong></p>
+						<ul>
+							<li>Assisted students in preparing for coding interviews.</li>
+							<li>Developed and facilitated practice sessions focusing on data structures, algorithms, and problem-solving techniques.</li>
+							<li>Conducted mock interviews and provided feedback on problem-solving approaches.</li>
+							<li>Helped students identify areas of improvement and tailored learning experiences based on individual needs.</li>
+						</ul>
+						<a class="btn-project" href="https://www.ostad.app" target="_blank">Visit Ostad</a>
+					</div>
+				</div>
+		</div>
+	</section>
+
+
+	<!-- Leadership Section -->
+	<section id="leadership" class="leadership_area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main_title text-left">
+						<h2>Leadership</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- Leadership Role 1: General Member - Special Group Interested in Programming Contest (SGIPC) -->
+				<div class="col-lg-12">
+					<div class="project-card">
+						<i class="fa fa-users" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>General Member - Special Group Interested in Programming Contest (SGIPC)</h4>
+						<p><strong>Time Period:</strong> 2022 - Present</p>
+						<p><strong>Responsibilities:</strong></p>
+						<ul>
+							<li>Collaborated with peers to enhance problem-solving skills and participated in competitive programming discussions.</li>
+							<li>Contributed to the development of training modules and resources for fellow members.</li>
+							<li>Assisted in organizing group sessions and workshops to build technical skills and promote programming contests.</li>
+						</ul>
+						<a class="btn-project" href="https://www.facebook.com/groups/sgipc.kuet/" target="_blank">SGIPC on Facebook</a>
+					</div>
+				</div>
+
+				<!-- Leadership Role 2: Content and Training - LOOP, Control Engineering Club -->
+				<div class="col-lg-12">
+					<div class="project-card">
+						<i class="fa fa-lightbulb" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Content and Training - LOOP, Control Engineering Club</h4>
+						<p><strong>Time Period:</strong> 2022 - Present</p>
+						<p><strong>Responsibilities:</strong></p>
+						<ul>
+							<li>Developed training content for control engineering and programming education.</li>
+							<li>Mentored and guided new members in their learning journey, fostering collaboration and skill development.</li>
+							<li>Organized events and workshops to enhance the club's learning environment and promote educational growth.</li>
+						</ul>
+						<a class="btn-project" href="https://www.facebook.com/kuetloop/" target="_blank">Loop on Facebook</a>
+					</div>
+				</div>
+
+				<!-- Leadership Role 3: Office Secretary - Save A Smile -->
+				<div class="col-lg-12">
+					<div class="project-card">
+						<i class="fa fa-users" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Office Secretary - Save A Smile</h4>
+						<p><strong>Time Period:</strong> 2022 - Present</p>
+						<p><strong>Responsibilities:</strong></p>
+						<ul>
+							<li>Managed recruitment and onboarding processes for new members, ensuring smooth transitions and effective team integration.</li>
+							<li>Organized charity events, fundraising campaigns, and awareness programs, ensuring efficient planning and execution.</li>
+							<li>Coordinated with multiple teams to ensure timely delivery of initiatives, improving the organization's overall impact.</li>
+						</ul>
+						<a class="btn-project" href="https://www.facebook.com/groups/3109029409203422" target="_blank">Save A Smile on Facebook</a>
+					</div>
+				</div>
+
+				<!-- Leadership Role 4: Event Organizer - BitFest 2025 -->
+				<div class="col-lg-12">
+					<div class="project-card">
+						<i class="fa fa-calendar-check" style="font-size: 2rem; color: #007bff;"></i>
+						<h4>Event Organizer - BitFest 2025, 3rd KUET CSE National Festival</h4>
+						<p><strong>Time Period:</strong> 2025</p>
+						<p><strong>Responsibilities:</strong></p>
+						<ul>
+							<li>Organized and coordinated the <strong>Inter-University Programming Contest (IUPC)</strong> at BitFest 2025.</li>
+							<li>Led a team of volunteers to ensure the smooth execution of events and workshops.</li>
+							<li>Collaborated with sponsors, partners, and participants to create a successful and engaging festival experience.</li>
+						</ul>
+						<a class="btn-project" href="https://www.linkedin.com/company/kuetcsebitfest/" target="_blank">BitFest on LinkedIn</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<!-- Contact Section -->
+	<section id="contact" class="contact_area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main_title text-left">
+						<h2>Contact Me</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<form id="contactForm" class="contact_form">
+						<div class="form-group">
+							<input type="text" id="name" class="form-control" name="name" placeholder="Your Name" required>
+						</div>
+						<div class="form-group">
+							<input type="email" id="email" class="form-control" name="email" placeholder="Your Email" required>
+						</div>
+						<div class="form-group">
+							<textarea id="message" class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+						</div>
+						<button type="submit" class="primary_btn contact-btn">Send Email</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<!-- Footer Section -->
+	<footer class="footer_area">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-lg-12">
-					<div class="footer_top flex-column">
-						<div class="footer_logo">
-							<a href="#">
-								<img src="img/name.png" alt="Doniel" style="max-height: 100px;">
-							</a>
-							<h4>Follow Me</h4>
-						</div>
-						<div class="footer_social">
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-dribbble"></i></a>
-							<a href="#"><i class="fa fa-behance"></i></a>
+				<div class="col-lg-12 text-center">
+					<div class="footer_top">
+						<h4>Follow Me</h4>
+						<div class="social-links">
+							<a href="https://www.linkedin.com/in/doniel-tripura-7a82281b9/"><i class="fa fa-linkedin"></i></a>
+							<a href="https://github.com/MachangDoniel"><i class="fa fa-github"></i></a>
+							<a href="https://x.com/TripuraDoniel"><i class="fa fa-twitter"></i></a>
+							<a href="https://www.facebook.com/doniel.tripura.1"><i class="fa fa-facebook"></i></a>
+							<!-- YouTube Icon added -->
+							<a href="https://www.youtube.com/@donieltripura3323" target="_blank"><i class="fa fa-youtube"></i></a>
 						</div>
 					</div>
+					<p id="lastModifiedDate">Last Modified: </p>
 				</div>
 			</div>
-			<div class="row footer_bottom justify-content-center">
-				<p class="col-lg-8 col-sm-12 footer-text">
-					Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-	 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-	Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p>
-			</div>
-		</div> 
-	</footer> -->
-	<!--================End Footer Area =================-->
+		</div>
+	</footer>
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/popper.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/stellar.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-	<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-	<script src="vendors/isotope/isotope-min.js"></script>
-	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-	<script src="js/jquery.ajaxchimp.min.js"></script>
-	<script src="js/mail-script.js"></script>
-	<!--gmaps Js-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-	<script src="js/gmaps.min.js"></script>
-	<script src="js/theme.js"></script>
+
+    <!-- Optional JavaScript -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/theme.js"></script>
 </body>
 
 </html>
+
+<script>
+	// JavaScript to handle mailto action with dynamic content
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Collect the message data
+        const message = document.getElementById('message').value;
+
+        // Create mailto link with subject and only the message body
+        const subject = "Contact Form Submission";  // You can modify the subject here
+        const body = `Message: ${encodeURIComponent(message)}`;  // Only the message
+
+        // Create the mailto link
+        const mailtoLink = `mailto:donieltripura121@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+        // Open the default email client with the pre-filled mailto link
+        window.location.href = mailtoLink;
+    });
+
+    // JavaScript to display last modified date
+    document.getElementById('lastModifiedDate').innerHTML = "Last Modified: " + document.lastModified;
+</script>
