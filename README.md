@@ -1,6 +1,7 @@
 # Doniel Tripura - Portfolio
 
-Welcome to my personal portfolio website
+Welcome to my personal portfolio website.
+
 View my portfoio from [Here](https://machangdoniel.github.io/)
 
 <!-- ## Connect with Me
