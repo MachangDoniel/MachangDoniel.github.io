@@ -14,6 +14,15 @@
     <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
+/* 
+		section {
+			scroll-margin-top: -70px; /* new modern CSS fix, if supported */
+			/* fallback for older browsers */
+			padding-top: 70px;
+			margin-top: -70px;
+			} */
+
+
         .project-card {
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -40,12 +49,21 @@
             color: #555;
         }
 
+		.project-type {
+			font-style: italic;
+			font-size: 0.95rem;
+			color: #777;
+			margin-top: -10px;
+			margin-bottom: 10px;
+		}
+
+
         .btn-project {
             background-color: #007bff;
             color: white;
             border: none;
             border-radius: 4px;
-            padding: 10px 20px;
+            padding: 5px 10px;
             font-size: 0.9rem;
             transition: background-color 0.3s ease;
         }
@@ -445,154 +463,206 @@
 
 
 
-    <!-- Projects Section -->
-	<section id="projects" class="projects_area section_gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="main_title text-left">
-						<h2>Projects</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				
+        <!-- Projects Section -->
+    <section id="projects" class="projects_area section_gap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="main_title text-left">
+              <h2>Projects</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
 
-				<!-- Project: BanglaHire -->
-				<div class="col-lg-4 col-md-6">
-				<div class="project-card">
-					<h4><a href="https://github.com/Learnathon-By-Geeky-Solutions/bladerunners">BanglaHire (Next-Gen Freelancing Platform)</a></h4>
-					<p><strong>Time Period:</strong> March 2024 – May 2025</p>
-					<p><strong>Technologies Used:</strong> Next.js, Laravel, MySQL, Docker, Tailwind CSS</p>
-					<p>A Bangladesh-focused freelancing platform with features like real-time chat, escrow payment system, smart talent matching, and an admin dashboard. Integrated with SSLCommerz and Stripe for secure payments.</p>
-					<a class="btn-project" href="https://bladerunners.proactive-coder.xyz">Live Demo</a>
-					<a class="btn-project" href="https://github.com/Learnathon-By-Geeky-Solutions/bladerunners">View Project</a>
-				</div>
-				</div>
-
-				<!-- Project 1: Foodier (iOS App) -->
-				<div class="col-lg-4 col-md-6">
-					<div class="project-card">
-						<h4><a href="https://github.com/MachangDoniel/Foodier">Foodier (iOS App)</a></h4>
-						<p><strong>Time Period:</strong> September 2023 - January 2024</p>
-						<p><strong>Technologies Used:</strong> Swift, SwiftUI, Firebase</p>
-						<p>A dual iOS app focused on managing restaurant orders and user experience. The app supports real-time updates and user-friendly interfaces for efficient restaurant management.</p>
-						<a class="btn-project" href="https://github.com/MachangDoniel/Foodier">View Project</a>
-					</div>
+          <!-- Project: BanglaHire -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>BanglaHire</h4>
+              <p><strong>Type:</strong> Web Platform</p>
+              <p><strong>Time Period:</strong> March 2024 – May 2025</p>
+              <p><strong>Technologies Used:</strong> Next.js, Laravel, MySQL, Docker, Tailwind CSS</p>
+              <p>A Bangladesh-focused freelancing platform with features like real-time chat, escrow payment system, smart talent matching, and an admin dashboard. Integrated with SSLCommerz and Stripe for secure payments.</p>
+              <div class="btn-group">
+                
+				<div style="display: flex; gap: 10px;">
+					<a class="btn-project" href="https://github.com/Learnathon-By-Geeky-Solutions/bladerunners">Code</a>
+					<a class="btn-project" href="https://bladerunners.proactive-coder.xyz">Live</a>
 				</div>
 
-				<!-- Project 2: KUET-BANK (Android) -->
-				<div class="col-lg-4 col-md-6">
-					<div class="project-card">
-						<h4><a href="https://github.com/MachangDoniel/KUET-BANK">KUET-BANK (Android)</a></h4>
-						<p><strong>Time Period:</strong> September 2022 - February 2024</p>
-						<p><strong>Technologies Used:</strong> Java, Firebase</p>
-						<p>A bank management system that features secure logins, real-time transactions, loan management, and customer account tracking for a better banking experience.</p>
-						<a class="btn-project" href="https://github.com/MachangDoniel/KUET-BANK">View Project</a>
-					</div>
-				</div>
+              </div>
+            </div>
+          </div>
 
-				<!-- Project 3: DoRa Block Battle (Game) -->
-				<div class="col-lg-4 col-md-6">
-					<div class="project-card">
-						<h4><a href="https://github.com/MachangDoniel/DoRa-Block-Battle">DoRa Block Battle (Game)</a></h4>
-						<p><strong>Time Period:</strong> July 2022 - September 2022</p>
-						<p><strong>Technologies Used:</strong> Python, Tkinter, MinMax Algorithm</p>
-						<p>An interactive AI-based game that supports single and multiplayer modes, using advanced algorithms like MinMax and Alpha-Beta Pruning for decision-making and gameplay enhancement.</p>
-						<a class="btn-project" href="https://github.com/MachangDoniel/DoRa-Block-Battle">View Project</a>
-					</div>
-				</div>
+          <!-- Project: Foodier -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>Foodier</h4>
+              <p><strong>Type:</strong> iOS App</p>
+              <p><strong>Time Period:</strong> September 2023 - January 2024</p>
+              <p><strong>Technologies Used:</strong> Swift, SwiftUI, Firebase</p>
+              <p>A dual iOS app focused on managing restaurant orders and user experience. The app supports real-time updates and user-friendly interfaces for efficient restaurant management.</p>
+              <div class="btn-group">
+                
+                <a class="btn-project" href="https://github.com/MachangDoniel/Foodier">Code</a>
+              </div>
+            </div>
+          </div>
 
-				<!-- Project 4: KUET-BANK (Web-based) -->
-				<div class="col-lg-4 col-md-6">
-					<div class="project-card">
-						<h4><a href="https://github.com/MachangDoniel/KUET-BANK">KUET-BANK (Web-based Bank Management System)</a></h4>
-						<p><strong>Time Period:</strong> February 2023 - February 2024</p>
-						<p><strong>Technologies Used:</strong> Laravel, PHP, MySQL, Bootstrap</p>
-						<p>A web-based bank management system designed for both customers and employees. Features include customer account management, loan applications, and real-time transactions.</p>
-						<a class="btn-project" href="https://github.com/MachangDoniel/KUET-BANK">View Project</a>
-					</div>
-				</div>
+          <!-- Project: KUET-BANK (Android) -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>KUET-BANK</h4>
+              <p><strong>Type:</strong> Android App</p>
+              <p><strong>Time Period:</strong> September 2022 - February 2024</p>
+              <p><strong>Technologies Used:</strong> Android Studio, Java, Firebase</p>
+              <p>A bank management system that features secure logins, real-time transactions, loan management, and customer account tracking for a better banking experience.</p>
+              <div class="btn-group">
+                
+                <a class="btn-project" href="https://github.com/MachangDoniel/KUET-BANK">Code</a>
+              </div>
+            </div>
+          </div>
 
-				<!-- Project 5: Heart (Android App for Patient Data) -->
-				<div class="col-lg-4 col-md-6">
-					<div class="project-card">
-						<h4><a href="https://github.com/MachangDoniel/Heart">Heart (Android App for Patient Data)</a></h4>
-						<p><strong>Time Period:</strong> September 2021 - December 2021</p>
-						<p><strong>Technologies Used:</strong> Android Studio, Firebase</p>
-						<p>An Android application developed for managing patient heart rate data, with real-time data synchronization and a user-friendly interface for doctors and patients.</p>
-						<a class="btn-project" href="https://github.com/MachangDoniel/Heart">View Project</a>
-					</div>
-				</div>
+          <!-- Project: DoRa Block Battle -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>DoRa Block Battle</h4>
+              <p><strong>Type:</strong> Game</p>
+              <p><strong>Time Period:</strong> July 2022 - September 2022</p>
+              <p><strong>Technologies Used:</strong> Python, Tkinter, MinMax Algorithm</p>
+              <p>An interactive AI-based game using MinMax and Alpha-Beta Pruning for decision-making and gameplay enhancement.</p>
+              <div class="btn-group">
+                
+                <a class="btn-project" href="https://github.com/MachangDoniel/DoRa-Block-Battle">Code</a>
+              </div>
+            </div>
+          </div>
 
-				<!-- Project 6: Night Security Light (Arduino-based System) -->
-				<div class="col-lg-4 col-md-6">
-					<div class="project-card">
-						<h4><a href="https://github.com/MachangDoniel/Night_Security_Light">Night Security Light (Arduino-based System)</a></h4>
-						<p><strong>Time Period:</strong> March 2022 - May 2022</p>
-						<p><strong>Technologies Used:</strong> Arduino Uno, PIR Sensor, LDR, Bluetooth</p>
-						<p>Built an automatic night security light system using Arduino, integrating motion detection (PIR sensor) and ambient light measurement (LDR) for smart home security.</p>
-						<a class="btn-project" href="https://github.com/MachangDoniel/Night_Security_Light">View Project</a>
-					</div>
-				</div>
+          <!-- Project: KUET-BANK (Web) -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>KUET-BANK</h4>
+              <p><strong>Type:</strong> Web Platform</p>
+              <p><strong>Time Period:</strong> February 2023 - February 2024</p>
+              <p><strong>Technologies Used:</strong> Laravel, PHP, MySQL, Bootstrap</p>
+              <p>Web-based bank management system with modules for customer accounts, loans, and real-time transactions.</p>
+              <div class="btn-group">
+                
+                <a class="btn-project" href="https://github.com/MachangDoniel/KUET-BANK">Code</a>
+              </div>
+            </div>
+          </div>
 
-				<!-- Project 7: Alphabet Detection (Image Processing) -->
-				<div class="col-lg-4 col-md-6">
-					<div class="project-card">
-						<h4><a href="https://github.com/MachangDoniel/Alphabet-Detection">Alphabet Detection (Image Processing)</a></h4>
-						<p><strong>Time Period:</strong> March 2023 - October 2023</p>
-						<p><strong>Technologies Used:</strong> OpenCV, Python</p>
-						<p>Developed a real-time image processing system for detecting and recognizing English alphabets, leveraging computer vision techniques for improved accuracy.</p>
-						<a class="btn-project" href="https://github.com/MachangDoniel/Alphabet-Detection">View Project</a>
-					</div>
-				</div>
+          <!-- Project: Heart -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>Heart</h4>
+              <p><strong>Type:</strong> Android App</p>
+              <p><strong>Time Period:</strong> September 2021 - December 2021</p>
+              <p><strong>Technologies Used:</strong> Android Studio, Firebase</p>
+              <p>Patient data management app with real-time heart rate data sync and interfaces for doctors and patients.</p>
+              <div class="btn-group">
+                
+                <a class="btn-project" href="https://github.com/MachangDoniel/Heart">Code</a>
+              </div>
+            </div>
+          </div>
 
-				<!-- Project 8: Automatic Bill Generator (Desktop App) -->
-				<div class="col-lg-4 col-md-6">
-					<div class="project-card">
-						<h4><a href="https://github.com/MachangDoniel/Automatic-Bill-Generator">Automatic Bill Generator (Desktop App)</a></h4>
-						<p><strong>Time Period:</strong> September 2022 - December 2023</p>
-						<p><strong>Technologies Used:</strong> Java, MySQL</p>
-						<p>A desktop application designed to automate the calculation of teacher payments based on their departmental activities and generate detailed reports.</p>
-						<a class="btn-project" href="https://github.com/MachangDoniel/Automatic-Bill-Generator">View Project</a>
-					</div>
-				</div>
+          <!-- Project: Night Security Light -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>Night Security Light</h4>
+              <p><strong>Type:</strong> Arduino-based System</p>
+              <p><strong>Time Period:</strong> March 2022 - May 2022</p>
+              <p><strong>Technologies Used:</strong> Arduino Uno, PIR Sensor, LDR, Bluetooth</p>
+              <p>Automatic night light system using motion and ambient light sensors for home security.</p>
+              <div class="btn-group">
+                
+                <a class="btn-project" href="https://github.com/MachangDoniel/Night_Security_Light">Code</a>
+              </div>
+            </div>
+          </div>
 
-				<!-- Project 9: Auto Birthday Wisher (Python Script) -->
-				<div class="col-lg-4 col-md-6">
-					<div class="project-card">
-						<h4><a href="https://github.com/MachangDoniel/Auto-Birthday-Wisher">Auto Birthday Wisher (Python Script)</a></h4>
-						<p><strong>Time Period:</strong> January 2023 - February 2023</p>
-						<p><strong>Technologies Used:</strong> Python, SMTP</p>
-						<p>A Python script developed to automatically send birthday wishes via email or messaging apps, with scheduled execution using cron jobs.</p>
-						<a class="btn-project" href="https://github.com/MachangDoniel/Auto-Birthday-Wisher">View Project</a>
-					</div>
-				</div>
+          <!-- Project: Alphabet Detection -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>Alphabet Detection</h4>
+              <p><strong>Type:</strong> Image Processing</p>
+              <p><strong>Time Period:</strong> March 2023 - October 2023</p>
+              <p><strong>Technologies Used:</strong> OpenCV, Python</p>
+              <p>An Image processing system to detect and recognize English alphabets using image processing and computer vision techniques.</p>
+              <div class="btn-group">
+                
+                <a class="btn-project" href="https://github.com/MachangDoniel/Alphabet-Detection">Code</a>
+              </div>
+            </div>
+          </div>
 
-				<!-- Project 10: Hospital Management System (Laravel Web) -->
-				<div class="col-lg-4 col-md-6">
-					<div class="project-card">
-						<h4><a href="https://github.com/MachangDoniel/Hospital_Management_System">Hospital Management System (Laravel Web)</a></h4>
-						<p><strong>Time Period:</strong> February 2023 - September 2023</p>
-						<p><strong>Technologies Used:</strong> Laravel, PHP, MySQL</p>
-						<p>A web-based hospital management system with modules for patient record management, appointment scheduling, and billing, designed to optimize hospital operations.</p>
-						<a class="btn-project" href="https://github.com/MachangDoniel/Hospital_Management_System">View Project</a>
-					</div>
-				</div>
+          <!-- Project: Automatic Bill Generator -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>Automatic Bill Generator</h4>
+              <p><strong>Type:</strong> Desktop App</p>
+              <p><strong>Time Period:</strong> September 2022 - December 2023</p>
+              <p><strong>Technologies Used:</strong> Java, MySQL</p>
+              <p>Automates teacher payment calculations based on departmental work and generates detailed reports.</p>
+              <div class="btn-group">
+                
+                <a class="btn-project" href="https://github.com/MachangDoniel/Automatic-Bill-Generator">Code</a>
+              </div>
+            </div>
+          </div>
 
-				<!-- Project 11: Kokborok Compiler (Compiler Design) -->
-				<div class="col-lg-4 col-md-6">
-					<div class="project-card">
-						<h4><a href="https://github.com/MachangDoniel/Kokborok-Compiler">Kokborok Compiler (Compiler Design)</a></h4>
-						<p><strong>Time Period:</strong> September 2021 - December 2021</p>
-						<p><strong>Technologies Used:</strong> C, Lexical Analysis, Syntax Parsing</p>
-						<p>Developed a compiler for the Kokborok language as part of a Compiler Design course, incorporating lexical, syntax, and semantic analysis.</p>
-						<a class="btn-project" href="https://github.com/MachangDoniel/Kokborok-Compiler">View Project</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+          <!-- Project: Auto Birthday Wisher -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>Auto Birthday Wisher</h4>
+              <p><strong>Type:</strong> Python Script</p>
+              <p><strong>Time Period:</strong> January 2023 - February 2023</p>
+              <p><strong>Technologies Used:</strong> Python, SMTP</p>
+              <p>Automatically sends birthday wishes via email or messaging, scheduled using cron jobs.</p>
+              <div class="btn-group">
+                
+                <a class="btn-project" href="https://github.com/MachangDoniel/Auto-Birthday-Wisher">Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project: Hospital Management System -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>Hospital Management System</h4>
+              <p><strong>Type:</strong> Web Platform</p>
+              <p><strong>Time Period:</strong> February 2023 - September 2023</p>
+              <p><strong>Technologies Used:</strong> Laravel, PHP, MySQL</p>
+              <p>Web app with modules for patient records, appointments, and billing to improve hospital workflow.</p>
+              <div class="btn-group">
+                
+                <a class="btn-project" href="https://github.com/MachangDoniel/Hospital_Management_System">Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project: Kokborok Compiler -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <h4>Kokborok Compiler</h4>
+              <p><strong>Type:</strong> Compiler Design</p>
+              <p><strong>Time Period:</strong> September 2021 - December 2021</p>
+              <p><strong>Technologies Used:</strong> C, Lexical Analysis, Syntax Parsing</p>
+              <p>Compiler for Tripura(Kokborok) language incorporating lexical, syntax, and semantic analysis as part of course project.</p>
+              <div class="btn-group">
+                
+                <a class="btn-project" href="https://github.com/MachangDoniel/Kokborok-Compiler">Code</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
 
 
 	<!-- Experience Section -->
