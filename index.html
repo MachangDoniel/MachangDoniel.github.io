@@ -14,13 +14,13 @@
     <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-/* 
+
 		section {
 			scroll-margin-top: -70px; /* new modern CSS fix, if supported */
 			/* fallback for older browsers */
 			padding-top: 70px;
-			margin-top: -70px;
-			} */
+			margin-top: 0px;
+			} 
 
 
         .project-card {
@@ -788,6 +788,19 @@
 				</div>
 			</div>
 			<div class="row justify-content-center">
+				<!-- Contact Information -->
+				<div class="col-lg-4 mb-4">
+					<div class="contact_info">
+						<h4>Get in Touch</h4>
+						<ul class="list-unstyled">
+							<li><strong>Email:</strong> <a href="mailto:donieltripura121@gmail.com">donieltripura121@gmail.com</a></li>
+							<li><strong>Phone:</strong> <a href="tel:+8801893097217">+8801893097217</a></li>
+							<li><strong>Location:</strong> Mirpur 10, Dhaka</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Contact Form -->
 				<div class="col-lg-8">
 					<form id="contactForm" class="contact_form">
 						<div class="form-group">
@@ -805,6 +818,7 @@
 			</div>
 		</div>
 	</section>
+
 
 
 
@@ -850,7 +864,7 @@
 
         // Create mailto link with subject and only the message body
         const subject = "Contact Form Submission";  // You can modify the subject here
-        const body = `Message: ${encodeURIComponent(message)}`;  // Only the message
+        const body = `${encodeURIComponent(message)}`;  // Only the message
 
         // Create the mailto link
         const mailtoLink = `mailto:donieltripura121@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
