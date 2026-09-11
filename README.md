@@ -16,7 +16,7 @@ I am an **iOS Software Engineer** with applications published on the **Apple App
 
 1. **[Vocal Music Separator AI](https://apps.apple.com/us/app/vocal-music-separator-ai/id6756906827)** (App ID: `6756906827`)
    - *Production ML-Powered iOS Workstation*: Isolates vocals and instruments with high fidelity. Supports 6-stem audio separation, instant karaoke track generation, and direct audio extraction from video files.
-   - *Core Stack*: Swift, AVFoundation, FFmpegKit, CoreML, SwiftUI.
+   - *Core Stack*: Swift, AVFoundation, FFmpegKit, SwiftUI.
 
 2. **[Neural Sound - Text to Speech](https://apps.apple.com/us/app/neural-sound-text-to-speech/id6753916628)** (App ID: `6753916628`)
    - *High-Fidelity AI Speech Engine*: Natural speech synthesis app for iOS converting text, articles, and documents into human-like audio using high-quality neural voices.
@@ -26,7 +26,7 @@ I am an **iOS Software Engineer** with applications published on the **Apple App
 
 ## ⚡ Flagship Projects & Systems
 
-1. **TuneTube (MusicTube)**
+1. **TuneTube**
    - *Native YouTube-Backed iOS Music Streaming*: YouTube catalog streaming with native iOS UI/UX (~2,400 lines of clean SwiftUI), background audio streaming, Lock Screen media controls, and queue management.
    - *Stack*: SwiftUI, AVPlayer, Combine.
 
