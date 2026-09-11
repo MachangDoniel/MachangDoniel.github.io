@@ -261,3 +261,38 @@ function initBackToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+/* ----------------------------------------------------
+ * Interactive App Store Screenshot Switcher
+ * ---------------------------------------------------- */
+function switchAppScreenshot(appId, imgUrl, caption, tech, btn) {
+  const imgEl = document.getElementById(appId + '-preview-img');
+  const captionEl = document.getElementById(appId + '-preview-caption');
+  const techEl = document.getElementById(appId + '-preview-tech');
+
+  if (imgEl) {
+    imgEl.classList.add('opacity-40', 'scale-95');
+    setTimeout(() => {
+      imgEl.src = imgUrl;
+      imgEl.classList.remove('opacity-40', 'scale-95');
+    }, 150);
+  }
+
+  if (captionEl && caption) captionEl.textContent = caption;
+  if (techEl && tech) techEl.textContent = tech;
+
+  // Toggle active tab button styling
+  const tabs = document.querySelectorAll('.' + appId + '-tab');
+  tabs.forEach(t => {
+    t.classList.remove('bg-purple-600', 'bg-blue-600', 'text-white', 'shadow-sm');
+    t.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+  });
+
+  if (btn) {
+    btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+    const activeColor = appId === 'vocal' ? 'bg-purple-600' : 'bg-blue-600';
+    btn.classList.add(activeColor, 'text-white', 'shadow-sm');
+  }
+}
+window.switchAppScreenshot = switchAppScreenshot;
+

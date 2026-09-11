@@ -410,36 +410,61 @@
 
             <!-- Description -->
             <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-5">
-              Production ML-powered iOS application that isolates vocals and instruments with high fidelity. Supports 6-stem audio separation, instant karaoke track generation, and direct audio extraction from video files.
+              Production ML-powered iOS application that isolates vocals and instruments with high fidelity. Supports 6-stem audio separation, real-time karaoke song recording, lyric sync, and direct vocal removal from video files.
             </p>
 
             <!-- Feature Pills -->
-            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700 dark:text-slate-200 mb-6 font-medium">
+            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700 dark:text-slate-200 mb-5 font-medium">
               <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
                 <i data-lucide="scissors" class="w-4 h-4 text-purple-500 shrink-0"></i>
-                <span>6-Stem Track Isolation</span>
+                <span>Split Into 6 Stems</span>
               </div>
               <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
                 <i data-lucide="mic" class="w-4 h-4 text-blue-500 shrink-0"></i>
-                <span>Instant Karaoke Creation</span>
+                <span>Real-Time Karaoke Recording</span>
               </div>
               <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
                 <i data-lucide="video" class="w-4 h-4 text-indigo-500 shrink-0"></i>
-                <span>Vocal Removal from Video</span>
+                <span>In-Video Vocal Remover</span>
               </div>
               <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
-                <i data-lucide="cpu" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                <span>FFmpegKit & AVFoundation</span>
+                <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 shrink-0"></i>
+                <span>AI Music & Real-Time Lyrics</span>
               </div>
             </div>
 
-            <!-- App Screenshot Preview Window -->
-            <div class="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/60 shadow-lg mb-6 group/img">
-              <img src="img/apps/vocal-separator-preview.png" alt="Vocal Music Separator AI Preview" class="w-full h-48 sm:h-56 object-cover object-top group-hover/img:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <!-- Interactive App Store Screenshots Gallery -->
+            <div class="mb-3">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                  <i data-lucide="smartphone" class="w-3.5 h-3.5 text-purple-500"></i>
+                  Official App Store Screens:
+                </span>
+                <span class="text-[11px] font-mono text-slate-400">Click to preview</span>
+              </div>
+              <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                <button type="button" onclick="switchAppScreenshot('vocal', 'img/apps/vocal-store-1-6stem.jpg', 'Split Any Song Into 6 Stems', 'AI Stem Separation Engine', this)" class="vocal-tab active-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-purple-600 text-white shadow-sm shrink-0">
+                  6-Stem Split
+                </button>
+                <button type="button" onclick="switchAppScreenshot('vocal', 'img/apps/vocal-store-3-karaoke.jpg', 'Real-Time Karaoke Song Recording', 'Microphone & Waveform Sync', this)" class="vocal-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+                  Karaoke Recording
+                </button>
+                <button type="button" onclick="switchAppScreenshot('vocal', 'img/apps/vocal-store-2-lyrics.jpg', 'In Video Vocal Remover & Real-Time Lyric Sync', 'Video Audio Extraction', this)" class="vocal-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+                  Video Lyric Sync
+                </button>
+                <button type="button" onclick="switchAppScreenshot('vocal', 'img/apps/vocal-store-4-ai.jpg', 'Create Original Songs With AI', 'Neural Audio Synthesis', this)" class="vocal-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+                  AI Music
+                </button>
+              </div>
+            </div>
+
+            <!-- App Screenshot Preview Window (Centered Full-Phone View) -->
+            <div class="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-700/60 shadow-2xl mb-6 group/img flex items-center justify-center p-3 h-80 sm:h-96">
+              <img id="vocal-preview-img" src="img/apps/vocal-store-1-6stem.jpg" alt="Vocal Music Separator AI App Store Screenshot" class="h-full w-auto max-w-full object-contain rounded-xl shadow-2xl transition-all duration-300 group-hover/img:scale-[1.02]">
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4">
                 <div class="text-white text-xs font-mono flex items-center justify-between w-full">
-                  <span>6-Stem Isolation Screen</span>
-                  <span class="text-blue-400 font-semibold">SwiftUI & AVFoundation</span>
+                  <span id="vocal-preview-caption">Split Any Song Into 6 Stems</span>
+                  <span id="vocal-preview-tech" class="text-purple-400 font-semibold">Official App Store Screenshot</span>
                 </div>
               </div>
             </div>
@@ -496,36 +521,64 @@
 
             <!-- Description -->
             <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-5">
-              Natural speech synthesis app for iOS converting raw text, articles, and documents into human-like audio using high-quality neural voices. Engineered with seamless waveform visuals, audio export, and offline playback.
+              Natural speech synthesis app for iOS converting raw text, articles, books, and PDF documents into human-like audio using 200+ neural voices. Engineered with OCR book scanning, celebrity voices, and audio export.
             </p>
 
             <!-- Feature Pills -->
-            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700 dark:text-slate-200 mb-6 font-medium">
+            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700 dark:text-slate-200 mb-5 font-medium">
               <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
                 <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 shrink-0"></i>
-                <span>High-Fidelity Neural Voices</span>
+                <span>200+ Human & AI Voices</span>
               </div>
               <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
-                <i data-lucide="waveform" class="w-4 h-4 text-blue-500 shrink-0"></i>
-                <span>Interactive Audio Player</span>
+                <i data-lucide="scan" class="w-4 h-4 text-blue-500 shrink-0"></i>
+                <span>OCR: Scan Books & Documents</span>
               </div>
               <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
-                <i data-lucide="download-cloud" class="w-4 h-4 text-cyan-500 shrink-0"></i>
-                <span>Audio Export (M4A/MP3)</span>
+                <i data-lucide="file-text" class="w-4 h-4 text-cyan-500 shrink-0"></i>
+                <span>Listen to PDFs & Articles</span>
               </div>
               <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
-                <i data-lucide="layout" class="w-4 h-4 text-purple-500 shrink-0"></i>
-                <span>Clean SwiftUI Experience</span>
+                <i data-lucide="download-cloud" class="w-4 h-4 text-purple-500 shrink-0"></i>
+                <span>M4A/MP3 Audio Export</span>
               </div>
             </div>
 
-            <!-- App Screenshot Preview Window -->
-            <div class="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/60 shadow-lg mb-6 group/img">
-              <img src="img/apps/karaoke-preview.png" alt="Neural Sound Preview" class="w-full h-48 sm:h-56 object-cover object-top group-hover/img:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <!-- Interactive App Store Screenshots Gallery -->
+            <div class="mb-3">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                  <i data-lucide="smartphone" class="w-3.5 h-3.5 text-blue-500"></i>
+                  Official App Store Screens:
+                </span>
+                <span class="text-[11px] font-mono text-slate-400">Click to preview</span>
+              </div>
+              <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                <button type="button" onclick="switchAppScreenshot('neural', 'img/apps/neural-store-1-voices.jpg', 'Text to Speech: 200+ Human Voices', 'Neural Voice Synthesis Engine', this)" class="neural-tab active-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-blue-600 text-white shadow-sm shrink-0">
+                  200+ Voices
+                </button>
+                <button type="button" onclick="switchAppScreenshot('neural', 'img/apps/neural-store-2-listen.jpg', 'Import & Listen to Anything', 'Universal Audio Reader', this)" class="neural-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+                  Listen Anything
+                </button>
+                <button type="button" onclick="switchAppScreenshot('neural', 'img/apps/neural-store-3-scan.jpg', 'Scan Any Book or Document', 'Vision OCR Document Pipeline', this)" class="neural-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+                  Scan Books
+                </button>
+                <button type="button" onclick="switchAppScreenshot('neural', 'img/apps/neural-store-4-pdf.jpg', 'Listen to PDFs & Articles', 'Document Reader & Player', this)" class="neural-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+                  PDF Reader
+                </button>
+                <button type="button" onclick="switchAppScreenshot('neural', 'img/apps/neural-store-5-celebrity.jpg', '100+ AI & Celebrity Voices', 'Voice Cloning Engine', this)" class="neural-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+                  Celebrity AI
+                </button>
+              </div>
+            </div>
+
+            <!-- App Screenshot Preview Window (Centered Full-Phone View) -->
+            <div class="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-700/60 shadow-2xl mb-6 group/img flex items-center justify-center p-3 h-80 sm:h-96">
+              <img id="neural-preview-img" src="img/apps/neural-store-1-voices.jpg" alt="Neural Sound App Store Screenshot" class="h-full w-auto max-w-full object-contain rounded-xl shadow-2xl transition-all duration-300 group-hover/img:scale-[1.02]">
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4">
                 <div class="text-white text-xs font-mono flex items-center justify-between w-full">
-                  <span>Audio & Track Processing UI</span>
-                  <span class="text-purple-400 font-semibold">SwiftUI & AudioKit</span>
+                  <span id="neural-preview-caption">Text to Speech: 200+ Human Voices</span>
+                  <span id="neural-preview-tech" class="text-blue-400 font-semibold">Official App Store Screenshot</span>
                 </div>
               </div>
             </div>
