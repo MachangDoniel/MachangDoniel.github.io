@@ -8,7 +8,7 @@
 
 Welcome to the official source repository for my personal portfolio: **[https://machangdoniel.github.io](https://machangdoniel.github.io)**.
 
-I am an **iOS Software Engineer** with applications published on the **Apple App Store**, a **Graduate Engineer (iOS)** at **Kona Software Lab Ltd.**, and a Computer Science & Engineering graduate from **KUET** (3.68 CGPA, Dean's Award for Academic Excellence).
+I am an **iOS Software Engineer** with applications published on the **Apple App Store**, a **Graduate Engineer (iOS)** at **Kona Software Lab Ltd.**, and a Computer Science & Engineering graduate from **KUET** (3.68 CGPA, 1st Year Dean's Award recipient).
 
 ---
 
@@ -65,7 +65,7 @@ I am an **iOS Software Engineer** with applications published on the **Apple App
 - **Specialist** on **Codeforces** (Peak Rating: **1501**)
 - **3-Star** on **CodeChef** (Peak Rating: **1766**, Country Rank: **294**, Global Rank: **7,278**)
 - **1st Runners-Up (PHP Stack)** — Learnathon 3.0 (Geeky Solutions & Brain Station 23, 2025)
-- **Dean's Award for Academic Excellence** — Khulna University of Engineering & Technology (KUET)
+- **Dean's Award for Academic Excellence (1st Year)** — Khulna University of Engineering & Technology (KUET)
 - **Ranked 5th** — PSTU IT Carnival National Programming Contest (2024)
 - **Ranked 35th** — Khulna Regional Inter-University Programming Contest (2024)
 - **Ranked 59th** — UIU Inter-University Programming Contest (2025)
@@ -83,7 +83,7 @@ I am an **iOS Software Engineer** with applications published on the **Apple App
 - **Teaching Assistant (Remote)** — *Ostad* (January 2025 – July 2025)
   - Coached 100+ students on Data Structures, Algorithms, Dynamic Programming, and technical interview strategies.
 - **B.Sc. in Computer Science and Engineering** — *KUET* (2020 – 2025)
-  - Graduated with **CGPA 3.68/4.00**, Dean's Award recipient.
+  - Graduated with **CGPA 3.68/4.00**, 1st Year Dean's Award recipient.
 
 ---
 
