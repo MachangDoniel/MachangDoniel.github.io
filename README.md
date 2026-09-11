@@ -8,7 +8,7 @@
 
 Welcome to the official source repository for my personal portfolio: **[https://machangdoniel.github.io](https://machangdoniel.github.io)**.
 
-I am an **iOS Software Engineer** with applications published on the **Apple App Store**, a **Graduate Engineer (iOS)** at **Kona Software Lab Ltd.**, and a Computer Science & Engineering graduate from **KUET** (3.68 CGPA, 1st Year Dean's Award recipient).
+I am an **iOS Software Engineer** with applications published on the **Apple App Store**, a **Graduate Engineer (iOS)** at **Kona Software Lab Ltd.**, and a Computer Science & Engineering graduate from **KUET** (3.68 CGPA).
 
 ---
 
