@@ -10,7 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initCopyEmail();
   initScrollSpy();
   initBackToTop();
-  lucide.createIcons();
+  
+  // Safe Lucide icon initialization
+  if (window.lucide && typeof window.lucide.createIcons === 'function') {
+    try {
+      window.lucide.createIcons();
+    } catch (err) {
+      console.warn('Lucide icon initialization warning:', err);
+    }
+  }
 });
 
 /* ----------------------------------------------------
@@ -165,7 +173,6 @@ function initProjectFilters() {
  * ---------------------------------------------------- */
 function initCopyEmail() {
   const copyBtns = document.querySelectorAll('.copy-email-btn');
-  const toast = document.getElementById('toast');
   const emailToCopy = 'donieltripura121@gmail.com';
 
   copyBtns.forEach(btn => {
