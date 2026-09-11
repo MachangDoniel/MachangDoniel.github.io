@@ -1,898 +1,1757 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>Doniel Tripura - Portfolio</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="vendors/linericon/style.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doniel Tripura | iOS Engineer & Systems Developer</title>
+  
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="Portfolio of Doniel Tripura — Graduate Engineer (iOS) at Kona Software Lab Ltd., KUET CSE Graduate, Competitive Programmer, and Systems Builder.">
+  <meta name="keywords" content="Doniel Tripura, iOS Developer, Swift, SwiftUI, Kona Software Lab, KUET, App Store, Competitive Programming, Machine Learning, Full-Stack">
+  <meta name="author" content="Doniel Tripura">
+  
+  <meta property="og:title" content="Doniel Tripura | iOS Engineer & Systems Developer">
+  <meta property="og:description" content="Explore published App Store apps, iOS architectures, Audio/ML pipelines, and Full-Stack Systems by Doniel Tripura.">
+  <meta property="og:image" content="https://machangdoniel.github.io/img/about-us.png">
+  <meta property="og:url" content="https://machangdoniel.github.io">
+  <meta property="og:type" content="website">
 
-		section {
-			scroll-margin-top: -70px; /* new modern CSS fix, if supported */
-			/* fallback for older browsers */
-			padding-top: 70px;
-			margin-top: 0px;
-			} 
+  <link rel="icon" href="img/favicon.png" type="image/png">
 
-
-        .project-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            background: #f9f9f9;
+  <!-- Tailwind CSS & Configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
+            darkbg: {
+              primary: '#090d16',
+              secondary: '#0f172a',
+              card: '#131d33',
+              border: 'rgba(255, 255, 255, 0.08)',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
         }
+      }
+    }
+  </script>
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-        .project-card h4 {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .project-card p {
-            font-size: 1rem;
-            color: #555;
-        }
-
-		.project-type {
-			font-style: italic;
-			font-size: 0.95rem;
-			color: #777;
-			margin-top: -10px;
-			margin-bottom: 10px;
-		}
-
-
-        .btn-project {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 5px 10px;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-project:hover {
-            background-color: #0056b3;
-        }
-
-        .cv-dropdown {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .cv-option {
-            display: block;
-            margin-bottom: 10px;
-            padding: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            color: #007bff;
-        }
-
-        .cv-option:hover {
-            background-color: #f1f1f1;
-        }
-
-        .download-cv:hover .cv-dropdown {
-            display: block;
-        }
-
-        /* Thesis Card Style */
-        .thesis-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #eaf0f7;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .thesis-card h4 {
-            font-size: 1.3rem;
-            color: #007bff;
-        }
-
-        .thesis-card p {
-            font-size: 1rem;
-            color: #333;
-        }
-
-        /* Icon and Emoji Styling */
-        .icon-text {
-            font-size: 1.1rem;
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .icon-text i {
-            margin-right: 8px;
-            color: #007bff;
-        }
-
-        .contact-btn,
-        .download-btn {
-            padding: 10px 20px;
-            font-size: 1.1rem;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .contact-btn:hover,
-        .download-btn:hover {
-            background-color: #218838;
-        }
-
-        .social-links a {
-            margin-right: 15px;
-            font-size: 1.5rem;
-            color: #007bff;
-        }
-
-        .social-links a:hover {
-            color: #0056b3;
-        }
-    </style>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 
-<body>
+<body class="bg-slate-50 dark:bg-[#090d16] text-slate-900 dark:text-slate-100 transition-colors duration-300 relative min-h-screen">
 
-    <!-- Header Section -->
-    <header class="header_area">
-        <div class="main_menu">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container">
-                    <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt="" style="max-height: 60px;"></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav menu_nav justify-content-end">
-                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-							<li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
-							<li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                            <!-- <li class="nav-item"><a class="nav-link" href="#leadership">Leadership</a></li> -->
-                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
+  <!-- Ambient Glow Effects -->
+  <div class="glow-spot-blue -top-32 -left-32"></div>
+  <div class="glow-spot-purple top-1/3 -right-32"></div>
+  <div class="glow-spot-emerald top-2/3 left-10"></div>
+
+  <!-- Header Navigation -->
+  <header class="sticky top-0 z-50 glass-nav transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand / Logo -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold font-mono text-lg shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
+          DT
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-lg tracking-tight flex items-center gap-1.5">
+            Doniel Tripura
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          </span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">iOS & Systems Engineer</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+        <a href="#about" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg">About</a>
+        <a href="#appstore" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg flex items-center gap-1">
+          <span>App Store</span>
+          <span class="px-1.5 py-0.5 text-[10px] rounded bg-blue-100 dark:bg-blue-900/60 text-blue-600 dark:text-blue-300 font-bold">2 Live</span>
+        </a>
+        <a href="#experience" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg">Experience</a>
+        <a href="#projects" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg">Projects</a>
+        <a href="#achievements" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg">Achievements</a>
+        <a href="#research" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg">Research</a>
+        <a href="#skills" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg">Skills</a>
+        <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg">Contact</a>
+      </nav>
+
+      <!-- Right Header Actions: CV Dropdown & Theme Toggle -->
+      <div class="hidden md:flex items-center space-x-3">
+        
+        <!-- CV Dropdown -->
+        <div class="relative">
+          <button type="button" class="cv-dropdown-btn inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md shadow-blue-500/20 transition-all hover:shadow-blue-500/30 active:scale-95">
+            <i data-lucide="file-text" class="w-4 h-4"></i>
+            <span>Download CV</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-80"></i>
+          </button>
+          <div class="cv-dropdown-menu hidden absolute right-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 py-2 z-50 transition-all">
+            <a href="resume/Doniel_Tripura_Software_Engineer_CV.pdf" target="_blank" download class="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-800/80 hover:text-blue-600 transition-colors">
+              <i data-lucide="briefcase" class="w-4 h-4 text-blue-500"></i>
+              <div>
+                <div class="font-medium">Software Engineer CV</div>
+                <div class="text-xs text-slate-400">iOS & Full-Stack Focus</div>
+              </div>
+            </a>
+            <div class="border-t border-slate-100 dark:border-slate-800 my-1"></div>
+            <a href="resume/Doniel_Tripura_Academic_CV.pdf" target="_blank" download class="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-800/80 hover:text-blue-600 transition-colors">
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-indigo-500"></i>
+              <div>
+                <div class="font-medium">Academic CV</div>
+                <div class="text-xs text-slate-400">KUET & Research Record</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button type="button" aria-label="Toggle Theme" class="theme-toggle-btn p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 shadow-sm transition-all active:scale-95">
+          <i data-lucide="sun" class="w-4 h-4 theme-icon-sun hidden"></i>
+          <i data-lucide="moon" class="w-4 h-4 theme-icon-moon"></i>
+        </button>
+
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex items-center space-x-2 md:hidden">
+        <button type="button" aria-label="Toggle Theme" class="theme-toggle-btn p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300">
+          <i data-lucide="sun" class="w-4 h-4 theme-icon-sun hidden"></i>
+          <i data-lucide="moon" class="w-4 h-4 theme-icon-moon"></i>
+        </button>
+        <button type="button" id="mobile-menu-toggle" aria-label="Open Navigation Menu" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Menu Drawer & Overlay -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+  <div id="mobile-menu" class="fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white dark:bg-[#0f172a] shadow-2xl z-50 p-6 flex flex-col justify-between translate-x-full transition-transform duration-300 ease-in-out border-l border-slate-200 dark:border-slate-800">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold font-mono text-sm">DT</div>
+          <span class="font-bold text-base">Doniel Tripura</span>
+        </div>
+        <button type="button" id="close-mobile-menu" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <nav class="mt-6 flex flex-col space-y-3">
+        <a href="#about" class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 py-1">About</a>
+        <a href="#appstore" class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 py-1 flex items-center justify-between">
+          <span>App Store Apps</span>
+          <span class="px-2 py-0.5 text-xs rounded bg-blue-100 dark:bg-blue-900/60 text-blue-600 font-bold">2 Live</span>
+        </a>
+        <a href="#experience" class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 py-1">Experience</a>
+        <a href="#projects" class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 py-1">Projects</a>
+        <a href="#achievements" class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 py-1">Achievements</a>
+        <a href="#research" class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 py-1">Research</a>
+        <a href="#skills" class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 py-1">Skills</a>
+        <a href="#contact" class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 py-1">Contact</a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
+      <a href="resume/Doniel_Tripura_Software_Engineer_CV.pdf" target="_blank" download class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-blue-600 text-white font-medium text-sm shadow-md">
+        <i data-lucide="download" class="w-4 h-4"></i>
+        Software Engineer CV
+      </a>
+      <a href="resume/Doniel_Tripura_Academic_CV.pdf" target="_blank" download class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-medium text-sm">
+        <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+        Academic CV
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content (7 Cols) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Current Role Status Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-blue-200 dark:border-blue-900/60 bg-blue-50/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 text-xs sm:text-sm font-medium">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-indicator"></span>
+            <span>Graduate Engineer (iOS) at <strong>Kona Software Lab Ltd.</strong></span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+            Engineering <span class="text-gradient-blue">High-Performance iOS Apps</span>, Robust Systems & AI Workflows.
+          </h1>
+
+          <!-- Bio Description -->
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+            I am <strong class="text-slate-900 dark:text-white font-semibold">Doniel Tripura</strong>, an iOS Engineer with production apps published on the <strong class="text-blue-600 dark:text-blue-400">Apple App Store</strong>, a CSE graduate from <strong class="text-blue-600 dark:text-blue-400">KUET</strong> (3.68 CGPA, Dean's Award), and a Codeforces Specialist. I specialize in building secure mobile banking systems, audio stem separation engines, and distributed software architectures.
+          </p>
+
+          <!-- Key Metrics Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-3 pb-2 font-mono">
+            <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-sm">
+              <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">2 Live</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">App Store Apps</div>
+            </div>
+            <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-sm">
+              <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">3.68</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">KUET CSE CGPA</div>
+            </div>
+            <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-sm">
+              <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">1501</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">CF Specialist</div>
+            </div>
+            <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 shadow-sm">
+              <div class="text-2xl font-bold text-emerald-600 dark:text-emerald-400">1+ Yr</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Banking iOS Exp</div>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#appstore" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-white bg-slate-950 dark:bg-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 shadow-lg transition-all hover:scale-[1.02] active:scale-95 font-medium text-sm">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.08-7.58-7.8-11.64-14.16-5.83-9.06-10.23-19.34-13.19-30.84-2.96-11.5-4.44-22.31-4.44-32.42 0-14.28 3.59-25.96 10.77-35.04 7.18-9.08 16.03-13.72 26.56-13.91 5.3 0 11.11 1.49 17.43 4.47 6.32 2.98 10.25 4.54 11.79 4.68 1.54-.14 5.69-1.74 12.44-4.82 6.75-3.08 12.39-4.47 16.92-4.17 12.56.77 22.35 5.56 29.38 14.37-10.98 6.64-16.32 15.77-16.02 27.39.29 9.07 3.82 16.68 10.59 22.84 6.77 6.16 14.54 9.69 23.31 10.58-2.39 7.39-5.4 14.55-9.03 21.48zM119.22 31.95c0-7.23 2.65-13.95 7.95-20.15 5.3-6.2 11.74-10.13 19.32-11.8 1.03 7.36-.92 14.19-5.86 20.48-4.94 6.29-11.41 10.11-19.41 11.47-.29-.68-.44-1.39-.44-2.14z"/></svg>
+              <span>Explore App Store Apps</span>
+            </a>
+
+            <!-- Download CV Trigger -->
+            <div class="relative">
+              <button type="button" class="cv-dropdown-btn inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium text-sm transition-all hover:scale-[1.02] active:scale-95">
+                <i data-lucide="download" class="w-4 h-4 text-blue-500"></i>
+                <span>Get Resume</span>
+                <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-70"></i>
+              </button>
+              <div class="cv-dropdown-menu hidden absolute left-0 sm:right-0 sm:left-auto mt-2 w-56 bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 py-2 z-50">
+                <a href="resume/Doniel_Tripura_Software_Engineer_CV.pdf" target="_blank" download class="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-600">
+                  <i data-lucide="file-check" class="w-4 h-4 text-blue-500"></i>
+                  <div>
+                    <div class="font-medium">Software Engineer CV</div>
+                    <div class="text-xs text-slate-400">PDF Format (Latest)</div>
+                  </div>
+                </a>
+                <a href="resume/Doniel_Tripura_Academic_CV.pdf" target="_blank" download class="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-600">
+                  <i data-lucide="graduation-cap" class="w-4 h-4 text-indigo-500"></i>
+                  <div>
+                    <div class="font-medium">Academic CV</div>
+                    <div class="text-xs text-slate-400">Research & Honors</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium text-sm">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>Get in Touch</span>
+            </a>
+          </div>
+
+          <!-- Social Links Quick Strip -->
+          <div class="flex items-center space-x-4 pt-3 text-slate-500 dark:text-slate-400">
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500">Connect:</span>
+            <a href="https://github.com/MachangDoniel" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <i data-lucide="github" class="w-5 h-5"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/doniel-tripura-7a82281b9/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+            <a href="https://x.com/TripuraDoniel" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="https://www.youtube.com/@donieltripura3323" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual Card (5 Cols) -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            
+            <!-- Glow background around image card -->
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+
+            <div class="relative rounded-2xl glass-panel p-5 overflow-hidden border border-slate-200/80 dark:border-slate-800/80 shadow-2xl">
+              
+              <!-- Image Container -->
+              <div class="relative w-full h-80 sm:h-96 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800/60 flex items-center justify-center">
+                <img src="img/about-us.png" alt="Doniel Tripura" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                
+                <!-- Floating Glass Pill at Bottom of Image -->
+                <div class="absolute bottom-3 left-3 right-3 glass-panel rounded-lg py-2 px-3 flex items-center justify-between text-xs backdrop-blur-md">
+                  <div class="flex items-center gap-1.5 text-slate-800 dark:text-slate-200 font-medium">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-500"></i>
+                    <span>Shahbagh, Dhaka, BD</span>
+                  </div>
+                  <div class="text-blue-600 dark:text-blue-400 font-mono font-medium">iOS Engineer</div>
                 </div>
-            </nav>
-        </div>
-    </header>
+              </div>
 
-	<!-- Home Banner Section -->
-	<section class="home_banner_area">
-		<div class="banner_inner">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-7">
-						<div class="banner_content">
-							<h1 class="text-uppercase">I am Doniel Tripura</h1>
-							<p>Competitive Programmer | Full-Stack Developer | Teaching Assistant | Machine Learning Enthusiast | Researcher</p>
-							<div class="d-flex align-items-center">
-								<div class="download-cv">
-									<button class="primary_btn download-btn">Download CV</button>
-									<div class="cv-dropdown">
-										<a href="resume/Software_Engineer_CV.pdf" class="cv-option" target="_blank">Software Engineer CV</a>
-										<a href="resume/Academic_CV.pdf" class="cv-option" target="_blank">Academic CV</a>
-									</div>
-								</div>
-								<a class="primary_btn contact-btn" href="mailto:donieltripura121@gmail.com"><span>Contact Me</span></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-5">
-						<div class="home_right_img">
-							<img class="img-fluid" src="img/banner/home-right.png" alt="Doniel Tripura">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+              <!-- Quick Highlights list inside card -->
+              <div class="mt-4 pt-3 border-t border-slate-200/80 dark:border-slate-800/80 space-y-2 text-xs text-slate-600 dark:text-slate-300">
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5 text-slate-400"></i> Current Company</span>
+                  <span class="font-semibold text-slate-800 dark:text-slate-200">Kona Software Lab Ltd.</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 fill-current text-slate-800 dark:text-white" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.08-7.58-7.8-11.64-14.16-5.83-9.06-10.23-19.34-13.19-30.84-2.96-11.5-4.44-22.31-4.44-32.42 0-14.28 3.59-25.96 10.77-35.04 7.18-9.08 16.03-13.72 26.56-13.91 5.3 0 11.11 1.49 17.43 4.47 6.32 2.98 10.25 4.54 11.79 4.68 1.54-.14 5.69-1.74 12.44-4.82 6.75-3.08 12.39-4.47 16.92-4.17 12.56.77 22.35 5.56 29.38 14.37-10.98 6.64-16.32 15.77-16.02 27.39.29 9.07 3.82 16.68 10.59 22.84 6.77 6.16 14.54 9.69 23.31 10.58-2.39 7.39-5.4 14.55-9.03 21.48zM119.22 31.95c0-7.23 2.65-13.95 7.95-20.15 5.3-6.2 11.74-10.13 19.32-11.8 1.03 7.36-.92 14.19-5.86 20.48-4.94 6.29-11.41 10.11-19.41 11.47-.29-.68-.44-1.39-.44-2.14z"/></svg>
+                    <span>App Store Presence</span>
+                  </span>
+                  <span class="font-semibold text-blue-600 dark:text-blue-400">2 Apps Live</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-1.5"><i data-lucide="award" class="w-3.5 h-3.5 text-amber-500"></i> Academic Honor</span>
+                  <span class="font-semibold text-slate-800 dark:text-slate-200">Dean's Award (KUET)</span>
+                </div>
+              </div>
 
-
-	<!-- About Section -->
-	<section id="about" class="about_area section_gap">
-		<div class="container">
-			<div class="row justify-content-start align-items-center">
-				<div class="col-lg-5">
-					<div class="about_img">
-						<img class="img-fluid" src="img/about-us.png" alt="About Me">
-					</div>
-				</div>
-				<div class="offset-lg-1 col-lg-5">
-					<div class="main_title text-left">
-						<h2>About Me</h2>
-						<p>I am <strong>Doniel Tripura</strong>, a Computer Science and Engineering student at <strong>KUET</strong> with a CGPA of <strong>3.70/4.00</strong>. I specialize in <strong>Machine Learning</strong>, <strong>AI</strong>, and <strong>Data Science</strong>. I am passionate about using these technologies to solve real-world problems, especially in the healthcare domain.</p>
-						<p>As a competitive programmer, I have ranked in several national programming contests. I am also a <strong>Teaching Assistant at <a href="https://www.ostad.app" target="_blank">Ostad</a></strong>, helping students prepare for coding interviews.</p>
-						<p>In my academic and personal projects, I’ve used various technologies like <strong>Python, TensorFlow, Swift, Java, PHP, MySQL</strong>, and more.
-						<p><a href="#projects">View projects</a></p>
-						<p><a class="primary_btn" href="mailto:donieltripura121@gmail.com"><span>Get in Touch</span></a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-
-	<!-- Achievements Section -->
-	<section id="achievements" class="achievements_area section_gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="main_title text-left">
-						<h2>Achievements</h2>
-					</div>
-				</div>
-			</div>
-
-			<!-- Academic Achievements -->
-			<div class="row">
-				<div class="col-lg-12">
-					<h3>Academic Achievements</h3>
-				</div>
-				<!-- Achievement 1: Dean's Award -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-trophy" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Dean's Award - Khulna University of Engineering and Technology (KUET)</h4>
-						<p><strong>Session:</strong> 2019-2020</p>
-						<p>Received the prestigious Dean's Award for academic excellence and outstanding performance in Computer Science and Engineering.</p>
-					</div>
-				</div>
-
-        	</div>
-
-			<!-- Programming Achievements -->
-			<div class="row">
-				<div class="col-lg-12">
-					<h3>Programming Profiles</h3>
-				</div>
-				
-				<!-- Achievement 5 -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-user" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Specialist - Codeforces (Max Rating: 1501)</h4>
-						<p>Ongoing</p>
-						<a href="https://codeforces.com/profile/Machang" target="_blank">View Profile</a>
-					</div>
-				</div>
-
-				<!-- Achievement 6 -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-user" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>3 Star - CodeChef (Max Rating: 1766, Country Rank: 294, Global Rank: 7278)</h4>
-						<p>Ongoing</p>
-						<a href="https://www.codechef.com/users/mr_machang" target="_blank">View Profile</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Contest Programming -->
-			<div class="row">
-				<div class="col-lg-12">
-					<h3>Contest Programming</h3>
-				</div>
-				<!-- Achievement 1 -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-trophy" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Ranked 5th - PSTU IT Carnival Programming Contest</h4>
-						<p>November 2024</p>
-						<a href="https://toph.co/c/pstu-it-carnival-2024-south-zone/standings" target="_blank">View Result</a>
-					</div>
-				</div>
-				<!-- Achievement 2 -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Ranked 35th - Khulna Regional Inter University Programming Contest</h4>
-						<p>November 2024</p>
-						<a href="https://toph.co/c/khulna-regional-inter-university-kriupc/standings" target="_blank">View Result</a>
-					</div>
-				</div>
-				<!-- Achievement 3 -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Ranked 59th - UIU Inter-University Programming Contest</h4>
-						<p>January 2025</p>
-						<a href="https://bapsoj.org/contests/uiu-inter-university-programming-contest-2025/standings" target="_blank">View Result</a>
-					</div>
-				</div>
-
-				<!-- Achievement 4 -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Ranked 170th - ICPC Dhaka Regional 2024</h4>
-						<p>January 2025</p>
-						<a href="https://icpc.global/regionals/finder/Dhaka-2025/standings" target="_blank">View Result</a>
-					</div>
-				</div>
-
-				<!-- Achievement 7 -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Ranked 21st & 20th - Intra KUET Programming Contest 2022 & 2023</h4>
-						<p>Intra KUET Programming Contests</p>
-					</div>
-				</div>
-			</div>
-
-			<!-- Learnathon 3.0 -->
-				<div class="row">
-					<div class="col-lg-12">
-						<h3>Hackathon</h3>
-					</div>
-
-					<!-- Project: BanglaHire -->
-					<div class="col-lg-4">
-						<div class="project-card">
-							<img src="https://github.com/Learnathon-By-Geeky-Solutions/bladerunners/blob/main/Design%20Structure/long_banner.png?raw=true" alt="BanglaHire Banner" style="width: 100%; height: auto; border-radius: 8px;"/>
-							<h4>2nd Place - BanglaHire | PHP Stack - Learnathon 3.0 by Geeky Solutions</h4>
-							<p>May 2025</p>
-							<a href="https://bladerunners.proactive-coder.xyz" target="_blank">Live</a> |
-							<a href="https://github.com/Learnathon-By-Geeky-Solutions/bladerunners" target="_blank">Code</a> |
-							<a href="https://www.linkedin.com/posts/geekysolutionsbd_learnathon3-geekysolutions-topteams-activity-7330647492990066689-x2k7?utm_source=share&utm_medium=member_desktop&rcm=ACoAADLBxHABs45U64-sK0mBeQy_4QbJThuLj80" target="_blank">View Result</a>
-						</div>
-					</div>
-				</div>
-
-
-			<!-- Datathon -->
-			<div class="row">
-				<div class="col-lg-12">
-					<h3>DataThon</h3>
-				</div>
-
-				<!-- Achievement 8 -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Selected as one of the Top Team - BitFest KUET Datathon 2025</h4>
-						<p>January 2025</p>
-						<a href="https://www.linkedin.com/feed/update/urn:li:activity:7279315707564044288/" target="_blank">View Results</a>
-					</div>
-				</div>
-
-			</div>
-
-
-			<!-- Other Achievements -->
-			<div class="row">
-				<div class="col-lg-12">
-					<h3>Other Achievements</h3>
-				</div>
-				<!-- Achievement 9 -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Ranked 3rd - Science Olympiad 2019</h4>
-						<p>By BAS-FSIBL</p>
-					</div>
-				</div>
-				<!-- Achievement 10 -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Second Runner Up - Quiz Competition on Digital Udbhaboni Mela 2018</h4>
-						<p>Digital Udbhaboni Mela</p>
-					</div>
-				</div>
-
-				<!-- Achievement 11 -->
-				<div class="col-lg-4">
-					<div class="project-card">
-						<i class="fa fa-star" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Second Runner Up - Math Olympiad 2012 (Primary Category)</h4>
-						<p>Math Olympiad 2012</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-	<!-- Research Section -->
-	<section id="research" class="research_area section_gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="main_title text-left">
-						<h2>Research</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<!-- Thesis 1: Enhancing Diabetes Prediction Accuracy Using Deep Learning -->
-				<div class="col-lg-12">
-					<div class="thesis-card">
-						<h4><i class="fa fa-book" style="font-size: 1.5rem; color: #007bff;"></i> Thesis: Enhancing Diabetes Prediction Accuracy Using Ensemble Technique and Deep Learning</h4>
-						<p><strong>Time Period:</strong> March 2024 - Present</p>
-						<p><strong>Technologies Used:</strong> Python, TensorFlow, XGBoost, ResNet50, Random Forest, KNN</p>
-						<p>This research aims to enhance the accuracy of diabetes prediction by integrating deep learning models (ResNet50, ResNet15) and machine learning algorithms (XGBoost, Random Forest, KNN). The models are trained with real-time data collected from <strong>Khulna Medical College (KMC)</strong>, aiming to improve predictive healthcare analytics.</p>
-						<p><strong>Key Focus:</strong> Real-time data processing, ensemble learning, and predictive analytics for healthcare improvement.</p>
-						<p><strong>GitHub Repository:</strong> <a href="https://github.com/MachangDoniel/Diabetes-Prediction" target="_blank">View Repository</a></p>
-					</div>
-				</div>
-
-				<!-- Research Paper or Article (if applicable) -->
-				<!-- Example for additional research papers -->
-				<!-- <div class="col-lg-12">
-					<div class="thesis-card">
-						<h4><i class="fa fa-paperclip" style="font-size: 1.5rem; color: #007bff;"></i> Research Paper on AI & ML in Healthcare</h4>
-						<p><strong>Time Period:</strong> June 2023 - August 2023</p>
-						<p><strong>Technologies Used:</strong> Python, Scikit-learn, TensorFlow</p>
-						<p>This paper focuses on the role of <strong>Artificial Intelligence (AI)</strong> and <strong>Machine Learning (ML)</strong> in healthcare. The paper highlights the potential of predictive models in improving patient care and healthcare operations, based on various real-time datasets.</p>
-						<p><strong>Published in:</strong> <a href="https://www.examplejournal.com" target="_blank">Healthcare AI Journal</a></p>
-						<p><strong>GitHub Repository:</strong> <a href="https://github.com/MachangDoniel/AI-Healthcare" target="_blank">View Repository</a></p>
-					</div>
-				</div> -->
-
-				<!-- Additional Research Projects -->
-				<div class="col-lg-12">
-					<div class="thesis-card">
-						<h4><i class="fa fa-flask" style="font-size: 1.5rem; color: #007bff;"></i> Project: Real-Time Data Analytics for Healthcare</h4>
-						<p><strong>Time Period:</strong> January 2024 - May 2025</p>
-						<p><strong>Technologies Used:</strong> Python, Pandas, Matplotlib, MySQL</p>
-						<p>This project involves building a real-time analytics platform for healthcare data. The platform processes large volumes of healthcare data to provide insights into disease trends, patient demographics, and healthcare resource allocation.</p>
-						<p><strong>GitHub Repository:</strong> <a href="https://github.com/MachangDoniel/Healthcare-Analytics" target="_blank">View Repository</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-        <!-- Projects Section -->
-    <section id="projects" class="projects_area section_gap">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="main_title text-left">
-              <h2>Projects</h2>
             </div>
           </div>
         </div>
-        <div class="row">
 
-          <!-- Project: BanglaHire -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>BanglaHire</h4>
-              <p><strong>Type:</strong> Web Platform</p>
-              <p><strong>Time Period:</strong> March 2024 – May 2025</p>
-              <p><strong>Technologies Used:</strong> Next.js, Laravel, MySQL, Docker, Tailwind CSS</p>
-              <p>A Bangladesh-focused freelancing platform with features like real-time chat, escrow payment system, smart talent matching, and an admin dashboard. Integrated with SSLCommerz and Stripe for secure payments.</p>
-              <div class="btn-group">
-                
-				<div style="display: flex; gap: 10px;">
-					<a class="btn-project" href="https://github.com/Learnathon-By-Geeky-Solutions/bladerunners">Code</a>
-					<a class="btn-project" href="https://bladerunners.proactive-coder.xyz">Live</a>
-				</div>
+      </div>
+    </div>
+  </section>
 
+  <!-- APP STORE SPOTLIGHT SECTION (NEW) -->
+  <section id="appstore" class="py-20 border-t border-slate-200/80 dark:border-slate-800/80 bg-slate-100/60 dark:bg-[#0b101c] relative overflow-hidden">
+    <!-- Subtle spotlight glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-80 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-indigo-500/10 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-xs font-mono font-semibold mb-3 shadow-md">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.08-7.58-7.8-11.64-14.16-5.83-9.06-10.23-19.34-13.19-30.84-2.96-11.5-4.44-22.31-4.44-32.42 0-14.28 3.59-25.96 10.77-35.04 7.18-9.08 16.03-13.72 26.56-13.91 5.3 0 11.11 1.49 17.43 4.47 6.32 2.98 10.25 4.54 11.79 4.68 1.54-.14 5.69-1.74 12.44-4.82 6.75-3.08 12.39-4.47 16.92-4.17 12.56.77 22.35 5.56 29.38 14.37-10.98 6.64-16.32 15.77-16.02 27.39.29 9.07 3.82 16.68 10.59 22.84 6.77 6.16 14.54 9.69 23.31 10.58-2.39 7.39-5.4 14.55-9.03 21.48zM119.22 31.95c0-7.23 2.65-13.95 7.95-20.15 5.3-6.2 11.74-10.13 19.32-11.8 1.03 7.36-.92 14.19-5.86 20.48-4.94 6.29-11.41 10.11-19.41 11.47-.29-.68-.44-1.39-.44-2.14z"/></svg>
+            <span>Apple App Store Spotlight</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Published iOS Applications
+          </h2>
+          <p class="mt-3 text-slate-600 dark:text-slate-300 text-base max-w-2xl">
+            Fully productionized consumer iOS applications published on the Apple App Store, featuring on-device machine learning, neural voice models, and low-latency audio processing.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-indicator"></span>
+          <span>Verified on App Store Review</span>
+        </div>
+      </div>
+
+      <!-- App Store 2-Column Showcase Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- App 1: Vocal Music Separator AI -->
+        <div class="interactive-card rounded-3xl glass-panel border border-slate-200 dark:border-slate-800 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group shadow-xl">
+          
+          <!-- Top Row: Icon & Meta -->
+          <div>
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="flex items-center gap-4">
+                <img src="img/apps/vocal-separator-icon.png" alt="Vocal Music Separator AI Icon" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-xl border border-slate-200/80 dark:border-slate-700/80 object-cover group-hover:scale-105 transition-transform duration-300 shrink-0">
+                <div>
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 mb-1">
+                    <span>Music & Audio ML</span>
+                  </div>
+                  <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-tight">
+                    Vocal Music Separator AI
+                  </h3>
+                  <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                    iOS Music Processing & Stem Separation
+                  </div>
+                </div>
+              </div>
+
+              <!-- Live Badge -->
+              <div class="shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 text-xs font-medium">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Live on Store</span>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-5">
+              Production ML-powered iOS application that isolates vocals and instruments with high fidelity. Supports 6-stem audio separation, instant karaoke track generation, and direct audio extraction from video files.
+            </p>
+
+            <!-- Feature Pills -->
+            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700 dark:text-slate-200 mb-6 font-medium">
+              <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
+                <i data-lucide="scissors" class="w-4 h-4 text-purple-500 shrink-0"></i>
+                <span>6-Stem Track Isolation</span>
+              </div>
+              <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
+                <i data-lucide="mic" class="w-4 h-4 text-blue-500 shrink-0"></i>
+                <span>Instant Karaoke Creation</span>
+              </div>
+              <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
+                <i data-lucide="video" class="w-4 h-4 text-indigo-500 shrink-0"></i>
+                <span>Vocal Removal from Video</span>
+              </div>
+              <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
+                <i data-lucide="cpu" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>FFmpegKit & AVFoundation</span>
+              </div>
+            </div>
+
+            <!-- App Screenshot Preview Window -->
+            <div class="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/60 shadow-lg mb-6 group/img">
+              <img src="img/apps/vocal-separator-preview.png" alt="Vocal Music Separator AI Preview" class="w-full h-48 sm:h-56 object-cover object-top group-hover/img:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                <div class="text-white text-xs font-mono flex items-center justify-between w-full">
+                  <span>6-Stem Isolation Screen</span>
+                  <span class="text-blue-400 font-semibold">SwiftUI & AVFoundation</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Project: Foodier -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>Foodier</h4>
-              <p><strong>Type:</strong> iOS App</p>
-              <p><strong>Time Period:</strong> September 2023 - January 2024</p>
-              <p><strong>Technologies Used:</strong> Swift, SwiftUI, Firebase</p>
-              <p>A dual iOS app focused on managing restaurant orders and user experience. The app supports real-time updates and user-friendly interfaces for efficient restaurant management.</p>
-              <div class="btn-group">
-                
-                <a class="btn-project" href="https://github.com/MachangDoniel/Foodier">Code</a>
+          <!-- Bottom Action Buttons: App Store Badge & GitHub -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+            
+            <!-- Official Apple App Store Download Button -->
+            <a href="https://apps.apple.com/us/app/vocal-music-separator-ai/id6756906827" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-5 py-2.5 rounded-xl bg-black text-white hover:bg-slate-800 dark:bg-white dark:text-black dark:hover:bg-slate-100 shadow-md transition-all hover:scale-[1.02] active:scale-95 text-left">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.08-7.58-7.8-11.64-14.16-5.83-9.06-10.23-19.34-13.19-30.84-2.96-11.5-4.44-22.31-4.44-32.42 0-14.28 3.59-25.96 10.77-35.04 7.18-9.08 16.03-13.72 26.56-13.91 5.3 0 11.11 1.49 17.43 4.47 6.32 2.98 10.25 4.54 11.79 4.68 1.54-.14 5.69-1.74 12.44-4.82 6.75-3.08 12.39-4.47 16.92-4.17 12.56.77 22.35 5.56 29.38 14.37-10.98 6.64-16.32 15.77-16.02 27.39.29 9.07 3.82 16.68 10.59 22.84 6.77 6.16 14.54 9.69 23.31 10.58-2.39 7.39-5.4 14.55-9.03 21.48zM119.22 31.95c0-7.23 2.65-13.95 7.95-20.15 5.3-6.2 11.74-10.13 19.32-11.8 1.03 7.36-.92 14.19-5.86 20.48-4.94 6.29-11.41 10.11-19.41 11.47-.29-.68-.44-1.39-.44-2.14z"/></svg>
+              <div>
+                <div class="text-[10px] uppercase font-mono tracking-wider opacity-80 leading-none">Download on the</div>
+                <div class="text-sm font-bold font-sans tracking-tight leading-tight">App Store</div>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-3 text-xs font-mono text-slate-500 dark:text-slate-400">
+              <span>App ID: 6756906827</span>
+              <span>•</span>
+              <span>iOS 16+</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- App 2: Neural Sound - Text to Speech -->
+        <div class="interactive-card rounded-3xl glass-panel border border-slate-200 dark:border-slate-800 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group shadow-xl">
+          
+          <!-- Top Row: Icon & Meta -->
+          <div>
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="flex items-center gap-4">
+                <img src="img/apps/neural-sound-icon.png" alt="Neural Sound Icon" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-xl border border-slate-200/80 dark:border-slate-700/80 object-cover group-hover:scale-105 transition-transform duration-300 shrink-0">
+                <div>
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 mb-1">
+                    <span>AI Speech Synthesis</span>
+                  </div>
+                  <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-tight">
+                    Neural Sound - Text to Speech
+                  </h3>
+                  <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                    iOS Neural Voice Reader & Speech Engine
+                  </div>
+                </div>
+              </div>
+
+              <!-- Live Badge -->
+              <div class="shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 text-xs font-medium">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Live on Store</span>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-5">
+              Natural speech synthesis app for iOS converting raw text, articles, and documents into human-like audio using high-quality neural voices. Engineered with seamless waveform visuals, audio export, and offline playback.
+            </p>
+
+            <!-- Feature Pills -->
+            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700 dark:text-slate-200 mb-6 font-medium">
+              <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
+                <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 shrink-0"></i>
+                <span>High-Fidelity Neural Voices</span>
+              </div>
+              <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
+                <i data-lucide="waveform" class="w-4 h-4 text-blue-500 shrink-0"></i>
+                <span>Interactive Audio Player</span>
+              </div>
+              <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
+                <i data-lucide="download-cloud" class="w-4 h-4 text-cyan-500 shrink-0"></i>
+                <span>Audio Export (M4A/MP3)</span>
+              </div>
+              <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
+                <i data-lucide="layout" class="w-4 h-4 text-purple-500 shrink-0"></i>
+                <span>Clean SwiftUI Experience</span>
+              </div>
+            </div>
+
+            <!-- App Screenshot Preview Window -->
+            <div class="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/60 shadow-lg mb-6 group/img">
+              <img src="img/apps/karaoke-preview.png" alt="Neural Sound Preview" class="w-full h-48 sm:h-56 object-cover object-top group-hover/img:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                <div class="text-white text-xs font-mono flex items-center justify-between w-full">
+                  <span>Audio & Track Processing UI</span>
+                  <span class="text-purple-400 font-semibold">SwiftUI & AudioKit</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Project: KUET-BANK (Android) -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>KUET-BANK</h4>
-              <p><strong>Type:</strong> Android App</p>
-              <p><strong>Time Period:</strong> September 2022 - February 2024</p>
-              <p><strong>Technologies Used:</strong> Android Studio, Java, Firebase</p>
-              <p>A bank management system that features secure logins, real-time transactions, loan management, and customer account tracking for a better banking experience.</p>
-              <div class="btn-group">
-                
-                <a class="btn-project" href="https://github.com/MachangDoniel/KUET-BANK">Code</a>
+          <!-- Bottom Action Buttons: App Store Badge & Meta -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+            
+            <!-- Official Apple App Store Download Button -->
+            <a href="https://apps.apple.com/us/app/neural-sound-text-to-speech/id6753916628" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-5 py-2.5 rounded-xl bg-black text-white hover:bg-slate-800 dark:bg-white dark:text-black dark:hover:bg-slate-100 shadow-md transition-all hover:scale-[1.02] active:scale-95 text-left">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.08-7.58-7.8-11.64-14.16-5.83-9.06-10.23-19.34-13.19-30.84-2.96-11.5-4.44-22.31-4.44-32.42 0-14.28 3.59-25.96 10.77-35.04 7.18-9.08 16.03-13.72 26.56-13.91 5.3 0 11.11 1.49 17.43 4.47 6.32 2.98 10.25 4.54 11.79 4.68 1.54-.14 5.69-1.74 12.44-4.82 6.75-3.08 12.39-4.47 16.92-4.17 12.56.77 22.35 5.56 29.38 14.37-10.98 6.64-16.32 15.77-16.02 27.39.29 9.07 3.82 16.68 10.59 22.84 6.77 6.16 14.54 9.69 23.31 10.58-2.39 7.39-5.4 14.55-9.03 21.48zM119.22 31.95c0-7.23 2.65-13.95 7.95-20.15 5.3-6.2 11.74-10.13 19.32-11.8 1.03 7.36-.92 14.19-5.86 20.48-4.94 6.29-11.41 10.11-19.41 11.47-.29-.68-.44-1.39-.44-2.14z"/></svg>
+              <div>
+                <div class="text-[10px] uppercase font-mono tracking-wider opacity-80 leading-none">Download on the</div>
+                <div class="text-sm font-bold font-sans tracking-tight leading-tight">App Store</div>
               </div>
+            </a>
+
+            <div class="flex items-center gap-3 text-xs font-mono text-slate-500 dark:text-slate-400">
+              <span>App ID: 6753916628</span>
+              <span>•</span>
+              <span>iOS 16+</span>
             </div>
           </div>
 
-          <!-- Project: DoRa Block Battle -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>DoRa Block Battle</h4>
-              <p><strong>Type:</strong> Game</p>
-              <p><strong>Time Period:</strong> July 2022 - September 2022</p>
-              <p><strong>Technologies Used:</strong> Python, Tkinter, MinMax Algorithm</p>
-              <p>An interactive AI-based game using MinMax and Alpha-Beta Pruning for decision-making and gameplay enhancement.</p>
-              <div class="btn-group">
-                
-                <a class="btn-project" href="https://github.com/MachangDoniel/DoRa-Block-Battle">Code</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-20 border-t border-slate-200/80 dark:border-slate-800/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-mono uppercase tracking-wider mb-3">
+          Background & Mission
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          About Me
+        </h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+          I combine the rigor of competitive algorithmic problem-solving with hands-on systems and mobile app development to architect resilient, user-first digital products.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Pillar 1: Mobile & iOS -->
+        <div class="interactive-card rounded-2xl p-6 glass-panel border border-slate-200 dark:border-slate-800 space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+            <i data-lucide="smartphone" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold">iOS & Mobile Architecture</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Experienced with Swift, SwiftUI, UIKit, CoreData, and AVFoundation. Currently engineering high-security mobile banking applications at Kona Software Lab, focusing on transaction integrity, performance profiling, and seamless UX.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">Swift</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">SwiftUI</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">AVFoundation</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">VisionKit</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Competitive Programming & DSA -->
+        <div class="interactive-card rounded-2xl p-6 glass-panel border border-slate-200 dark:border-slate-800 space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+            <i data-lucide="code-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold">Algorithmic Problem Solving</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Specialist on Codeforces (1501 rating) and 3-Star on CodeChef (1766 rating). Experienced ICPC regional contestant who served as a Teaching Assistant at Ostad, coaching students through technical coding interviews and algorithmic challenges.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">C++</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">Data Structures</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">Algorithms</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">Optimization</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3: AI, Audio & Systems -->
+        <div class="interactive-card rounded-2xl p-6 glass-panel border border-slate-200 dark:border-slate-800 space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+            <i data-lucide="cpu" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold">Audio, ML & Systems</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Passionate about audio signal processing, ML model integration (FFmpegKit, vocal separation, neural voice synthesis), and distributed systems like peer-to-peer LAN clipboard synchronization (MyPaste).
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">PyTorch</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">FFmpegKit</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">P2P Protocols</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-300">Python</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE & CAREER TIMELINE -->
+  <section id="experience" class="py-20 border-t border-slate-200/80 dark:border-slate-800/80 bg-slate-100/50 dark:bg-[#0c1220]/50 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 text-xs font-mono uppercase tracking-wider mb-3">
+          Track Record
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Work & Academic Experience
+        </h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300 text-base">
+          Proven industry experience shipping financial products, mentoring engineering students, and leading competitive initiatives.
+        </p>
+      </div>
+
+      <!-- Timeline Container -->
+      <div class="relative border-l-2 border-blue-200 dark:border-blue-900/60 ml-4 md:ml-8 space-y-12">
+        
+        <!-- Experience 1: Kona Software Lab Ltd. -->
+        <div class="relative pl-8 md:pl-10 group">
+          <!-- Timeline Pin -->
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-600 ring-4 ring-blue-100 dark:ring-blue-950 group-hover:scale-125 transition-transform"></div>
+
+          <div class="interactive-card glass-panel p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <span>Graduate Engineer (iOS)</span>
+                  <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300">Full-Time</span>
+                </h3>
+                <div class="text-blue-600 dark:text-blue-400 font-medium text-sm flex items-center gap-1.5 mt-0.5">
+                  <i data-lucide="building" class="w-4 h-4"></i>
+                  <span>Kona Software Lab Ltd.</span>
+                </div>
               </div>
+              <div class="text-xs sm:text-sm font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                <span>June 2025 – Present</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+              Focusing on production-grade mobile banking applications with strict security, fault tolerance, and compliance standards:
+            </p>
+
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+              <li>Architecting and maintaining features for large-scale iOS mobile banking solutions using Swift and UIKit/SwiftUI.</li>
+              <li>Implementing robust transaction authorization pipelines, secure cryptographic storage, and biometric verification workflows.</li>
+              <li>Profiling frame rates, memory leaks, and network responsiveness to optimize app launch time and runtime efficiency.</li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+              <span class="px-2.5 py-1 text-xs rounded-md bg-blue-50 dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-mono">Swift</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-blue-50 dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-mono">Mobile Banking</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-blue-50 dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-mono">Security</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-blue-50 dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-mono">Xcode</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 2: Geeky Solutions & Brain Station 23 -->
+        <div class="relative pl-8 md:pl-10 group">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100 dark:ring-purple-950 group-hover:scale-125 transition-transform"></div>
+
+          <div class="interactive-card glass-panel p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <span>PHP Stack Intern — Learnathon 3.0</span>
+                  <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300">🏆 1st Runners-Up</span>
+                </h3>
+                <div class="text-purple-600 dark:text-purple-400 font-medium text-sm flex items-center gap-1.5 mt-0.5">
+                  <i data-lucide="briefcase" class="w-4 h-4"></i>
+                  <span>Geeky Solutions & Brain Station 23</span>
+                </div>
+              </div>
+              <div class="text-xs sm:text-sm font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                <span>Feb 2025 – May 2025</span>
+              </div>
+            </div>
+
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+              <li>Secured **1st Runners-Up** in PHP Track among hundreds of selected national software engineering applicants.</li>
+              <li>Built scalable RESTful backend services, complex database indexing schemas, and MVC system architectures.</li>
+              <li>Collaborated on code review, sprint planning, and automated deployment pipelines.</li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+              <span class="px-2.5 py-1 text-xs rounded-md bg-purple-50 dark:bg-slate-800 text-purple-700 dark:text-purple-300 font-mono">PHP</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-purple-50 dark:bg-slate-800 text-purple-700 dark:text-purple-300 font-mono">Laravel</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-purple-50 dark:bg-slate-800 text-purple-700 dark:text-purple-300 font-mono">MySQL</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-purple-50 dark:bg-slate-800 text-purple-700 dark:text-purple-300 font-mono">Brain Station 23</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 3: Ostad -->
+        <div class="relative pl-8 md:pl-10 group">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-emerald-600 ring-4 ring-emerald-100 dark:ring-emerald-950 group-hover:scale-125 transition-transform"></div>
+
+          <div class="interactive-card glass-panel p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Teaching Assistant (Remote) — Coding Interview Preparation</h3>
+                <div class="text-emerald-600 dark:text-emerald-400 font-medium text-sm flex items-center gap-1.5 mt-0.5">
+                  <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                  <span>Ostad (ostad.app)</span>
+                </div>
+              </div>
+              <div class="text-xs sm:text-sm font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                <span>Jan 2025 – July 2025</span>
+              </div>
+            </div>
+
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+              <li>Assisted students in mastering technical coding interviews, focusing on data structures, graphs, dynamic programming, and algorithm complexity.</li>
+              <li>Conducted live problem-solving sessions, reviewed pull requests, and gave structured behavioral & algorithmic mock interview feedback.</li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+              <span class="px-2.5 py-1 text-xs rounded-md bg-emerald-50 dark:bg-slate-800 text-emerald-700 dark:text-emerald-300 font-mono">Algorithms</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-emerald-50 dark:bg-slate-800 text-emerald-700 dark:text-emerald-300 font-mono">Data Structures</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-emerald-50 dark:bg-slate-800 text-emerald-700 dark:text-emerald-300 font-mono">Mock Interviews</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 4: KUET Education -->
+        <div class="relative pl-8 md:pl-10 group">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-500 ring-4 ring-amber-100 dark:ring-amber-950 group-hover:scale-125 transition-transform"></div>
+
+          <div class="interactive-card glass-panel p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <span>B.Sc. in Computer Science and Engineering</span>
+                  <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300">CGPA 3.68 / 4.00</span>
+                </h3>
+                <div class="text-amber-600 dark:text-amber-400 font-medium text-sm flex items-center gap-1.5 mt-0.5">
+                  <i data-lucide="school" class="w-4 h-4"></i>
+                  <span>Khulna University of Engineering & Technology (KUET)</span>
+                </div>
+              </div>
+              <div class="text-xs sm:text-sm font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                <span>Feb 2020 – Aug 2025</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300">
+              Completed rigorous engineering curriculum with distinction. Honored with the **Dean's Award for Academic Excellence**. Active competitor in intra and inter-university programming contests with SGIPC KUET.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURED & RECENT PROJECTS SECTION -->
+  <section id="projects" class="py-20 border-t border-slate-200/80 dark:border-slate-800/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-mono uppercase tracking-wider mb-3">
+          Portfolio
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Featured Projects & Systems
+        </h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300 text-base">
+          A showcase of native iOS applications, audio and ML separation engines, peer-to-peer networks, and full-stack software products.
+        </p>
+      </div>
+
+      <!-- Project Category Filters -->
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+        <button type="button" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-800 transition-all" data-filter="all">
+          All Projects
+        </button>
+        <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-800 transition-all" data-filter="ios">
+          iOS & Mobile
+        </button>
+        <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-800 transition-all" data-filter="ai">
+          AI / ML & Audio
+        </button>
+        <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-800 transition-all" data-filter="systems">
+          Full-Stack & Systems
+        </button>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Project 1: Neural Sound & Vocal Music Separator AI -->
+        <div class="project-card interactive-card rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between" data-category="ios ai">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div class="flex items-center gap-3">
+                <img src="img/apps/vocal-separator-icon.png" alt="Vocal Separator Icon" class="w-10 h-10 rounded-xl object-cover shadow border border-slate-200 dark:border-slate-700">
+                <div class="flex items-center gap-1.5">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300">App Store</span>
+                </div>
+              </div>
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
+              Vocal Music Separator AI
+            </h3>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+              ML-powered iOS application for stem and vocal track music separation, karaoke generation, and neural audio synthesis published live on the App Store.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Integrated FFmpegKit, AVFoundation & CoreML models.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Smooth waveform visualization and audio rendering.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Live in production on the Apple App Store.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Swift</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">AVFoundation</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">FFmpegKit</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">CoreML</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800 text-sm">
+              <a href="https://apps.apple.com/us/app/vocal-music-separator-ai/id6756906827" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.08-7.58-7.8-11.64-14.16-5.83-9.06-10.23-19.34-13.19-30.84-2.96-11.5-4.44-22.31-4.44-32.42 0-14.28 3.59-25.96 10.77-35.04 7.18-9.08 16.03-13.72 26.56-13.91 5.3 0 11.11 1.49 17.43 4.47 6.32 2.98 10.25 4.54 11.79 4.68 1.54-.14 5.69-1.74 12.44-4.82 6.75-3.08 12.39-4.47 16.92-4.17 12.56.77 22.35 5.56 29.38 14.37-10.98 6.64-16.32 15.77-16.02 27.39.29 9.07 3.82 16.68 10.59 22.84 6.77 6.16 14.54 9.69 23.31 10.58-2.39 7.39-5.4 14.55-9.03 21.48zM119.22 31.95c0-7.23 2.65-13.95 7.95-20.15 5.3-6.2 11.74-10.13 19.32-11.8 1.03 7.36-.92 14.19-5.86 20.48-4.94 6.29-11.41 10.11-19.41 11.47-.29-.68-.44-1.39-.44-2.14z"/></svg>
+                <span>App Store</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="https://github.com/MachangDoniel" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Neural Sound - Text to Speech -->
+        <div class="project-card interactive-card rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between" data-category="ios ai">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div class="flex items-center gap-3">
+                <img src="img/apps/neural-sound-icon.png" alt="Neural Sound Icon" class="w-10 h-10 rounded-xl object-cover shadow border border-slate-200 dark:border-slate-700">
+                <div class="flex items-center gap-1.5">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300">App Store</span>
+                </div>
+              </div>
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
+              Neural Sound - Text to Speech
+            </h3>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+              An iOS application that converts text and documents to speech using natural neural voices, published on the Apple App Store.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>High-quality free neural voices with multi-lingual accents.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Custom AVAudioPlayer playback controls & audio file export.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Native SwiftUI design with smooth gesture navigation.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Swift</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">SwiftUI</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">AVAudioEngine</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">App Store</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800 text-sm">
+              <a href="https://apps.apple.com/us/app/neural-sound-text-to-speech/id6753916628" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.08-7.58-7.8-11.64-14.16-5.83-9.06-10.23-19.34-13.19-30.84-2.96-11.5-4.44-22.31-4.44-32.42 0-14.28 3.59-25.96 10.77-35.04 7.18-9.08 16.03-13.72 26.56-13.91 5.3 0 11.11 1.49 17.43 4.47 6.32 2.98 10.25 4.54 11.79 4.68 1.54-.14 5.69-1.74 12.44-4.82 6.75-3.08 12.39-4.47 16.92-4.17 12.56.77 22.35 5.56 29.38 14.37-10.98 6.64-16.32 15.77-16.02 27.39.29 9.07 3.82 16.68 10.59 22.84 6.77 6.16 14.54 9.69 23.31 10.58-2.39 7.39-5.4 14.55-9.03 21.48zM119.22 31.95c0-7.23 2.65-13.95 7.95-20.15 5.3-6.2 11.74-10.13 19.32-11.8 1.03 7.36-.92 14.19-5.86 20.48-4.94 6.29-11.41 10.11-19.41 11.47-.29-.68-.44-1.39-.44-2.14z"/></svg>
+                <span>App Store</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="https://github.com/MachangDoniel" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: TuneTube (MusicTube) -->
+        <div class="project-card interactive-card rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between" data-category="ios">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center">
+                <i data-lucide="play-circle" class="w-5 h-5"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300">SwiftUI Native</span>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">
+              TuneTube (MusicTube)
+            </h3>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+              A YouTube-backed native music app for iOS (~2,400 lines of SwiftUI). Browse, search, and stream music with an Apple Music-style fluid interface without ads.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Native AVPlayer background streaming & queue management.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Full Lock Screen audio controls & Now Playing metadata.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Zero third-party trackers, ultra-lightweight footprint.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">SwiftUI</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">AVPlayer</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Combine</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800 text-sm">
+              <span class="text-xs text-slate-400 font-mono">iOS App</span>
+              <a href="https://github.com/MachangDoniel/TuneTube" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                <span>View Repo</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Smart Scanner -->
+        <div class="project-card interactive-card rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between" data-category="ios">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                <i data-lucide="scan-line" class="w-5 h-5"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">Mobile Scanner</span>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">
+              Smart Scanner
+            </h3>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+              Cross-platform document scanning application powered by iOS VisionKit and Android Google ML Kit for enterprise-grade mobile document capture.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Multi-page batch capture with live boundary detection.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>4-corner perspective distortion correction.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Grayscale, magic color, and contrast sharpening filters.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Flutter</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">iOS VisionKit</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">ML Kit</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800 text-sm">
+              <span class="text-xs text-slate-400 font-mono">Mobile App</span>
+              <a href="https://github.com/MachangDoniel/Smart-Scanner" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                <span>View Repo</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: MyPaste -->
+        <div class="project-card interactive-card rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between" data-category="systems">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center">
+                <i data-lucide="clipboard-copy" class="w-5 h-5"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300">P2P / Systems</span>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">
+              MyPaste (LAN Clipboard Sync)
+            </h3>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+              Fast, private, LAN-first peer-to-peer clipboard synchronization tool. Syncs clipboard content across desktop & mobile over local networks with zero mandatory cloud accounts.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Zero cloud servers: 100% peer-to-peer data transport.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>End-to-end encrypted packet payloads.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Automatic local subnet discovery & heartbeat.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Networking</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">P2P Protocols</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">E2EE</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800 text-sm">
+              <span class="text-xs text-slate-400 font-mono">Systems</span>
+              <a href="https://github.com/MachangDoniel/MyPaste" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                <span>View Repo</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: AI Company Agents -->
+        <div class="project-card interactive-card rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between" data-category="ai systems">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                <i data-lucide="bot" class="w-5 h-5"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300">AI Agents</span>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">
+              AI Company Agents
+            </h3>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+              A reusable software-company workflow modeling an entire product engineering team (PM, Architect, Code Engineer, QA) via autonomous AI agents with an interactive dashboard.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Static HTML sprint dashboard & agent control center.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Automated release notes and task delegation logs.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Workflow execution templates for rapid AI software delivery.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Multi-Agent</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Automation</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Dashboard</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800 text-sm">
+              <a href="https://htmlpreview.github.io/?https://github.com/MachangDoniel/AI-Company-Agents/blob/main/index.html" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-500 hover:text-blue-500 font-mono flex items-center gap-1">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+              </a>
+              <a href="https://github.com/MachangDoniel/AI-Company-Agents" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                <span>View Repo</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: Govt Job Prep System -->
+        <div class="project-card interactive-card rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between" data-category="systems ios">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                <i data-lucide="book-open" class="w-5 h-5"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">Multi-Platform</span>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">
+              Govt Job Prep System
+            </h3>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+              Complete exam preparation ecosystem across iOS, Android, and Web in Laravel. Features timed mock tests, question bank indexing, and personalized analytics.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Cross-platform client applications (iOS & Android).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Real-time exam timer with automated result calculation.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Comprehensive database of thousands of indexed questions.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Laravel</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Swift</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">MySQL</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800 text-sm">
+              <span class="text-xs text-slate-400 font-mono">Full-Stack Ecosystem</span>
+              <a href="https://github.com/MachangDoniel/Govt-Job-Prep-System" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                <span>View Repo</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8: KUET-BANK -->
+        <div class="project-card interactive-card rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between" data-category="systems">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                <i data-lucide="landmark" class="w-5 h-5"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300">FinTech</span>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">
+              KUET-BANK Banking Portal
+            </h3>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+              Full-featured banking system designed with dual customer/officer interfaces, secure login protocols, real-time funds transfer, and loan approval pipelines.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>ACID-compliant transaction ledger with audit trails.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Role-based access control (Admin, Officer, Customer).</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Java</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">PHP/Laravel</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">MySQL</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800 text-sm">
+              <span class="text-xs text-slate-400 font-mono">Web & Android</span>
+              <a href="https://github.com/MachangDoniel/KUET-BANK" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                <span>View Repo</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 9: Foodier -->
+        <div class="project-card interactive-card rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between" data-category="ios">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                <i data-lucide="utensils" class="w-5 h-5"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300">SwiftUI</span>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">
+              Foodier (Restaurant Manager)
+            </h3>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+              An iOS application built in SwiftUI and Firebase for restaurant order management, live table reservation states, and order status notification.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Real-time sync with Firebase Firestore backplane.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 mt-0.5 shrink-0"></i>
+                <span>Modern interactive SwiftUI menus and cart flows.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Swift</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">SwiftUI</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Firebase</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800 text-sm">
+              <span class="text-xs text-slate-400 font-mono">iOS App</span>
+              <a href="https://github.com/MachangDoniel/Foodier" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                <span>View Repo</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- More Projects Banner -->
+      <div class="mt-12 text-center">
+        <a href="https://github.com/MachangDoniel?tab=repositories" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium text-sm transition-all shadow-sm">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>View All 125+ Repositories on GitHub</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPETITIVE PROGRAMMING & ACHIEVEMENTS SECTION -->
+  <section id="achievements" class="py-20 border-t border-slate-200/80 dark:border-slate-800/80 bg-slate-100/50 dark:bg-[#0c1220]/50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 text-xs font-mono uppercase tracking-wider mb-3">
+          Recognition & Honors
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Competitive Programming & Awards
+        </h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300 text-base">
+          Proven problem-solving skills tested across national hackathons, ICPC regionals, and competitive platforms.
+        </p>
+      </div>
+
+      <!-- Grid of Achievement Badges -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Codeforces -->
+        <div class="interactive-card rounded-2xl glass-panel p-6 border border-slate-200 dark:border-slate-800 text-center flex flex-col items-center justify-center">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-3">
+            <i data-lucide="terminal" class="w-6 h-6"></i>
+          </div>
+          <div class="text-2xl font-bold font-mono text-cyan-600 dark:text-cyan-400">1501</div>
+          <div class="font-bold text-base mt-1">Codeforces Specialist</div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Solves complex algorithmic & dynamic programming challenges.</p>
+        </div>
+
+        <!-- CodeChef -->
+        <div class="interactive-card rounded-2xl glass-panel p-6 border border-slate-200 dark:border-slate-800 text-center flex flex-col items-center justify-center">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
+            <i data-lucide="star" class="w-6 h-6"></i>
+          </div>
+          <div class="text-2xl font-bold font-mono text-amber-600 dark:text-amber-400">1766</div>
+          <div class="font-bold text-base mt-1">CodeChef 3-Star</div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Country Rank: 294 · Global Rank: 7,278.</p>
+        </div>
+
+        <!-- Learnathon 3.0 -->
+        <div class="interactive-card rounded-2xl glass-panel p-6 border border-slate-200 dark:border-slate-800 text-center flex flex-col items-center justify-center">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-3">
+            <i data-lucide="trophy" class="w-6 h-6"></i>
+          </div>
+          <div class="text-2xl font-bold font-mono text-purple-600 dark:text-purple-400">1st Runner-Up</div>
+          <div class="font-bold text-base mt-1">Learnathon 3.0</div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">PHP Stack by Geeky Solutions & Brain Station 23.</p>
+        </div>
+
+        <!-- KUET Dean's Award -->
+        <div class="interactive-card rounded-2xl glass-panel p-6 border border-slate-200 dark:border-slate-800 text-center flex flex-col items-center justify-center">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
+            <i data-lucide="award" class="w-6 h-6"></i>
+          </div>
+          <div class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400">Dean's Award</div>
+          <div class="font-bold text-base mt-1">KUET Academic Honors</div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Awarded for outstanding academic GPA (3.68/4.00).</p>
+        </div>
+
+      </div>
+
+      <!-- Additional Contest Highlights List -->
+      <div class="mt-8 rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 p-6">
+        <h3 class="font-bold text-base mb-4 flex items-center gap-2">
+          <i data-lucide="flag" class="w-4 h-4 text-blue-500"></i>
+          <span>National Programming Contests & Datathons</span>
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+            <i data-lucide="medal" class="w-5 h-5 text-amber-500 shrink-0 mt-0.5"></i>
+            <div>
+              <div class="font-semibold text-slate-900 dark:text-white">Ranked 5th — PSTU IT Carnival National Programming Contest 2024</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">National level university programming contest (November 2024).</div>
             </div>
           </div>
 
-          <!-- Project: KUET-BANK (Web) -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>KUET-BANK</h4>
-              <p><strong>Type:</strong> Web Platform</p>
-              <p><strong>Time Period:</strong> February 2023 - February 2024</p>
-              <p><strong>Technologies Used:</strong> Laravel, PHP, MySQL, Bootstrap</p>
-              <p>Web-based bank management system with modules for customer accounts, loans, and real-time transactions.</p>
-              <div class="btn-group">
-                
-                <a class="btn-project" href="https://github.com/MachangDoniel/KUET-BANK">Code</a>
-              </div>
+          <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+            <i data-lucide="medal" class="w-5 h-5 text-blue-500 shrink-0 mt-0.5"></i>
+            <div>
+              <div class="font-semibold text-slate-900 dark:text-white">Ranked 35th — Khulna Regional Inter-University Contest 2024</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Inter-University programming contest held in Khulna (November 2024).</div>
             </div>
           </div>
 
-          <!-- Project: Heart -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>Heart</h4>
-              <p><strong>Type:</strong> Android App</p>
-              <p><strong>Time Period:</strong> September 2021 - December 2021</p>
-              <p><strong>Technologies Used:</strong> Android Studio, Firebase</p>
-              <p>Patient data management app with real-time heart rate data sync and interfaces for doctors and patients.</p>
-              <div class="btn-group">
-                
-                <a class="btn-project" href="https://github.com/MachangDoniel/Heart">Code</a>
-              </div>
+          <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+            <i data-lucide="medal" class="w-5 h-5 text-indigo-500 shrink-0 mt-0.5"></i>
+            <div>
+              <div class="font-semibold text-slate-900 dark:text-white">Ranked 59th — UIU Inter-University Programming Contest 2025</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">UIU IUPC national competition (January 2025).</div>
             </div>
           </div>
 
-          <!-- Project: Night Security Light -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>Night Security Light</h4>
-              <p><strong>Type:</strong> Arduino-based System</p>
-              <p><strong>Time Period:</strong> March 2022 - May 2022</p>
-              <p><strong>Technologies Used:</strong> Arduino Uno, PIR Sensor, LDR, Bluetooth</p>
-              <p>Automatic night light system using motion and ambient light sensors for home security.</p>
-              <div class="btn-group">
-                
-                <a class="btn-project" href="https://github.com/MachangDoniel/Night_Security_Light">Code</a>
-              </div>
+          <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+            <i data-lucide="medal" class="w-5 h-5 text-purple-500 shrink-0 mt-0.5"></i>
+            <div>
+              <div class="font-semibold text-slate-900 dark:text-white">Ranked 170th — ICPC Dhaka Regional 2024 - DIU</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">ACM-ICPC Asia Dhaka Regional Contest (January 2025).</div>
             </div>
           </div>
 
-          <!-- Project: Alphabet Detection -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>Alphabet Detection</h4>
-              <p><strong>Type:</strong> Image Processing</p>
-              <p><strong>Time Period:</strong> March 2023 - October 2023</p>
-              <p><strong>Technologies Used:</strong> OpenCV, Python</p>
-              <p>An Image processing system to detect and recognize English alphabets using image processing and computer vision techniques.</p>
-              <div class="btn-group">
-                
-                <a class="btn-project" href="https://github.com/MachangDoniel/Alphabet-Detection">Code</a>
-              </div>
+          <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+            <i data-lucide="sparkles" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+            <div>
+              <div class="font-semibold text-slate-900 dark:text-white">Top Team Finalist — BitFest KUET Datathon 2025</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Machine learning and data engineering competition at KUET (January 2025).</div>
             </div>
           </div>
 
-          <!-- Project: Automatic Bill Generator -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>Automatic Bill Generator</h4>
-              <p><strong>Type:</strong> Desktop App</p>
-              <p><strong>Time Period:</strong> September 2022 - December 2023</p>
-              <p><strong>Technologies Used:</strong> Java, MySQL</p>
-              <p>Automates teacher payment calculations based on departmental work and generates detailed reports.</p>
-              <div class="btn-group">
-                
-                <a class="btn-project" href="https://github.com/MachangDoniel/Automatic-Bill-Generator">Code</a>
+          <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+            <i data-lucide="users" class="w-5 h-5 text-slate-500 shrink-0 mt-0.5"></i>
+            <div>
+              <div class="font-semibold text-slate-900 dark:text-white">Event Organizer — BitFest 2025 IUPC</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Organized logistics and contest problem coordination for national teams.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESEARCH & INNOVATION SECTION -->
+  <section id="research" class="py-20 border-t border-slate-200/80 dark:border-slate-800/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-mono uppercase tracking-wider mb-3">
+          Deep Learning Research
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Research & Clinical AI
+        </h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300 text-base">
+          Applying computer vision, convolutional neural networks, and ensemble learning to advance early healthcare diagnostics.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="interactive-card glass-panel rounded-2xl border border-slate-200 dark:border-slate-800 p-8 shadow-xl">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-mono bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 mb-2">Healthcare AI Research</span>
+              <h3 class="text-2xl font-bold">
+                Enhancing Diabetes Prediction Accuracy Using Deep Learning
+              </h3>
+              <div class="text-sm text-slate-500 dark:text-slate-400 mt-1 font-mono">
+                March 2024 – March 2025 · KUET CSE Undergraduate Thesis
               </div>
+            </div>
+            
+            <a href="https://github.com/MachangDoniel/Diabetes-Prediction" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 text-xs sm:text-sm font-medium transition-colors shrink-0">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>View Research Repo</span>
+            </a>
+          </div>
+
+          <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+            This research integrates deep convolutional feature extraction (ResNet50) with ensemble machine learning architectures (XGBoost, Random Forest) to significantly improve the early detection and risk classification of diabetes using real-time patient biometric and diagnostic data.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <div class="text-xs text-slate-400 font-mono">Architecture</div>
+              <div class="text-base font-bold text-blue-600 dark:text-blue-400 mt-1">ResNet50 + XGBoost</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <div class="text-xs text-slate-400 font-mono">Domain</div>
+              <div class="text-base font-bold text-indigo-600 dark:text-indigo-400 mt-1">Medical Informatics</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <div class="text-xs text-slate-400 font-mono">Core Stack</div>
+              <div class="text-base font-bold text-purple-600 dark:text-purple-400 mt-1">TensorFlow, Scikit-learn</div>
             </div>
           </div>
 
-          <!-- Project: Auto Birthday Wisher -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>Auto Birthday Wisher</h4>
-              <p><strong>Type:</strong> Python Script</p>
-              <p><strong>Time Period:</strong> January 2023 - February 2023</p>
-              <p><strong>Technologies Used:</strong> Python, SMTP</p>
-              <p>Automatically sends birthday wishes via email or messaging, scheduled using cron jobs.</p>
-              <div class="btn-group">
-                
-                <a class="btn-project" href="https://github.com/MachangDoniel/Auto-Birthday-Wisher">Code</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project: Hospital Management System -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>Hospital Management System</h4>
-              <p><strong>Type:</strong> Web Platform</p>
-              <p><strong>Time Period:</strong> February 2023 - September 2023</p>
-              <p><strong>Technologies Used:</strong> Laravel, PHP, MySQL</p>
-              <p>Web app with modules for patient records, appointments, and billing to improve hospital workflow.</p>
-              <div class="btn-group">
-                
-                <a class="btn-project" href="https://github.com/MachangDoniel/Hospital_Management_System">Code</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project: Kokborok Compiler -->
-          <div class="col-lg-4 col-md-6">
-            <div class="project-card">
-              <h4>Kokborok Compiler</h4>
-              <p><strong>Type:</strong> Compiler Design</p>
-              <p><strong>Time Period:</strong> September 2021 - December 2021</p>
-              <p><strong>Technologies Used:</strong> C, Lexical Analysis, Syntax Parsing</p>
-              <p>Compiler for Tripura(Kokborok) language incorporating lexical, syntax, and semantic analysis as part of course project.</p>
-              <div class="btn-group">
-                
-                <a class="btn-project" href="https://github.com/MachangDoniel/Kokborok-Compiler">Code</a>
-              </div>
-            </div>
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Python</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">TensorFlow</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">ResNet50</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">XGBoost</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Random Forest</span>
           </div>
 
         </div>
       </div>
-    </section>
 
+    </div>
+  </section>
 
+  <!-- SKILLS MATRIX SECTION -->
+  <section id="skills" class="py-20 border-t border-slate-200/80 dark:border-slate-800/80 bg-slate-100/50 dark:bg-[#0c1220]/50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-mono uppercase tracking-wider mb-3">
+          Capabilities
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Technical Skills Matrix
+        </h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300 text-base">
+          A breakdown of languages, frameworks, developer tools, and operational environments I work with.
+        </p>
+      </div>
 
-	<!-- Experience Section -->
-	<section id="experience" class="experience_area section_gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="main_title text-left">
-						<h2>Experience</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<!-- Experience 1: Teaching Assistant at Ostad -->
-				<div class="col-lg-12">
-					<div class="project-card">
-						<i class="fa fa-chalkboard-teacher" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Teaching Assistant - Ostad (Remote)</h4>
-						<p><strong>Time Period:</strong> January 2025 - Present</p>
-						<p><strong>Responsibilities:</strong></p>
-						<ul>
-							<li>Assisted students in preparing for coding interviews.</li>
-							<li>Developed and facilitated practice sessions focusing on data structures, algorithms, and problem-solving techniques.</li>
-							<li>Conducted mock interviews and provided feedback on problem-solving approaches.</li>
-							<li>Helped students identify areas of improvement and tailored learning experiences based on individual needs.</li>
-						</ul>
-						<a class="btn-project" href="https://www.ostad.app" target="_blank">Visit Ostad</a>
-					</div>
-				</div>
-		</div>
-	</section>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Skill Group 1: Mobile & iOS -->
+        <div class="interactive-card rounded-2xl glass-panel p-6 border border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+              <i data-lucide="smartphone" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-lg">iOS & Mobile Development</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Swift</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">SwiftUI</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">UIKit</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">AVFoundation</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">VisionKit</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">CoreData</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Flutter</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Xcode</span>
+          </div>
+        </div>
 
+        <!-- Skill Group 2: Programming Languages -->
+        <div class="interactive-card rounded-2xl glass-panel p-6 border border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+              <i data-lucide="code" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-lg">Programming Languages</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Swift</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">C++</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Python</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Java</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">C</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">PHP</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Dart</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">SQL</span>
+          </div>
+        </div>
 
-	<!-- Leadership Section -->
-	<section id="leadership" class="leadership_area section_gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="main_title text-left">
-						<h2>Leadership</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<!-- Leadership Role 1: General Member - Special Group Interested in Programming Contest (SGIPC) -->
-				<div class="col-lg-12">
-					<div class="project-card">
-						<i class="fa fa-users" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>General Member - Special Group Interested in Programming Contest (SGIPC)</h4>
-						<p><strong>Time Period:</strong> 2022 - Present</p>
-						<p><strong>Responsibilities:</strong></p>
-						<ul>
-							<li>Collaborated with peers to enhance problem-solving skills and participated in competitive programming discussions.</li>
-							<li>Contributed to the development of training modules and resources for fellow members.</li>
-							<li>Assisted in organizing group sessions and workshops to build technical skills and promote programming contests.</li>
-						</ul>
-						<a class="btn-project" href="https://www.facebook.com/groups/sgipc.kuet/" target="_blank">SGIPC on Facebook</a>
-					</div>
-				</div>
+        <!-- Skill Group 3: Web & Backend -->
+        <div class="interactive-card rounded-2xl glass-panel p-6 border border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-lg">Web & Backend Engineering</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">PHP / Laravel</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">React</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">RESTful APIs</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">MySQL</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Firebase Firestore</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Oracle DB</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">HTML5 / Tailwind</span>
+          </div>
+        </div>
 
-				<!-- Leadership Role 2: Content and Training - LOOP, Control Engineering Club -->
-				<div class="col-lg-12">
-					<div class="project-card">
-						<i class="fa fa-lightbulb" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Content and Training - LOOP, Control Engineering Club</h4>
-						<p><strong>Time Period:</strong> 2022 - Present</p>
-						<p><strong>Responsibilities:</strong></p>
-						<ul>
-							<li>Developed training content for control engineering and programming education.</li>
-							<li>Mentored and guided new members in their learning journey, fostering collaboration and skill development.</li>
-							<li>Organized events and workshops to enhance the club's learning environment and promote educational growth.</li>
-						</ul>
-						<a class="btn-project" href="https://www.facebook.com/kuetloop/" target="_blank">Loop on Facebook</a>
-					</div>
-				</div>
+        <!-- Skill Group 4: AI & Data Science -->
+        <div class="interactive-card rounded-2xl glass-panel p-6 border border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+              <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-lg">AI & Data Science</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">PyTorch</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">TensorFlow</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Scikit-learn</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">OpenCV</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Pandas / NumPy</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Audio Stem Separation</span>
+          </div>
+        </div>
 
-				<!-- Leadership Role 3: Office Secretary - Save A Smile -->
-				<div class="col-lg-12">
-					<div class="project-card">
-						<i class="fa fa-users" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Office Secretary - Save A Smile</h4>
-						<p><strong>Time Period:</strong> 2022 - Present</p>
-						<p><strong>Responsibilities:</strong></p>
-						<ul>
-							<li>Managed recruitment and onboarding processes for new members, ensuring smooth transitions and effective team integration.</li>
-							<li>Organized charity events, fundraising campaigns, and awareness programs, ensuring efficient planning and execution.</li>
-							<li>Coordinated with multiple teams to ensure timely delivery of initiatives, improving the organization's overall impact.</li>
-						</ul>
-						<a class="btn-project" href="https://www.facebook.com/groups/3109029409203422" target="_blank">Save A Smile on Facebook</a>
-					</div>
-				</div>
+        <!-- Skill Group 5: DevOps & Tools -->
+        <div class="interactive-card rounded-2xl glass-panel p-6 border border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center">
+              <i data-lucide="wrench" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-lg">DevOps, Tools & Systems</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Git & GitHub</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">GitHub Actions</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Docker</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">FFmpeg</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Postman</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Figma</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Linux & macOS</span>
+          </div>
+        </div>
 
-				<!-- Leadership Role 4: Event Organizer - BitFest 2025 -->
-				<div class="col-lg-12">
-					<div class="project-card">
-						<i class="fa fa-calendar-check" style="font-size: 2rem; color: #007bff;"></i>
-						<h4>Event Organizer - BitFest 2025, 3rd KUET CSE National Festival</h4>
-						<p><strong>Time Period:</strong> 2025</p>
-						<p><strong>Responsibilities:</strong></p>
-						<ul>
-							<li>Organized and coordinated the <strong>Inter-University Programming Contest (IUPC)</strong> at BitFest 2025.</li>
-							<li>Led a team of volunteers to ensure the smooth execution of events and workshops.</li>
-							<li>Collaborated with sponsors, partners, and participants to create a successful and engaging festival experience.</li>
-						</ul>
-						<a class="btn-project" href="https://www.linkedin.com/company/kuetcsebitfest/" target="_blank">BitFest on LinkedIn</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+        <!-- Skill Group 6: Professional Practices -->
+        <div class="interactive-card rounded-2xl glass-panel p-6 border border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+              <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-lg">Practices & Mindset</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Clean Architecture</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Design Patterns</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Memory Optimization</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Security First</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Agile / Scrum</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium">Code Reviews</span>
+          </div>
+        </div>
 
+      </div>
 
+    </div>
+  </section>
 
+  <!-- CONTACT & GET IN TOUCH SECTION -->
+  <section id="contact" class="py-20 border-t border-slate-200/80 dark:border-slate-800/80 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="interactive-card rounded-3xl glass-panel border border-slate-200 dark:border-slate-800 p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+        
+        <!-- Glowing accent behind contact card -->
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
-	<!-- Contact Section -->
-	<section id="contact" class="contact_area section_gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="main_title text-left">
-						<h2>Contact Me</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<!-- Contact Information -->
-				<div class="col-lg-4 mb-4">
-					<div class="contact_info">
-						<h4>Get in Touch</h4>
-						<ul class="list-unstyled">
-							<li><strong>Email:</strong> <a href="mailto:donieltripura121@gmail.com">donieltripura121@gmail.com</a></li>
-							<li><strong>Phone:</strong> <a href="tel:+8801893097217">+8801893097217</a></li>
-							<li><strong>Location:</strong> Mirpur 10, Dhaka</li>
-						</ul>
-					</div>
-				</div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
+          
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 text-xs font-mono uppercase tracking-wider mb-3">
+              Let's Connect
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+              Interested in collaborating or hiring?
+            </h2>
+            <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+              I am open to discuss iOS engineering opportunities, software architecture, machine learning collaborations, and innovative product builds. Reach out directly!
+            </p>
 
-				<!-- Contact Form -->
-				<div class="col-lg-8">
-					<form id="contactForm" class="contact_form">
-						<div class="form-group">
-							<input type="text" id="name" class="form-control" name="name" placeholder="Your Name" required>
-						</div>
-						<div class="form-group">
-							<input type="email" id="email" class="form-control" name="email" placeholder="Your Email" required>
-						</div>
-						<div class="form-group">
-							<textarea id="message" class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
-						</div>
-						<button type="submit" class="primary_btn contact-btn">Send Email</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
+            <!-- Location & Availability details -->
+            <div class="mt-6 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </div>
+                <span>Shahbagh, Dhaka, Bangladesh</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="phone" class="w-4 h-4"></i>
+                </div>
+                <span>+880 1893 097 217</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="mail" class="w-4 h-4"></i>
+                </div>
+                <span>donieltripura121@gmail.com</span>
+              </div>
+            </div>
+          </div>
 
+          <!-- Direct Actions -->
+          <div class="flex flex-col space-y-4 p-6 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800">
+            
+            <a href="mailto:donieltripura121@gmail.com" class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm shadow-lg shadow-blue-500/25 transition-all hover:scale-[1.01] active:scale-95">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Send Direct Email</span>
+            </a>
 
+            <button type="button" class="copy-email-btn w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-medium text-sm transition-all active:scale-95">
+              <i data-lucide="copy" class="w-4 h-4 text-blue-500"></i>
+              <span>Copy Email Address</span>
+            </button>
 
+            <!-- Social Media Buttons -->
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 text-center">
+              <div class="text-xs text-slate-400 font-mono mb-3 uppercase tracking-wider">Follow On Social Platforms</div>
+              <div class="flex items-center justify-center gap-3">
+                <a href="https://github.com/MachangDoniel" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 transition-all">
+                  <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/doniel-tripura-7a82281b9/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 transition-all">
+                  <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+                <a href="https://x.com/TripuraDoniel" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 transition-all">
+                  <i data-lucide="twitter" class="w-5 h-5"></i>
+                </a>
+                <a href="https://www.facebook.com/doniel.tripura.1" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 transition-all">
+                  <i data-lucide="facebook" class="w-5 h-5"></i>
+                </a>
+                <a href="https://www.youtube.com/@donieltripura3323" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 transition-all">
+                  <i data-lucide="youtube" class="w-5 h-5"></i>
+                </a>
+              </div>
+            </div>
 
-	<!-- Footer Section -->
-	<footer class="footer_area">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-12 text-center">
-					<div class="footer_top">
-						<h4>Follow Me</h4>
-						<div class="social-links">
-							<a href="https://www.linkedin.com/in/doniel-tripura-7a82281b9/"><i class="fa fa-linkedin"></i></a>
-							<a href="https://github.com/MachangDoniel"><i class="fa fa-github"></i></a>
-							<a href="https://x.com/TripuraDoniel"><i class="fa fa-twitter"></i></a>
-							<a href="https://www.facebook.com/doniel.tripura.1"><i class="fa fa-facebook"></i></a>
-							<!-- YouTube Icon added -->
-							<a href="https://www.youtube.com/@donieltripura3323" target="_blank"><i class="fa fa-youtube"></i></a>
-						</div>
-					</div>
-					<p id="lastModifiedDate">Last Modified: </p>
-				</div>
-			</div>
-		</div>
-	</footer>
+          </div>
 
+        </div>
 
-    <!-- Optional JavaScript -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/theme.js"></script>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-md bg-blue-600 text-white font-mono font-bold text-xs flex items-center justify-center">DT</div>
+        <span class="font-medium text-slate-700 dark:text-slate-300">Doniel Tripura</span>
+        <span>•</span>
+        <span>© 2026 All rights reserved.</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#appstore" class="hover:underline">App Store</a>
+        <a href="#projects" class="hover:underline">Projects</a>
+        <a href="#achievements" class="hover:underline">Achievements</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+        <a href="https://github.com/MachangDoniel/MachangDoniel.github.io" target="_blank" rel="noopener noreferrer" class="hover:underline flex items-center gap-1">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>Source</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back To Top Button -->
+  <button type="button" id="back-to-top" aria-label="Back to Top" class="fixed bottom-6 right-6 p-3 rounded-xl bg-blue-600 text-white shadow-xl shadow-blue-500/30 hover:bg-blue-700 transition-all duration-300 opacity-0 pointer-events-none z-50 hover:scale-110 active:scale-95">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-slide fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-xl glass-panel shadow-2xl border border-blue-500/30 text-slate-900 dark:text-white text-sm font-medium z-50 hidden flex items-center gap-2">
+    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
 </body>
-
 </html>
-
-<script>
-	// JavaScript to handle mailto action with dynamic content
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        // Collect the message data
-        const message = document.getElementById('message').value;
-
-        // Create mailto link with subject and only the message body
-        const subject = "Contact Form Submission";  // You can modify the subject here
-        const body = `${encodeURIComponent(message)}`;  // Only the message
-
-        // Create the mailto link
-        const mailtoLink = `mailto:donieltripura121@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-        // Open the default email client with the pre-filled mailto link
-        window.location.href = mailtoLink;
-    });
-
-    // JavaScript to display last modified date
-    document.getElementById('lastModifiedDate').innerHTML = "Last Modified: " + document.lastModified;
-</script>

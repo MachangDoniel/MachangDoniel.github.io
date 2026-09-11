@@ -1,158 +1,108 @@
-# Doniel Tripura - Portfolio
+# Doniel Tripura — Personal Portfolio & Engineering Showcase
 
-Welcome to my personal portfolio website.
+[![Live Portfolio](https://img.shields.io/badge/Live-machangdoniel.github.io-blue?style=flat-square&logo=google-chrome)](https://machangdoniel.github.io/)
+[![App Store](https://img.shields.io/badge/App%20Store-2%20Published%20Apps-black?style=flat-square&logo=apple)](https://machangdoniel.github.io/#appstore)
+[![Codeforces Specialist](https://img.shields.io/badge/Codeforces-1501%20(Specialist)-blue?style=flat-square&logo=codeforces)](https://codeforces.com/profile/MachangDoniel)
+[![CodeChef 3-Star](https://img.shields.io/badge/CodeChef-1766%20(3★)-brown?style=flat-square&logo=codechef)](https://www.codechef.com/users/machangdoniel)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Doniel%20Tripura-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/doniel-tripura-7a82281b9/)
 
-View my portfoio from [Here](https://machangdoniel.github.io/)
+Welcome to the official source repository for my personal portfolio: **[https://machangdoniel.github.io](https://machangdoniel.github.io)**.
 
-<!-- ## Connect with Me
+I am an **iOS Software Engineer** with applications published on the **Apple App Store**, a **Graduate Engineer (iOS)** at **Kona Software Lab Ltd.**, and a Computer Science & Engineering graduate from **KUET** (3.68 CGPA, Dean's Award for Academic Excellence).
 
-- **GitHub**: [https://github.com/MachangDoniel](https://github.com/MachangDoniel)
-- **LinkedIn**: [https://www.linkedin.com/in/doniel-tripura-7a82281b9/](https://www.linkedin.com/in/doniel-tripura-7a82281b9/)
-- **YouTube**: [https://www.youtube.com/@donieltripura3323](https://www.youtube.com/@donieltripura3323)
-- **Twitter**: [https://x.com/TripuraDoniel](https://x.com/TripuraDoniel)
-- **Facebook**: [https://www.facebook.com/doniel.tripura.1](https://www.facebook.com/doniel.tripura.1) -->
+---
 
-## Table of Contents
+##  Published Apple App Store Applications
 
-- [Introduction](#introduction)
-- [Technologies Used](#technologies-used)
-- [Projects](#projects)
-- [Achievements](#achievements)
-- [Experience](#experience)
-- [Research](#research)
-- [Contact](#contact)
+1. **[Vocal Music Separator AI](https://apps.apple.com/us/app/vocal-music-separator-ai/id6756906827)** (App ID: `6756906827`)
+   - *Production ML-Powered iOS Workstation*: Isolates vocals and instruments with high fidelity. Supports 6-stem audio separation, instant karaoke track generation, and direct audio extraction from video files.
+   - *Core Stack*: Swift, AVFoundation, FFmpegKit, CoreML, SwiftUI.
 
-## Introduction
+2. **[Neural Sound - Text to Speech](https://apps.apple.com/us/app/neural-sound-text-to-speech/id6753916628)** (App ID: `6753916628`)
+   - *High-Fidelity AI Speech Engine*: Natural speech synthesis app for iOS converting text, articles, and documents into human-like audio using high-quality neural voices.
+   - *Core Stack*: Swift, SwiftUI, AVAudioPlayer, AudioKit, iOS 16+.
 
-I am a passionate **Full-Stack Developer** with expertise in **Machine Learning (ML)**, **Artificial Intelligence (AI)**, and **competitive programming**. This portfolio highlights my academic journey, achievements, and the projects I have worked on in these fields. Feel free to explore and connect with me through various platforms listed below.
+---
 
-## Technologies Used
+## ⚡ Flagship Projects & Systems
 
-- **Programming Languages**: Python, Java, Swift, C++
-- **Frameworks and Libraries**: TensorFlow, Scikit-learn, XGBoost, Flask
-- **Web Technologies**: HTML, CSS, JavaScript, Bootstrap
-- **Tools**: Git, GitHub, Visual Studio Code, Jupyter Notebook
-- **Databases**: MySQL, Firebase
+1. **TuneTube (MusicTube)**
+   - *Native YouTube-Backed iOS Music Streaming*: YouTube catalog streaming with native iOS UI/UX (~2,400 lines of clean SwiftUI), background audio streaming, Lock Screen media controls, and queue management.
+   - *Stack*: SwiftUI, AVPlayer, Combine.
 
-## Projects
+2. **Smart Scanner**
+   - *Enterprise Cross-Platform Document Scanner*: Multi-page capture with real-time border detection, 4-corner perspective distortion correction, and specialized image processing filters.
+   - *Stack*: Flutter, iOS VisionKit, Android Google ML Kit.
 
-Here are some of the projects I have worked on:
+3. **MyPaste**
+   - *Fast, Private, LAN-First P2P Clipboard Synchronization*: Seamlessly synchronizes clipboard data across local devices without cloud dependencies, fully end-to-end encrypted.
+   - *Stack*: P2P Networking, Cryptography, Local Discovery.
 
-1. **[Foodier (iOS App)](https://github.com/MachangDoniel/Foodier)**
-   - **Time Period**: September 2023 - January 2024
-   - **Technologies Used**: Swift, SwiftUI, Firebase
-   - **Description**: An iOS app focused on managing restaurant orders and improving user experience. The app supports real-time updates and user-friendly interfaces for efficient restaurant management.
+4. **AI Company Agents**
+   - *Autonomous Software Engineering Multi-Agent Framework*: Reusable workflow modeling an entire product engineering organization (PM, Architect, Code Engineer, QA) with an interactive dashboard and sprint logs.
+   - *Stack*: TypeScript, HTML/CSS, Workflow Automation.
 
-2. **[KUET-BANK (Android & Web)](https://github.com/MachangDoniel/KUET-BANK)**
-   - **Time Period**: September 2022 - February 2024
-   - **Technologies Used**: Java, PHP, MySQL, Firebase
-   - **Description**: A bank management system that features secure logins, real-time transactions, loan management, and customer account tracking for a better banking experience.
+5. **Govt Job Prep System**
+   - *Multi-Platform Competitive Examination Platform*: Full ecosystem across Web (Laravel), iOS, and Android. Timed mock exams, question banks, and analytical metrics.
+   - *Stack*: Laravel, PHP, Swift, Flutter, MySQL.
 
-3. **[DoRa Block Battle (Game)](https://github.com/MachangDoniel/DoRa-Block-Battle)**
-   - **Time Period**: July 2022 - September 2022
-   - **Technologies Used**: Python, Tkinter, MinMax Algorithm
-   - **Description**: An interactive AI-based game that supports single and multiplayer modes, using advanced algorithms like MinMax and Alpha-Beta Pruning for decision-making and gameplay enhancement.
+6. **KUET-BANK**
+   - *FinTech Banking Management Platform*: Dual interfaces for customers and bank officials with secure authentication, loan workflows, and audit-logged ledgers.
+   - *Stack*: Java, PHP, Laravel, MySQL.
 
-4. **[KUET-BANK (Web-based)](https://github.com/MachangDoniel/KUET-BANK)**
-   - **Time Period**: February 2023 - February 2024
-   - **Technologies Used**: Laravel, PHP, MySQL, Bootstrap
-   - **Description**: A web-based bank management system designed for both customers and employees. Features include customer account management, loan applications, and real-time transactions.
+7. **Foodier**
+   - *iOS Restaurant Order & Kitchen Management*: Real-time table state synchronization, interactive menus, and mobile ordering flows.
+   - *Stack*: Swift, SwiftUI, Firebase Firestore.
 
-5. **[Heart (Android App for Patient Data)](https://github.com/MachangDoniel/Heart)**
-   - **Time Period**: September 2021 - December 2021
-   - **Technologies Used**: Android Studio, Firebase
-   - **Description**: An Android application developed for managing patient heart rate data, with real-time data synchronization and a user-friendly interface for doctors and patients.
+8. **DoRa Block Battle**
+   - *Strategic AI Game*: 2-player grid board game featuring an adversarial AI opponent driven by MinMax algorithms and Alpha-Beta pruning heuristics.
+   - *Stack*: Python, Tkinter, MinMax Algorithm.
 
-6. **[Night Security Light (Arduino-based System)](https://github.com/MachangDoniel/Night_Security_Light)**
-   - **Time Period**: March 2022 - May 2022
-   - **Technologies Used**: Arduino Uno, PIR Sensor, LDR, Bluetooth
-   - **Description**: Built an automatic night security light system using Arduino, integrating motion detection (PIR sensor) and ambient light measurement (LDR) for smart home security.
+---
 
-7. **[Alphabet Detection (Image Processing)](https://github.com/MachangDoniel/Alphabet-Detection)**
-   - **Time Period**: March 2023 - October 2023
-   - **Technologies Used**: OpenCV, Python
-   - **Description**: Developed a real-time image processing system for detecting and recognizing English alphabets, leveraging computer vision techniques for improved accuracy.
+## 🏆 Competitive Programming & Honors
 
-8. **[Automatic Bill Generator (Desktop App)](https://github.com/MachangDoniel/Automatic-Bill-Generator)**
-   - **Time Period**: September 2022 - December 2023
-   - **Technologies Used**: Java, MySQL
-   - **Description**: A desktop application designed to automate the calculation of teacher payments based on their departmental activities and generate detailed reports.
+- **Specialist** on **Codeforces** (Peak Rating: **1501**)
+- **3-Star** on **CodeChef** (Peak Rating: **1766**, Country Rank: **294**, Global Rank: **7,278**)
+- **1st Runners-Up (PHP Stack)** — Learnathon 3.0 (Geeky Solutions & Brain Station 23, 2025)
+- **Dean's Award for Academic Excellence** — Khulna University of Engineering & Technology (KUET)
+- **Ranked 5th** — PSTU IT Carnival National Programming Contest (2024)
+- **Ranked 35th** — Khulna Regional Inter-University Programming Contest (2024)
+- **Ranked 59th** — UIU Inter-University Programming Contest (2025)
+- **Ranked 170th** — ACM-ICPC Dhaka Regional Contest (2024 - DIU)
+- **Top Team Finalist** — BitFest KUET Datathon (2025)
 
-9. **[Auto Birthday Wisher (Python Script)](https://github.com/MachangDoniel/Auto-Birthday-Wisher)**
-   - **Time Period**: January 2023 - February 2023
-   - **Technologies Used**: Python, SMTP
-   - **Description**: A Python script developed to automatically send birthday wishes via email or messaging apps, with scheduled execution using cron jobs.
+---
 
-10. **[Hospital Management System (Laravel Web)](https://github.com/MachangDoniel/Hospital_Management_System)**
-    - **Time Period**: February 2023 - September 2023
-    - **Technologies Used**: Laravel, PHP, MySQL
-    - **Description**: A web-based hospital management system with modules for patient record management, appointment scheduling, and billing, designed to optimize hospital operations.
+## 💼 Industry & Academic Experience
 
-11. **[Kokborok Compiler (Compiler Design)](https://github.com/MachangDoniel/Kokborok-Compiler)**
-    - **Time Period**: September 2021 - December 2021
-    - **Technologies Used**: C, Lexical Analysis, Syntax Parsing
-    - **Description**: Developed a compiler for the Kokborok language as part of a Compiler Design course, incorporating lexical, syntax, and semantic analysis.
+- **Graduate Engineer (iOS)** — *Kona Software Lab Ltd.* (June 2025 – Present)
+  - Production-level mobile banking applications, high-security transaction pipelines, Swift/UIKit architecture.
+- **PHP Stack Intern** — *Geeky Solutions & Brain Station 23* (February 2025 – May 2025)
+  - 1st Runners-Up nationwide in Learnathon 3.0; developed scalable backend microservices and database architectures.
+- **Teaching Assistant (Remote)** — *Ostad* (January 2025 – July 2025)
+  - Coached 100+ students on Data Structures, Algorithms, Dynamic Programming, and technical interview strategies.
+- **B.Sc. in Computer Science and Engineering** — *KUET* (2020 – 2025)
+  - Graduated with **CGPA 3.68/4.00**, Dean's Award recipient.
 
-## Achievements
+---
 
-- **Dean's Award** for academic excellence at **KUET** (2024).
-- **Honours** in **Computer Science and Engineering** with a CGPA of **3.70/4.00**.
-- Ranked **5th** in **PSTU IT Carnival Programming Contest** (2024).
-- Ranked **35th** in **Khulna Regional Inter University Programming Contest** (2024).
-- Selected as one of the top teams in **BitFest KUET Datathon 2025**.
-- **Specialist** on **Codeforces** with a maximum rating of **1501**.
-- **3 Star** on **CodeChef** with a maximum rating of **1766**, Country Rank: **294**, Global Rank: **7278**.
-- Ranked **21st & 20th** in **Intra KUET Programming Contest 2022 & 2023**.
-- Ranked **170th** in **ICPC Dhaka Regional 2024**.
-- Ranked **59th** in **UIU Inter-University Programming Contest** (January 2025).
-- **Second Runner Up** in **Science Olympiad 2019** (By BAS-FSIBL).
-- **Second Runner Up** in **Quiz Competition on Digital Udbhaboni Mela 2018**.
-- **Second Runner Up** in **Math Olympiad 2012 (Primary Category)**.
+## 🔬 Research
 
-## Experience
+- **"Enhancing Diabetes Prediction Accuracy Using Deep Learning"** (2024 – 2025)
+  - Integrated ResNet50 convolutional feature extraction with ensemble algorithms (XGBoost, Random Forest) for high-accuracy early healthcare diagnostics.
+  - [View Research Repository](https://github.com/MachangDoniel/Diabetes-Prediction)
 
-### **Teaching Assistant - Ostad (Remote)**
-- **Time Period**: January 2025 - Present
-- Assisted students in preparing for coding interviews.
-- Developed and facilitated practice sessions focusing on data structures, algorithms, and problem-solving techniques.
-- Conducted mock interviews and provided feedback on problem-solving approaches.
+---
 
-### **Content and Training - LOOP, Control Engineering Club**
-- **Time Period**: 2022 - Present
-- Developed training content for control engineering and programming education.
-- Mentored and guided new members in their learning journey, fostering collaboration and skill development.
-- Organized events and workshops to enhance the club's learning environment and promote educational growth.
-
-### **Office Secretary - Save A Smile**
-- **Time Period**: 2022 - Present
-- Managed recruitment and onboarding processes for new members.
-- Organized charity events, fundraising campaigns, and awareness programs.
-- Coordinated with multiple teams to ensure timely delivery of initiatives.
-
-### **General Member - Special Group Interested in Programming Contest (SGIPC)**
-- **Time Period**: 2022 - Present
-- Participated in competitive programming discussions and team-building activities.
-- Contributed to group problem-solving and assisted peers in enhancing their programming skills.
-
-## Research
-
-### **Enhancing Diabetes Prediction Accuracy Using Deep Learning**
-- **Time Period**: March 2024 - March 2025
-- **Technologies Used**: Python, TensorFlow, XGBoost, ResNet50
-- This research integrates deep learning models (ResNet50) with machine learning algorithms (XGBoost, Random Forest) to improve the accuracy of diabetes prediction using real-time healthcare data.
-- [View Research on GitHub](https://github.com/MachangDoniel/Diabetes-Prediction)
-
-## Contact
-
-Feel free to reach out to me through the following platforms:
+## 📬 Contact & Connect
 
 - **Email**: [donieltripura121@gmail.com](mailto:donieltripura121@gmail.com)
 - **LinkedIn**: [https://www.linkedin.com/in/doniel-tripura-7a82281b9/](https://www.linkedin.com/in/doniel-tripura-7a82281b9/)
 - **GitHub**: [https://github.com/MachangDoniel](https://github.com/MachangDoniel)
-- **Twitter**: [https://x.com/TripuraDoniel](https://x.com/TripuraDoniel)
-- **Facebook**: [https://www.facebook.com/doniel.tripura.1](https://www.facebook.com/doniel.tripura.1)
+- **Twitter / X**: [https://x.com/TripuraDoniel](https://x.com/TripuraDoniel)
 - **YouTube**: [https://www.youtube.com/@donieltripura3323](https://www.youtube.com/@donieltripura3323)
 
-<!-- ## License
+---
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. -->
+*Hosted on GitHub Pages • Built with semantic HTML5, Tailwind CSS, Lucide Icons & Vanilla JS.*
