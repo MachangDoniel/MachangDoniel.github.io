@@ -1,7 +1,7 @@
 # Doniel Tripura — Personal Portfolio & Engineering Showcase
 
 [![Live Portfolio](https://img.shields.io/badge/Live-machangdoniel.github.io-blue?style=flat-square&logo=google-chrome)](https://machangdoniel.github.io/)
-[![App Store](https://img.shields.io/badge/App%20Store-2%20Published%20Apps-black?style=flat-square&logo=apple)](https://machangdoniel.github.io/#appstore)
+[![App Store](https://img.shields.io/badge/App%20Store-3%20Published%20Apps-black?style=flat-square&logo=apple)](https://machangdoniel.github.io/#appstore)
 [![Codeforces Specialist](https://img.shields.io/badge/Codeforces-1501%20(Specialist)-blue?style=flat-square&logo=codeforces)](https://codeforces.com/profile/MachangDoniel)
 [![CodeChef 3-Star](https://img.shields.io/badge/CodeChef-1766%20(3★)-brown?style=flat-square&logo=codechef)](https://www.codechef.com/users/machangdoniel)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Doniel%20Tripura-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/doniel-tripura-7a82281b9/)
@@ -21,6 +21,10 @@ I am an **iOS Software Engineer** with applications published on the **Apple App
 2. **[Neural Sound - Text to Speech](https://apps.apple.com/us/app/neural-sound-text-to-speech/id6753916628)** (App ID: `6753916628`)
    - *High-Fidelity AI Speech Engine*: Natural speech synthesis app for iOS converting text, articles, and documents into human-like audio using high-quality neural voices.
    - *Core Stack*: Swift, SwiftUI, AVAudioPlayer, AudioKit, iOS 16+.
+
+3. **[Audio Noise Cleaner AI](https://apps.apple.com/us/app/audio-noise-cleaner-ai/id6801474312)** (App ID: `6801474312`)
+   - *AI Speech Enhancement & Noise Removal*: Production iOS workstation eliminating background noise, hum, hiss, wind, and room echo using neural signal processing. Includes 1-tap raw vs. cleaned A/B playback comparison, auto-caption generation with custom styles, and lossless audio/video export.
+   - *Core Stack*: Swift, SwiftUI, AVFoundation, CoreAudio, Speech & Audio DSP.
 
 ---
 

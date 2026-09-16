@@ -284,13 +284,15 @@ function switchAppScreenshot(appId, imgUrl, caption, tech, btn) {
   // Toggle active tab button styling
   const tabs = document.querySelectorAll('.' + appId + '-tab');
   tabs.forEach(t => {
-    t.classList.remove('bg-purple-600', 'bg-blue-600', 'text-white', 'shadow-sm');
+    t.classList.remove('bg-purple-600', 'bg-blue-600', 'bg-emerald-600', 'text-white', 'shadow-sm');
     t.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
   });
 
   if (btn) {
     btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
-    const activeColor = appId === 'vocal' ? 'bg-purple-600' : 'bg-blue-600';
+    let activeColor = 'bg-blue-600';
+    if (appId === 'vocal') activeColor = 'bg-purple-600';
+    else if (appId === 'cleaner') activeColor = 'bg-emerald-600';
     btn.classList.add(activeColor, 'text-white', 'shadow-sm');
   }
 }
