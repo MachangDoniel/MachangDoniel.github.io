@@ -6,13 +6,14 @@
  * Site Settings
  * ---------------------------------------------------- */
 const SITE_CONFIG = {
-  // When false, the exact address and map are never rendered.
+  // When false (or no street is set), the exact address and map are never rendered.
+  // To show them, set showLocation: true and fill in street, short and mapEmbed.
   showLocation: false,
   location: {
-    street: 'Dalia Mahal, A-45, R-03, Aftabnagar',
+    street: '',
     city: 'Dhaka, Bangladesh',
-    short: 'Aftabnagar, Dhaka, BD',
-    mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=90.435%2C23.755%2C90.455%2C23.775&layer=mapnik&marker=23.76575%2C90.44520'
+    short: 'Dhaka, BD',
+    mapEmbed: ''
   }
 };
 
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * ---------------------------------------------------- */
 function initLocation() {
   const mapSection = document.querySelector('[data-location-map]');
-  if (!SITE_CONFIG.showLocation) {
+  if (!SITE_CONFIG.showLocation || !SITE_CONFIG.location.street) {
     document.querySelectorAll('[data-location-contact]').forEach(el => el.remove());
     if (mapSection) mapSection.remove();
     return;
