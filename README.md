@@ -34,31 +34,35 @@ I am an **iOS Software Engineer** with applications published on the **Apple App
    - *Native YouTube-Backed iOS Music Streaming*: YouTube catalog streaming with native iOS UI/UX (~2,400 lines of clean SwiftUI), background audio streaming, Lock Screen media controls, and queue management.
    - *Stack*: SwiftUI, AVPlayer, Combine.
 
-2. **Smart Scanner**
+2. **NewsDigest**
+   - *AI-Powered Daily BCS News Digest*: Scheduled GitHub Actions pipeline signs in to The Daily Star and Prothom Alo e-papers, summarizes each page with Gemini (with model fallback), merges duplicate stories via Groq, and serves key facts and practice MCQs to a SwiftUI app with a searchable archive and AI follow-up chat.
+   - *Stack*: SwiftUI, TypeScript, Playwright, Gemini, Groq, Supabase.
+
+3. **Smart Scanner**
    - *Enterprise Cross-Platform Document Scanner*: Multi-page capture with real-time border detection, 4-corner perspective distortion correction, and specialized image processing filters.
    - *Stack*: Flutter, iOS VisionKit, Android Google ML Kit.
 
-3. **MyPaste**
+4. **MyPaste**
    - *Fast, Private, LAN-First P2P Clipboard Synchronization*: Seamlessly synchronizes clipboard data across local devices without cloud dependencies, fully end-to-end encrypted.
    - *Stack*: P2P Networking, Cryptography, Local Discovery.
 
-4. **AI Company Agents**
+5. **AI Company Agents**
    - *Autonomous Software Engineering Multi-Agent Framework*: Reusable workflow modeling an entire product engineering organization (PM, Architect, Code Engineer, QA) with an interactive dashboard and sprint logs.
    - *Stack*: TypeScript, HTML/CSS, Workflow Automation.
 
-5. **Govt Job Prep System**
+6. **Govt Job Prep System**
    - *Multi-Platform Competitive Examination Platform*: Full ecosystem across Web (Laravel), iOS, and Android. Timed mock exams, question banks, and analytical metrics.
    - *Stack*: Laravel, PHP, Swift, Flutter, MySQL.
 
-6. **KUET-BANK**
+7. **KUET-BANK**
    - *FinTech Banking Management Platform*: Dual interfaces for customers and bank officials with secure authentication, loan workflows, and audit-logged ledgers.
    - *Stack*: Java, PHP, Laravel, MySQL.
 
-7. **Foodier**
+8. **Foodier**
    - *iOS Restaurant Order & Kitchen Management*: Real-time table state synchronization, interactive menus, and mobile ordering flows.
    - *Stack*: Swift, SwiftUI, Firebase Firestore.
 
-8. **DoRa Block Battle**
+9. **DoRa Block Battle**
    - *Strategic AI Game*: 2-player grid board game featuring an adversarial AI opponent driven by MinMax algorithms and Alpha-Beta pruning heuristics.
    - *Stack*: Python, Tkinter, MinMax Algorithm.
 
