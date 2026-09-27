@@ -2,7 +2,22 @@
  * Main Interactive Script for Doniel Tripura's Portfolio
  */
 
+/* ----------------------------------------------------
+ * Site Settings
+ * ---------------------------------------------------- */
+const SITE_CONFIG = {
+  // When false, the exact address and map are never rendered.
+  showLocation: false,
+  location: {
+    street: 'Dalia Mahal, A-45, R-03, Aftabnagar',
+    city: 'Dhaka, Bangladesh',
+    short: 'Aftabnagar, Dhaka, BD',
+    mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=90.435%2C23.755%2C90.455%2C23.775&layer=mapnik&marker=23.76575%2C90.44520'
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  initLocation();
   initTheme();
   initMobileMenu();
   initCVDropdown();
@@ -20,6 +35,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+/* ----------------------------------------------------
+ * Location (gated by SITE_CONFIG.showLocation)
+ * ---------------------------------------------------- */
+function initLocation() {
+  const mapSection = document.querySelector('[data-location-map]');
+  if (!SITE_CONFIG.showLocation) {
+    document.querySelectorAll('[data-location-contact]').forEach(el => el.remove());
+    if (mapSection) mapSection.remove();
+    return;
+  }
+
+  const { street, city, short, mapEmbed } = SITE_CONFIG.location;
+  const full = `${street}, ${city}`;
+  const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(full)}`;
+
+  document.querySelectorAll('[data-location-short]').forEach(el => { el.textContent = short; });
+  document.querySelectorAll('[data-location-street]').forEach(el => { el.textContent = street; });
+  document.querySelectorAll('[data-location-city]').forEach(el => { el.textContent = city; });
+  document.querySelectorAll('[data-location-full]').forEach(el => { el.textContent = full; });
+  document.querySelectorAll('[data-location-link]').forEach(el => { el.href = mapsUrl; });
+  document.querySelectorAll('[data-location-contact]').forEach(el => { el.hidden = false; });
+
+  if (mapSection) {
+    const iframe = mapSection.querySelector('iframe');
+    if (iframe) {
+      iframe.src = mapEmbed;
+      iframe.title = `${full} Location Map`;
+    }
+    mapSection.hidden = false;
+  }
+}
 
 /* ----------------------------------------------------
  * Theme Management (Dark / Light Mode)
