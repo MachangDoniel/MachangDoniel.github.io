@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-06",
+  "sources": [
+    {"label": "metrodhaka.com", "url": "https://metrodhaka.com/"},
+    {"label": "DMTCL", "url": "https://dmtcl.gov.bd/"},
+    {"label": "Rapid Pass (DTCA)", "url": "https://rapidpass.com.bd/en"},
+    {"label": "OpenStreetMap contributors (station coordinates)", "url": "https://www.openstreetmap.org/copyright"}
+  ],
+  "line": {
+    "id": "mrt6",
+    "name": {"en": "MRT Line 6", "bn": "এমআরটি লাইন ৬"},
+    "color": "#0E9F6E",
+    "lengthKm": 20.1,
+    "endToEndMinutes": 38,
+    "carsPerTrain": 6,
+    "history": [
+      {"date": "2022-12-28", "text": {"en": "Uttara North – Agargaon opened", "bn": "উত্তরা উত্তর – আগারগাঁও চালু"}},
+      {"date": "2023-11-04", "text": {"en": "Agargaon – Motijheel opened", "bn": "আগারগাঁও – মতিঝিল চালু"}},
+      {"date": "2023-12-31", "text": {"en": "All 16 stations open", "bn": "১৬টি স্টেশনই চালু"}},
+      {"date": "2024-10-15", "text": {"en": "Mirpur 10 reopened", "bn": "মিরপুর ১০ পুনরায় চালু"}}
+    ]
+  },
+  "stations": [
+    {"id": 0, "slug": "uttara-north", "cardCode": 90, "name": {"en": "Uttara North", "bn": "উত্তরা উত্তর"}, "lat": 23.86911, "lng": 90.36753, "minutesFromStart": 0, "isOpen": true, "area": {"en": "Diabari, Uttara", "bn": "দিয়াবাড়ি, উত্তরা"},
+      "nearby": [
+        {"en": "Diabari lake & open fields (2 min walk)", "bn": "দিয়াবাড়ি লেক ও খোলা মাঠ (২ মিনিট হাঁটা)"},
+        {"en": "Metro depot viewpoint", "bn": "মেট্রো ডিপো ভিউপয়েন্ট"},
+        {"en": "Uttara Sector 15–18 housing", "bn": "উত্তরা সেক্টর ১৫–১৮ আবাসিক এলাকা"}
+      ],
+      "connections": {"en": "Rickshaws, CNG and app rides to Uttara sectors and Airport Road", "bn": "উত্তরা সেক্টর ও এয়ারপোর্ট রোডে রিকশা, সিএনজি ও রাইড শেয়ার"}},
+    {"id": 1, "slug": "uttara-center", "cardCode": 85, "name": {"en": "Uttara Center", "bn": "উত্তরা মধ্য"}, "lat": 23.85972, "lng": 90.36518, "minutesFromStart": 2, "isOpen": true, "area": {"en": "Uttara Sector 13–14", "bn": "উত্তরা সেক্টর ১৩–১৪"},
+      "nearby": [
+        {"en": "Uttara residential sectors", "bn": "উত্তরা আবাসিক সেক্টর"},
+        {"en": "Diabari canal walk", "bn": "দিয়াবাড়ি খাল পাড়"}
+      ],
+      "connections": {"en": "Rickshaws to Uttara sectors; buses on Airport Road", "bn": "উত্তরা সেক্টরে রিকশা; এয়ারপোর্ট রোডে বাস"}},
+    {"id": 2, "slug": "uttara-south", "cardCode": 80, "name": {"en": "Uttara South", "bn": "উত্তরা দক্ষিণ"}, "lat": 23.8459, "lng": 90.36315, "minutesFromStart": 4, "isOpen": true, "area": {"en": "Uttara Sector 10–12", "bn": "উত্তরা সেক্টর ১০–১২"},
+      "nearby": [
+        {"en": "Uttara Sector 10 market", "bn": "উত্তরা সেক্টর ১০ মার্কেট"},
+        {"en": "Turag riverside (by rickshaw)", "bn": "তুরাগ নদীর পাড় (রিকশায়)"}
+      ],
+      "connections": {"en": "Rickshaws and CNG towards Uttara and Ashulia road", "bn": "উত্তরা ও আশুলিয়া রোডে রিকশা ও সিএনজি"}},
+    {"id": 3, "slug": "pallabi", "cardCode": 75, "name": {"en": "Pallabi", "bn": "পল্লবী"}, "lat": 23.82616, "lng": 90.36419, "minutesFromStart": 7, "isOpen": true, "area": {"en": "Pallabi, Mirpur 12", "bn": "পল্লবী, মিরপুর ১২"},
+      "nearby": [
+        {"en": "Mirpur 12 bus stand", "bn": "মিরপুর ১২ বাসস্ট্যান্ড"},
+        {"en": "Mirpur DOHS (by rickshaw)", "bn": "মিরপুর ডিওএইচএস (রিকশায়)"}
+      ],
+      "connections": {"en": "Buses at Mirpur 12; rickshaws to Pallabi and DOHS", "bn": "মিরপুর ১২-তে বাস; পল্লবী ও ডিওএইচএসে রিকশা"}},
+    {"id": 4, "slug": "mirpur-11", "cardCode": 70, "name": {"en": "Mirpur 11", "bn": "মিরপুর ১১"}, "lat": 23.8191, "lng": 90.36528, "minutesFromStart": 9, "isOpen": true, "area": {"en": "Mirpur 11", "bn": "মিরপুর ১১"},
+      "nearby": [
+        {"en": "Mirpur 11 market area", "bn": "মিরপুর ১১ মার্কেট এলাকা"},
+        {"en": "Benarasi Palli (Mirpur 10–11, short rickshaw)", "bn": "বেনারসি পল্লী (রিকশায় অল্প দূরত্ব)"}
+      ],
+      "connections": {"en": "Local buses and rickshaws on Begum Rokeya Sarani", "bn": "বেগম রোকেয়া সরণিতে লোকাল বাস ও রিকশা"}},
+    {"id": 5, "slug": "mirpur-10", "cardCode": 65, "name": {"en": "Mirpur 10", "bn": "মিরপুর ১০"}, "lat": 23.80836, "lng": 90.36826, "minutesFromStart": 11, "isOpen": true, "area": {"en": "Mirpur 10 roundabout", "bn": "মিরপুর ১০ গোলচত্বর"},
+      "nearby": [
+        {"en": "Sher-e-Bangla National Cricket Stadium (10 min walk)", "bn": "শেরে বাংলা জাতীয় ক্রিকেট স্টেডিয়াম (১০ মিনিট হাঁটা)"},
+        {"en": "Shah Ali Plaza shopping (3 min walk)", "bn": "শাহ আলী প্লাজা (৩ মিনিট হাঁটা)"},
+        {"en": "National Zoo & Botanical Garden (by CNG)", "bn": "জাতীয় চিড়িয়াখানা ও বোটানিক্যাল গার্ডেন (সিএনজিতে)"}
+      ],
+      "connections": {"en": "Major bus hub at Mirpur 10 roundabout", "bn": "মিরপুর ১০ গোলচত্বরে বড় বাস হাব"}},
+    {"id": 6, "slug": "kazipara", "cardCode": 60, "name": {"en": "Kazipara", "bn": "কাজীপাড়া"}, "lat": 23.79924, "lng": 90.37199, "minutesFromStart": 13, "isOpen": true, "area": {"en": "Kazipara, Mirpur", "bn": "কাজীপাড়া, মিরপুর"},
+      "nearby": [
+        {"en": "Begum Rokeya Sarani shops", "bn": "বেগম রোকেয়া সরণির দোকানপাট"}
+      ],
+      "connections": {"en": "Local buses and rickshaws on Begum Rokeya Sarani", "bn": "বেগম রোকেয়া সরণিতে লোকাল বাস ও রিকশা"}},
+    {"id": 7, "slug": "shewrapara", "cardCode": 55, "name": {"en": "Shewrapara", "bn": "শেওড়াপাড়া"}, "lat": 23.79096, "lng": 90.37551, "minutesFromStart": 15, "isOpen": true, "area": {"en": "Shewrapara, Mirpur", "bn": "শেওড়াপাড়া, মিরপুর"},
+      "nearby": [
+        {"en": "Taltola & Senpara (short walk)", "bn": "তালতলা ও সেনপাড়া (অল্প হাঁটা)"}
+      ],
+      "connections": {"en": "Local buses and rickshaws on Begum Rokeya Sarani", "bn": "বেগম রোকেয়া সরণিতে লোকাল বাস ও রিকশা"}},
+    {"id": 8, "slug": "agargaon", "cardCode": 50, "name": {"en": "Agargaon", "bn": "আগারগাঁও"}, "lat": 23.77843, "lng": 90.38005, "minutesFromStart": 18, "isOpen": true, "area": {"en": "Agargaon administrative area", "bn": "আগারগাঁও প্রশাসনিক এলাকা"},
+      "nearby": [
+        {"en": "Passport Office (5 min walk)", "bn": "পাসপোর্ট অফিস (৫ মিনিট হাঁটা)"},
+        {"en": "International Conference Center area", "bn": "আন্তর্জাতিক সম্মেলন কেন্দ্র এলাকা"},
+        {"en": "National Science Museum & Planetarium (by rickshaw)", "bn": "জাতীয় বিজ্ঞান জাদুঘর ও নভোথিয়েটার (রিকশায়)"},
+        {"en": "Liberation War Museum (10 min walk)", "bn": "মুক্তিযুদ্ধ জাদুঘর (১০ মিনিট হাঁটা)"}
+      ],
+      "connections": {"en": "Buses towards Mohammadpur, Shyamoli and Mirpur", "bn": "মোহাম্মদপুর, শ্যামলী ও মিরপুরগামী বাস"}},
+    {"id": 9, "slug": "bijoy-sarani", "cardCode": 45, "name": {"en": "Bijoy Sarani", "bn": "বিজয় সরণি"}, "lat": 23.76639, "lng": 90.3831, "minutesFromStart": 21, "isOpen": true, "area": {"en": "Bijoy Sarani, Tejgaon", "bn": "বিজয় সরণি, তেজগাঁও"},
+      "nearby": [
+        {"en": "Bangladesh Military Museum (Bijoy Sarani, 5 min walk)", "bn": "বাংলাদেশ সামরিক জাদুঘর (৫ মিনিট হাঁটা)"},
+        {"en": "National Parliament House (Sangsad Bhaban) area", "bn": "জাতীয় সংসদ ভবন এলাকা"},
+        {"en": "Chandrima Udyan", "bn": "চন্দ্রিমা উদ্যান"}
+      ],
+      "connections": {"en": "Buses towards Tejgaon and Mohakhali", "bn": "তেজগাঁও ও মহাখালীগামী বাস"}},
+    {"id": 10, "slug": "farmgate", "cardCode": 40, "name": {"en": "Farmgate", "bn": "ফার্মগেট"}, "lat": 23.75904, "lng": 90.38711, "minutesFromStart": 24, "isOpen": true, "area": {"en": "Farmgate, central Dhaka", "bn": "ফার্মগেট, মধ্য ঢাকা"},
+      "nearby": [
+        {"en": "Farmgate bus stand (outside the station)", "bn": "ফার্মগেট বাসস্ট্যান্ড (স্টেশনের বাইরে)"},
+        {"en": "Sejan Point shopping (2 min walk)", "bn": "সেজান পয়েন্ট (২ মিনিট হাঁটা)"},
+        {"en": "Farmgate food streets (3 min walk)", "bn": "ফার্মগেট খাবারের গলি (৩ মিনিট হাঁটা)"},
+        {"en": "Tejgaon College, Holy Cross College (5 min walk)", "bn": "তেজগাঁও কলেজ, হলিক্রস কলেজ (৫ মিনিট হাঁটা)"},
+        {"en": "Sat Masjid (10 min by rickshaw)", "bn": "সাত মসজিদ (রিকশায় ১০ মিনিট)"}
+      ],
+      "connections": {"en": "Largest surface bus interchange in central Dhaka; rickshaws and CNG at every entrance", "bn": "মধ্য ঢাকার সবচেয়ে বড় বাস ইন্টারচেঞ্জ; প্রতিটি প্রবেশপথে রিকশা ও সিএনজি"}},
+    {"id": 11, "slug": "karwan-bazar", "cardCode": 35, "name": {"en": "Karwan Bazar", "bn": "কারওয়ান বাজার"}, "lat": 23.75127, "lng": 90.39278, "minutesFromStart": 26, "isOpen": true, "area": {"en": "Karwan Bazar business district", "bn": "কারওয়ান বাজার বাণিজ্যিক এলাকা"},
+      "nearby": [
+        {"en": "Karwan Bazar kitchen market", "bn": "কারওয়ান বাজার কাঁচাবাজার"},
+        {"en": "Bashundhara City mall (10 min by rickshaw)", "bn": "বসুন্ধরা সিটি (রিকশায় ১০ মিনিট)"},
+        {"en": "Hatirjheel lakeside (10 min walk)", "bn": "হাতিরঝিল (১০ মিনিট হাঁটা)"}
+      ],
+      "connections": {"en": "Buses on Kazi Nazrul Islam Avenue; Hatirjheel circular bus nearby", "bn": "কাজী নজরুল ইসলাম অ্যাভিনিউতে বাস; কাছেই হাতিরঝিল চক্রাকার বাস"}},
+    {"id": 12, "slug": "shahbag", "cardCode": 30, "name": {"en": "Shahbagh", "bn": "শাহবাগ"}, "lat": 23.73946, "lng": 90.39598, "minutesFromStart": 29, "isOpen": true, "area": {"en": "Shahbagh", "bn": "শাহবাগ"},
+      "nearby": [
+        {"en": "Bangladesh National Museum (3 min walk)", "bn": "বাংলাদেশ জাতীয় জাদুঘর (৩ মিনিট হাঁটা)"},
+        {"en": "Suhrawardy Udyan (5 min walk)", "bn": "সোহরাওয়ার্দী উদ্যান (৫ মিনিট হাঁটা)"},
+        {"en": "Shahbagh flower market & book shops", "bn": "শাহবাগ ফুলের বাজার ও বইয়ের দোকান"},
+        {"en": "Ramna Park (10 min walk)", "bn": "রমনা পার্ক (১০ মিনিট হাঁটা)"}
+      ],
+      "connections": {"en": "Buses towards Gulistan, Mohakhali and Science Lab", "bn": "গুলিস্তান, মহাখালী ও সায়েন্স ল্যাবগামী বাস"}},
+    {"id": 13, "slug": "dhaka-university", "cardCode": 25, "name": {"en": "Dhaka University", "bn": "ঢাকা বিশ্ববিদ্যালয়"}, "lat": 23.73168, "lng": 90.39682, "minutesFromStart": 31, "isOpen": true, "area": {"en": "University of Dhaka campus", "bn": "ঢাকা বিশ্ববিদ্যালয় ক্যাম্পাস"},
+      "nearby": [
+        {"en": "TSC & Raju Sculpture (3 min walk)", "bn": "টিএসসি ও রাজু ভাস্কর্য (৩ মিনিট হাঁটা)"},
+        {"en": "Curzon Hall (8 min walk)", "bn": "কার্জন হল (৮ মিনিট হাঁটা)"},
+        {"en": "Central Shaheed Minar (10 min walk)", "bn": "কেন্দ্রীয় শহীদ মিনার (১০ মিনিট হাঁটা)"},
+        {"en": "Bangla Academy (5 min walk)", "bn": "বাংলা একাডেমি (৫ মিনিট হাঁটা)"}
+      ],
+      "connections": {"en": "Rickshaws around campus and towards Nilkhet/New Market", "bn": "ক্যাম্পাস ও নীলক্ষেত/নিউমার্কেটে রিকশা"}},
+    {"id": 14, "slug": "bangladesh-secretariat", "cardCode": 20, "name": {"en": "Bangladesh Secretariat", "bn": "বাংলাদেশ সচিবালয়"}, "lat": 23.73001, "lng": 90.40748, "minutesFromStart": 34, "isOpen": true, "area": {"en": "Secretariat, Paltan", "bn": "সচিবালয়, পল্টন"},
+      "nearby": [
+        {"en": "Baitul Mukarram National Mosque (8 min walk)", "bn": "বায়তুল মোকাররম জাতীয় মসজিদ (৮ মিনিট হাঁটা)"},
+        {"en": "Osmani Udyan (3 min walk)", "bn": "ওসমানী উদ্যান (৩ মিনিট হাঁটা)"},
+        {"en": "National Press Club (5 min walk)", "bn": "জাতীয় প্রেস ক্লাব (৫ মিনিট হাঁটা)"},
+        {"en": "Gulistan bus hub (10 min walk)", "bn": "গুলিস্তান বাস হাব (১০ মিনিট হাঁটা)"}
+      ],
+      "connections": {"en": "Buses at Gulistan and Paltan", "bn": "গুলিস্তান ও পল্টনে বাস"}},
+    {"id": 15, "slug": "motijheel", "cardCode": 10, "name": {"en": "Motijheel", "bn": "মতিঝিল"}, "lat": 23.72806, "lng": 90.41906, "minutesFromStart": 37, "isOpen": true, "area": {"en": "Motijheel commercial area", "bn": "মতিঝিল বাণিজ্যিক এলাকা"},
+      "nearby": [
+        {"en": "Shapla Chattar & Bangladesh Bank (3 min walk)", "bn": "শাপলা চত্বর ও বাংলাদেশ ব্যাংক (৩ মিনিট হাঁটা)"},
+        {"en": "Kamalapur Railway Station (by rickshaw)", "bn": "কমলাপুর রেলস্টেশন (রিকশায়)"},
+        {"en": "Dilkusha commercial area", "bn": "দিলকুশা বাণিজ্যিক এলাকা"}
+      ],
+      "connections": {"en": "Buses at Motijheel and Arambagh; rickshaws to Kamalapur", "bn": "মতিঝিল ও আরামবাগে বাস; কমলাপুরে রিকশা"}},
+    {"id": 16, "slug": "kamalapur", "cardCode": null, "name": {"en": "Kamalapur", "bn": "কমলাপুর"}, "lat": 23.7322, "lng": 90.4258, "minutesFromStart": 40, "isOpen": false, "expected": {"en": "Expected 2027", "bn": "সম্ভাব্য ২০২৭"}, "area": {"en": "Kamalapur Railway Station", "bn": "কমলাপুর রেলস্টেশন"},
+      "nearby": [
+        {"en": "Kamalapur Railway Station", "bn": "কমলাপুর রেলস্টেশন"}
+      ],
+      "connections": {"en": "Bangladesh Railway intercity trains (after opening)", "bn": "বাংলাদেশ রেলওয়ের আন্তঃনগর ট্রেন (চালুর পর)"}}
+  ],
+  "fares": {
+    "minimum": 20,
+    "maximum": 100,
+    "perKm": 5,
+    "passDiscountPercent": 10,
+    "seniorDisabledDiscountPercent": 25,
+    "matrix": [
+      [0,20,20,30,30,40,40,50,60,60,70,80,80,90,90,100],
+      [20,0,20,20,30,30,40,40,50,60,60,70,80,80,90,90],
+      [20,20,0,20,20,30,30,40,40,50,60,60,70,70,80,90],
+      [30,20,20,0,20,20,20,30,30,40,50,50,60,60,70,80],
+      [30,30,20,20,0,20,20,20,30,40,40,50,50,60,70,70],
+      [40,30,30,20,20,0,20,20,20,30,30,40,50,50,60,60],
+      [40,40,30,20,20,20,0,20,20,20,30,40,40,50,50,60],
+      [50,40,40,30,20,20,20,0,20,20,20,30,40,40,50,50],
+      [60,50,40,30,30,20,20,20,0,20,20,20,30,30,40,50],
+      [60,60,50,40,40,30,20,20,20,0,20,20,20,30,40,40],
+      [70,60,60,50,40,30,30,20,20,20,0,20,20,20,30,30],
+      [80,70,60,50,50,40,40,30,20,20,20,0,20,20,20,30],
+      [80,80,70,60,50,50,40,40,30,20,20,20,0,20,20,20],
+      [90,80,70,60,60,50,50,40,30,30,20,20,20,0,20,20],
+      [90,90,80,70,70,60,50,50,40,40,30,20,20,20,0,20],
+      [100,90,90,80,70,60,60,50,50,40,30,30,20,20,20,0]
+    ]
+  },
+  "timetable": {
+    "effectiveFrom": "2026-09-01",
+    "source": "DMTCL",
+    "dayTypes": {
+      "sunThu": {
+        "southbound": [["06:30","07:10",20],["07:11","07:30",10],["07:31","08:10",8],["08:11","10:00",5],["10:01","15:20",8],["15:21","16:43",6],["16:44","20:04",5],["20:05","21:00",10],["21:01","21:30",15],["21:31","21:50",20]],
+        "northbound": [["07:15","07:55",10],["07:56","08:45",8],["08:46","10:35",5],["10:36","15:55",8],["15:56","17:19",6],["17:20","20:38",8],["20:39","21:40",10],["21:41","22:10",15],["22:11","22:30",20]]
+      },
+      "friday": {
+        "southbound": [["15:00","16:36",8],["16:37","18:42",6],["18:43","20:18",8],["20:19","21:00",10],["21:01","21:30",15],["21:31","21:50",20]],
+        "northbound": [["15:20","17:11",8],["17:12","19:17",6],["19:18","20:53",8],["20:54","21:40",10],["21:41","22:10",15],["22:11","22:30",20]]
+      },
+      "saturday": {
+        "southbound": [["06:30","07:25",20],["07:26","07:49",12],["07:50","08:39",10],["08:40","10:39",8],["10:40","15:29",10],["15:30","16:25",8],["16:26","18:55",6],["18:56","19:51",8],["19:52","21:30",15],["21:31","21:50",20]],
+        "northbound": [["07:15","08:24",12],["08:25","09:14",10],["09:15","11:14",8],["11:15","16:04",10],["16:05","17:00",8],["17:01","19:30",6],["19:31","20:26",8],["20:27","21:40",10],["21:41","22:10",15],["22:11","22:30",20]]
+      }
+    }
+  },
+  "tickets": [
+    {"id": "sjt", "title": {"en": "Single Journey Ticket", "bn": "একক যাত্রার টিকিট"}, "points": [
+      {"en": "Contactless card sold at ticket machines (TVM) and the ticket office (TOM)", "bn": "টিকিট মেশিন (TVM) ও টিকিট অফিস (TOM) থেকে কেনা যায়"},
+      {"en": "Valid until midnight on the day of purchase; kept by the exit gate", "bn": "কেনার দিন মধ্যরাত পর্যন্ত বৈধ; বের হওয়ার গেটে জমা হয়ে যায়"},
+      {"en": "Unused tickets can be refunded the same day at the ticket office", "bn": "অব্যবহৃত টিকিট একই দিনে টিকিট অফিসে ফেরত দেওয়া যায়"}
+    ]},
+    {"id": "mrt", "title": {"en": "MRT Pass (DMTCL)", "bn": "এমআরটি পাস (ডিএমটিসিএল)"}, "points": [
+      {"en": "৳500: ৳300 travel credit + ৳200 refundable deposit", "bn": "৳৫০০: ৳৩০০ ভাড়া + ৳২০০ ফেরতযোগ্য জামানত"},
+      {"en": "10% off every journey", "bn": "প্রতিটি যাত্রায় ১০% ছাড়"},
+      {"en": "Valid 10 years, maximum balance ৳10,000", "bn": "১০ বছর মেয়াদ, সর্বোচ্চ ব্যালেন্স ৳১০,০০০"},
+      {"en": "Refund: deposit minus ৳50 service charge, plus unused balance", "bn": "ফেরত: জামানত থেকে ৳৫০ সার্ভিস চার্জ বাদে, সাথে অবশিষ্ট ব্যালেন্স"},
+      {"en": "Buy at the ticket office with a registration form (NID or passport may be requested)", "bn": "টিকিট অফিসে নিবন্ধন ফর্ম পূরণ করে কিনুন (এনআইডি/পাসপোর্ট লাগতে পারে)"}
+    ]},
+    {"id": "rapid", "title": {"en": "Rapid Pass (DTCA)", "bn": "র‍্যাপিড পাস (ডিটিসিএ)"}, "points": [
+      {"en": "Works on the metro and some other Dhaka transport", "bn": "মেট্রো ও ঢাকার কিছু অন্যান্য পরিবহনে চলে"},
+      {"en": "Same 10% metro discount as the MRT Pass", "bn": "এমআরটি পাসের মতোই মেট্রোতে ১০% ছাড়"},
+      {"en": "Register and recharge online at rapidpass.com.bd", "bn": "rapidpass.com.bd-তে নিবন্ধন ও অনলাইন রিচার্জ"}
+    ]},
+    {"id": "recharge", "title": {"en": "Recharging", "bn": "রিচার্জ"}, "points": [
+      {"en": "Ticket machines, ticket office or Excess Fare Office at any station", "bn": "যেকোনো স্টেশনের টিকিট মেশিন, টিকিট অফিস বা এক্সেস ফেয়ার অফিসে"},
+      {"en": "Online via DTCA since 25 Nov 2025; then tap your card on an Add Value Machine at a station to load it", "bn": "২৫ নভেম্বর ২০২৫ থেকে ডিটিসিএ-র মাধ্যমে অনলাইনে; এরপর স্টেশনের অ্যাড ভ্যালু মেশিনে কার্ড ছুঁইয়ে ব্যালেন্স যোগ করুন"},
+      {"en": "DBBL branches and agent points (Rapid Pass)", "bn": "ডিবিবিএল শাখা ও এজেন্ট পয়েন্ট (র‍্যাপিড পাস)"},
+      {"en": "Machines take ৳10–৳1,000 notes (no ৳500/৳1,000 when the fare is under ৳100); no QR or mobile banking at machines", "bn": "মেশিনে ৳১০–৳১,০০০ নোট চলে (ভাড়া ৳১০০-এর কম হলে ৳৫০০/৳১,০০০ নয়); মেশিনে কিউআর বা মোবাইল ব্যাংকিং নেই"}
+    ]},
+    {"id": "lost", "title": {"en": "Lost or damaged cards", "bn": "হারানো বা নষ্ট কার্ড"}, "points": [
+      {"en": "Lost card replacement ৳400 (৳200 deposit + ৳200 processing)", "bn": "হারানো কার্ড প্রতিস্থাপন ৳৪০০ (৳২০০ জামানত + ৳২০০ প্রসেসিং)"},
+      {"en": "Damaged card replacement ৳200", "bn": "নষ্ট কার্ড প্রতিস্থাপন ৳২০০"},
+      {"en": "Your remaining balance moves to the new card", "bn": "অবশিষ্ট ব্যালেন্স নতুন কার্ডে স্থানান্তর হয়"}
+    ]}
+  ],
+  "concessions": [
+    {"en": "Passengers 65+ and passengers with disabilities: 25% off (since 25 May 2026), rounded to the nearest ৳5. Buy at the ticket office with ID.", "bn": "৬৫+ বয়সী ও প্রতিবন্ধী যাত্রী: ২৫% ছাড় (২৫ মে ২০২৬ থেকে), নিকটতম ৳৫-এ রাউন্ড। পরিচয়পত্রসহ টিকিট অফিস থেকে কিনুন।"},
+    {"en": "War-wounded Freedom Fighters: free single journey with ID card at the ticket office", "bn": "যুদ্ধাহত মুক্তিযোদ্ধা: পরিচয়পত্র দেখিয়ে বিনামূল্যে একক যাত্রা"},
+    {"en": "Children under 3 feet tall travel free with a guardian", "bn": "৩ ফুটের কম উচ্চতার শিশু অভিভাবকের সাথে বিনামূল্যে"},
+    {"en": "No student concession", "bn": "শিক্ষার্থীদের জন্য আলাদা ছাড় নেই"}
+  ],
+  "rules": [
+    {"en": "Tap in and tap out with the same card; keep it ready at the gate.", "bn": "একই কার্ড দিয়ে ঢুকুন ও বের হোন; গেটে কার্ড প্রস্তুত রাখুন।"},
+    {"en": "Time limit inside the paid area: exceeding it (e.g. 40 min from Uttara North to Agargaon) costs double the maximum fare for that section.", "bn": "পেইড এরিয়ায় সময়সীমা পার হলে (যেমন উত্তরা উত্তর–আগারগাঁও ৪০ মিনিট) ওই অংশের সর্বোচ্চ ভাড়ার দ্বিগুণ জরিমানা।"},
+    {"en": "A card blocked after an irregular journey is unblocked at the Excess Fare Office.", "bn": "অনিয়মিত যাত্রার কারণে ব্লক হওয়া কার্ড এক্সেস ফেয়ার অফিসে চালু করুন।"},
+    {"en": "Stand behind the yellow line on the platform.", "bn": "প্ল্যাটফর্মে হলুদ দাগের পেছনে দাঁড়ান।"},
+    {"en": "Let passengers get off before you board.", "bn": "আগে যাত্রীদের নামতে দিন, তারপর উঠুন।"},
+    {"en": "No smoking, littering, or dangerous or flammable items.", "bn": "ধূমপান, ময়লা ফেলা ও বিপজ্জনক/দাহ্য বস্তু নিষিদ্ধ।"},
+    {"en": "Offer reserved seats to elderly, disabled and pregnant passengers and women where marked.", "bn": "চিহ্নিত আসন বয়স্ক, প্রতিবন্ধী, অন্তঃসত্ত্বা ও নারী যাত্রীদের জন্য ছেড়ে দিন।"},
+    {"en": "Keep doors and escalators clear; follow staff instructions during disruptions.", "bn": "দরজা ও চলন্ত সিঁড়ি খালি রাখুন; বিঘ্নের সময় কর্মীদের নির্দেশ মানুন।"}
+  ],
+  "faq": [
+    {"q": {"en": "Why doesn't my balance update by itself?", "bn": "ব্যালেন্স নিজে থেকে আপডেট হয় না কেন?"}, "a": {"en": "The balance and trips are stored on your card. This app reads them only when you scan the card, so scan again after a trip or a recharge.", "bn": "ব্যালেন্স ও ভ্রমণ তথ্য আপনার কার্ডে থাকে। কার্ড স্ক্যান করলেই অ্যাপ তা পড়ে, তাই ভ্রমণ বা রিচার্জের পর আবার স্ক্যান করুন।"}},
+    {"q": {"en": "Which cards can I scan?", "bn": "কোন কার্ড স্ক্যান করা যায়?"}, "a": {"en": "MRT Pass and Rapid Pass (FeliCa) cards. Single journey tickets are not supported.", "bn": "এমআরটি পাস ও র‍্যাপিড পাস (FeliCa) কার্ড। একক যাত্রার টিকিট সমর্থিত নয়।"}},
+    {"q": {"en": "Why does a trip show only the hour, not the minute?", "bn": "ভ্রমণের সময়ে শুধু ঘণ্টা দেখায় কেন?"}, "a": {"en": "The card stores the date and hour of each record, not minutes.", "bn": "কার্ডে প্রতিটি রেকর্ডের তারিখ ও ঘণ্টা থাকে, মিনিট থাকে না।"}},
+    {"q": {"en": "Can I recharge from this app?", "bn": "এই অ্যাপ থেকে রিচার্জ করা যায়?"}, "a": {"en": "You can open the official Rapid Pass recharge page inside the app. Payments are handled by Rapid Pass/DTCA. After paying, tap your card on an Add Value Machine at a station.", "bn": "অ্যাপের ভেতরেই অফিসিয়াল র‍্যাপিড পাস রিচার্জ পেজ খোলা যায়। পেমেন্ট র‍্যাপিড পাস/ডিটিসিএ পরিচালনা করে। পেমেন্টের পর স্টেশনের অ্যাড ভ্যালু মেশিনে কার্ড ছোঁয়ান।"}},
+    {"q": {"en": "Are the train times exact?", "bn": "ট্রেনের সময় কি একদম সঠিক?"}, "a": {"en": "DMTCL publishes only terminal departure times and intervals. Times at other stations are estimates.", "bn": "ডিএমটিসিএল শুধু প্রান্তিক স্টেশনের সময় ও বিরতি প্রকাশ করে। অন্য স্টেশনের সময় আনুমানিক।"}},
+    {"q": {"en": "Is this an official app?", "bn": "এটা কি অফিসিয়াল অ্যাপ?"}, "a": {"en": "No. It is an independent app and is not affiliated with DMTCL, DTCA or Rapid Pass.", "bn": "না। এটি একটি স্বাধীন অ্যাপ, ডিএমটিসিএল, ডিটিসিএ বা র‍্যাপিড পাসের সাথে সম্পর্কিত নয়।"}}
+  ],
+  "changes": [
+    {"date": "2026-09-01", "status": "inForce", "text": {"en": "Separate Sun–Thu, Friday and Saturday timetables. First and last trains unchanged.", "bn": "রবি–বৃহস্পতি, শুক্র ও শনিবারের আলাদা সময়সূচি। প্রথম ও শেষ ট্রেন অপরিবর্তিত।"}},
+    {"date": "2026-05-25", "status": "inForce", "text": {"en": "25% discount for passengers 65+ and passengers with disabilities (ticket office, with ID).", "bn": "৬৫+ বয়সী ও প্রতিবন্ধী যাত্রীদের জন্য ২৫% ছাড় (টিকিট অফিসে, পরিচয়পত্রসহ)।"}},
+    {"date": "2025-11-25", "status": "inForce", "text": {"en": "Online recharge for MRT Pass and Rapid Pass via DTCA.", "bn": "ডিটিসিএ-র মাধ্যমে এমআরটি ও র‍্যাপিড পাসের অনলাইন রিচার্জ।"}},
+    {"date": "2024-10-15", "status": "inForce", "text": {"en": "Mirpur 10 reopened; all 16 stations open.", "bn": "মিরপুর ১০ পুনরায় চালু; ১৬টি স্টেশনই চালু।"}},
+    {"date": "2027", "status": "planned", "text": {"en": "Kamalapur extension (1.16 km, one station) expected in 2027. Trains do not stop there yet.", "bn": "কমলাপুর সম্প্রসারণ (১.১৬ কিমি, একটি স্টেশন) ২০২৭ সালে প্রত্যাশিত। এখনো সেখানে ট্রেন থামে না।"}}
+  ],
+  "futureLines": [
+    {"id": "mrt1", "name": {"en": "MRT Line 1", "bn": "এমআরটি লাইন ১"}, "text": {"en": "Airport – Kamalapur and Notun Bazar – Purbachal, partly underground. Under construction.", "bn": "বিমানবন্দর – কমলাপুর ও নতুন বাজার – পূর্বাচল, আংশিক পাতালপথ। নির্মাণাধীন।"}},
+    {"id": "mrt5n", "name": {"en": "MRT Line 5 (North)", "bn": "এমআরটি লাইন ৫ (উত্তর)"}, "text": {"en": "Hemayetpur – Bhatara via Mirpur and Gulshan. Under construction.", "bn": "হেমায়েতপুর – ভাটারা, মিরপুর ও গুলশান হয়ে। নির্মাণাধীন।"}},
+    {"id": "mrt5s", "name": {"en": "MRT Line 5 (South)", "bn": "এমআরটি লাইন ৫ (দক্ষিণ)"}, "text": {"en": "Gabtoli – Dasherkandi. Planned.", "bn": "গাবতলী – দাশেরকান্দি। পরিকল্পিত।"}},
+    {"id": "mrt2", "name": {"en": "MRT Line 2", "bn": "এমআরটি লাইন ২"}, "text": {"en": "Gabtoli – Narayanganj. Planned.", "bn": "গাবতলী – নারায়ণগঞ্জ। পরিকল্পিত।"}},
+    {"id": "mrt4", "name": {"en": "MRT Line 4", "bn": "এমআরটি লাইন ৪"}, "text": {"en": "Kamalapur – Narayanganj. Planned.", "bn": "কমলাপুর – নারায়ণগঞ্জ। পরিকল্পিত।"}}
+  ],
+  "facilities": [
+    {"en": "Lifts for step-free access", "bn": "লিফট (সিঁড়ি ছাড়া চলাচল)"},
+    {"en": "Tactile paving and audio announcements", "bn": "স্পর্শযোগ্য পথ ও শব্দ ঘোষণা"},
+    {"en": "Ticket machines and ticket office", "bn": "টিকিট মেশিন ও টিকিট অফিস"},
+    {"en": "CCTV and on-site security", "bn": "সিসিটিভি ও নিরাপত্তাকর্মী"},
+    {"en": "Bangla and English signs and announcements", "bn": "বাংলা ও ইংরেজি নির্দেশনা ও ঘোষণা"}
+  ]
+}
