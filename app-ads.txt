@@ -1,0 +1,2 @@
+# AdMob: one line per ad network account; covers every app on this site.
+google.com, pub-5355407274010037, DIRECT, f08c47fec0942fa0
