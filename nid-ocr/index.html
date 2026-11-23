@@ -245,18 +245,26 @@
         <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
           <i data-lucide="server" class="w-4 h-4 text-emerald-600"></i> Backend API Endpoint
         </h3>
-        <button onclick="closeApiModal()" class="text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-5 h-5"></i></button>
+        <button onclick="closeApiModal()" class="text-slate-400 hover:text-slate-700 cursor-pointer"><i data-lucide="x" class="w-5 h-5"></i></button>
       </div>
       <p class="text-xs text-slate-500 leading-relaxed">
-        Because GitHub Pages runs over HTTPS, your OCR backend API must have an HTTPS URL (e.g., via Cloudflare Tunnel or your SSL domain).
+        Because GitHub Pages runs over HTTPS, your OCR backend API must have an <strong>HTTPS</strong> URL (e.g. from Cloudflare Tunnel or an SSL-enabled reverse proxy).
       </p>
       <div>
         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">OCR API URL</label>
-        <input type="url" id="customApiUrl" placeholder="https://your-ocr-backend.domain.com" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 font-mono" />
+        <input type="url" id="customApiUrl" placeholder="https://xyz.trycloudflare.com" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 font-mono" />
       </div>
-      <div class="flex justify-end gap-2 pt-2">
-        <button onclick="closeApiModal()" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg">Cancel</button>
-        <button onclick="saveApiUrl()" class="px-4 py-2 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg shadow-sm">Save & Apply</button>
+
+      <div id="apiTestResult" class="hidden"></div>
+
+      <div class="flex items-center justify-between pt-2">
+        <button onclick="testApiConnection()" type="button" class="px-3.5 py-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg flex items-center gap-1.5 transition-colors cursor-pointer">
+          <i data-lucide="activity" class="w-3.5 h-3.5"></i> Test Connection
+        </button>
+        <div class="flex gap-2">
+          <button onclick="closeApiModal()" class="px-3.5 py-2 text-xs font-semibold text-slate-500 hover:bg-slate-100 rounded-lg cursor-pointer">Cancel</button>
+          <button onclick="saveApiUrl()" class="px-4 py-2 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg shadow-sm cursor-pointer">Save & Apply</button>
+        </div>
       </div>
     </div>
   </div>
@@ -265,7 +273,7 @@
   <script>
     // Default or saved API URL (stored in localStorage)
     const STORAGE_KEY = 'kona_nid_ocr_api_url';
-    const DEFAULT_API_URL = localStorage.getItem(STORAGE_KEY) || 'https://api.kona-scanner.live';
+    const DEFAULT_API_URL = '';
 
     document.getElementById('currentYear').innerText = new Date().getFullYear();
 
@@ -274,29 +282,81 @@
     let extractedData = null;
 
     function getApiUrl() {
-      return localStorage.getItem(STORAGE_KEY) || DEFAULT_API_URL;
+      return (localStorage.getItem(STORAGE_KEY) || DEFAULT_API_URL).trim().replace(/\/+$/, '');
+    }
+
+    function updateApiStatusIndicator() {
+      const url = getApiUrl();
+      const label = document.getElementById('apiStatusLabel');
+      if (!url) {
+        label.innerText = 'Set API URL';
+        label.parentElement.classList.remove('bg-slate-100', 'text-slate-600', 'border-emerald-300', 'bg-emerald-50', 'text-emerald-700');
+        label.parentElement.classList.add('bg-amber-50', 'text-amber-700', 'border', 'border-amber-200');
+      } else {
+        try {
+          const host = new URL(url).hostname;
+          label.innerText = host.length > 20 ? host.slice(0, 18) + '...' : host;
+          label.parentElement.classList.remove('bg-amber-50', 'text-amber-700', 'border-amber-200');
+          label.parentElement.classList.add('bg-slate-100', 'text-slate-600');
+        } catch (e) {
+          label.innerText = 'API Settings';
+        }
+      }
     }
 
     function openApiModal() {
       document.getElementById('customApiUrl').value = getApiUrl();
+      document.getElementById('apiTestResult').classList.add('hidden');
       document.getElementById('apiModal').classList.remove('hidden');
     }
 
     function closeApiModal() {
       document.getElementById('apiModal').classList.add('hidden');
+      updateApiStatusIndicator();
     }
 
     function saveApiUrl() {
       const val = document.getElementById('customApiUrl').value.trim().replace(/\/+$/, '');
       if (val) {
         localStorage.setItem(STORAGE_KEY, val);
-        showToast('API URL updated!');
+        showToast('API URL saved!');
+      } else {
+        localStorage.removeItem(STORAGE_KEY);
       }
       closeApiModal();
     }
 
+    async function testApiConnection() {
+      const val = document.getElementById('customApiUrl').value.trim().replace(/\/+$/, '');
+      const testResult = document.getElementById('apiTestResult');
+      testResult.classList.remove('hidden');
+      if (!val) {
+        testResult.className = 'p-3 rounded-xl bg-amber-50 text-amber-800 text-xs';
+        testResult.innerText = 'Please enter an HTTPS API URL first.';
+        return;
+      }
+      testResult.className = 'p-3 rounded-xl bg-slate-100 text-slate-700 text-xs flex items-center gap-2';
+      testResult.innerHTML = '<span class="inline-block w-3 h-3 border-2 border-slate-400 border-t-transparent rounded-full animate-spin"></span> Testing connection...';
+      try {
+        const res = await fetch(`${val}/api/v1/ocr`, { method: 'POST' });
+        const data = await res.json();
+        // Server returns 400 or EMPTY_BODY when reached without file, which confirms it is online!
+        if (data.error_code === 'EMPTY_BODY' || res.status === 400 || res.status === 200) {
+          testResult.className = 'p-3 rounded-xl bg-emerald-50 text-emerald-800 text-xs font-semibold';
+          testResult.innerText = '✓ Connection successful! OCR Server is online.';
+        } else {
+          testResult.className = 'p-3 rounded-xl bg-amber-50 text-amber-800 text-xs';
+          testResult.innerText = `Server responded with status: ${res.status}`;
+        }
+      } catch (err) {
+        testResult.className = 'p-3 rounded-xl bg-rose-50 text-rose-800 text-xs leading-relaxed';
+        testResult.innerHTML = `<strong>Connection Failed:</strong> ${err.message}<br><span class="text-[11px] text-rose-600 mt-1 block">Ensure the URL starts with <code>https://</code> (mixed-content block prevents plain <code>http://</code> from GitHub Pages).</span>`;
+      }
+    }
+
     // Initialize Lucide icons
     lucide.createIcons();
+    updateApiStatusIndicator();
 
     // Attach File Listeners
     document.getElementById('inputFront').addEventListener('change', (e) => handleFile(e, 'front'));
@@ -383,6 +443,13 @@
 
       errorAlert.classList.add('hidden');
 
+      const apiUrl = getApiUrl();
+      if (!apiUrl) {
+        showError("Backend API URL is not configured. Please click 'API Settings' at the top to set your OCR server HTTPS URL.");
+        openApiModal();
+        return;
+      }
+
       if (!frontFile && !backFile) {
         showError("Please upload at least the Front side of the NID card.");
         return;
@@ -402,7 +469,7 @@
         if (compFront) formData.append("image", compFront, frontFile?.name || "front.jpg");
         if (compBack) formData.append("back_image", compBack, backFile?.name || "back.jpg");
 
-        const targetUrl = `${getApiUrl()}/api/v1/ocr`;
+        const targetUrl = `${apiUrl}/api/v1/ocr`;
         
         const response = await fetch(targetUrl, {
           method: "POST",
@@ -412,12 +479,16 @@
         const data = await response.json();
 
         if (!response.ok || !data.ok) {
-          throw new Error(data?.error?.message || `Server returned error (${response.status})`);
+          throw new Error(data?.error?.message || data?.message || `Server returned error (${response.status})`);
         }
 
         renderResults(data);
       } catch (err) {
-        showError(err.message || "Failed to contact OCR API server. Please check your backend URL in Settings.");
+        let msg = err.message || "Failed to contact OCR API server.";
+        if (msg === 'Failed to fetch') {
+          msg = `Failed to connect to ${apiUrl}. Please verify that your OCR backend is online and accessible via HTTPS (GitHub Pages blocks non-HTTPS endpoints). Click 'API Settings' to test the connection.`;
+        }
+        showError(msg);
       } finally {
         loading.classList.add('hidden');
         btnScan.disabled = false;
@@ -487,3 +558,4 @@
   </script>
 </body>
 </html>
+
