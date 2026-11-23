@@ -273,7 +273,7 @@
   <script>
     // Default or saved API URL (stored in localStorage)
     const STORAGE_KEY = 'kona_nid_ocr_api_url';
-    const DEFAULT_API_URL = '';
+    const DEFAULT_API_URL = 'https://sad-bears-fetch.loca.lt';
 
     document.getElementById('currentYear').innerText = new Date().getFullYear();
 
@@ -502,18 +502,26 @@
       }
     }
 
+    function extractVal(field) {
+      if (!field) return '—';
+      if (typeof field === 'object' && field.value !== undefined) {
+        return field.value || '—';
+      }
+      return typeof field === 'string' ? field : String(field);
+    }
+
     function renderResults(data) {
       extractedData = data;
       const f = data.fields || {};
 
-      document.getElementById('resNid').innerText = f.nid_number || '—';
-      document.getElementById('resNameBn').innerText = f.name_bangla || '—';
-      document.getElementById('resNameEn').innerText = f.name_english || '—';
-      document.getElementById('resDob').innerText = f.date_of_birth || '—';
-      document.getElementById('resFather').innerText = f.father_name_bangla || f.husband_name_bangla || '—';
-      document.getElementById('resMother').innerText = f.mother_name_bangla || '—';
-      document.getElementById('resBlood').innerText = f.blood_group || data.back?.blood_group || '—';
-      document.getElementById('resAddress').innerText = f.address_bangla || data.back?.address || '—';
+      document.getElementById('resNid').innerText = extractVal(f.nid_number);
+      document.getElementById('resNameBn').innerText = extractVal(f.name_bangla);
+      document.getElementById('resNameEn').innerText = extractVal(f.name_english);
+      document.getElementById('resDob').innerText = extractVal(f.date_of_birth);
+      document.getElementById('resFather').innerText = extractVal(f.father_name_bangla || f.husband_name_bangla);
+      document.getElementById('resMother').innerText = extractVal(f.mother_name_bangla);
+      document.getElementById('resBlood').innerText = extractVal(f.blood_group || data.back?.blood_group);
+      document.getElementById('resAddress').innerText = extractVal(f.address_bangla || data.back?.address);
 
       document.getElementById('resultsSection').classList.remove('hidden');
       document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
@@ -538,14 +546,14 @@
     function copyAllJSON() {
       if (!extractedData) return;
       const cleanJson = {
-        nid_number: extractedData.fields?.nid_number || null,
-        name_bangla: extractedData.fields?.name_bangla || null,
-        name_english: extractedData.fields?.name_english || null,
-        date_of_birth: extractedData.fields?.date_of_birth || null,
-        father_name_bangla: extractedData.fields?.father_name_bangla || null,
-        mother_name_bangla: extractedData.fields?.mother_name_bangla || null,
-        blood_group: extractedData.fields?.blood_group || extractedData.back?.blood_group || null,
-        address: extractedData.fields?.address_bangla || extractedData.back?.address || null
+        nid_number: extractVal(extractedData.fields?.nid_number),
+        name_bangla: extractVal(extractedData.fields?.name_bangla),
+        name_english: extractVal(extractedData.fields?.name_english),
+        date_of_birth: extractVal(extractedData.fields?.date_of_birth),
+        father_name_bangla: extractVal(extractedData.fields?.father_name_bangla || extractedData.fields?.husband_name_bangla),
+        mother_name_bangla: extractVal(extractedData.fields?.mother_name_bangla),
+        blood_group: extractVal(extractedData.fields?.blood_group || extractedData.back?.blood_group),
+        address: extractVal(extractedData.fields?.address_bangla || extractedData.back?.address)
       };
       navigator.clipboard.writeText(JSON.stringify(cleanJson, null, 2));
       showToast("All fields copied as JSON!");
