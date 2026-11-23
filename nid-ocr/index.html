@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart NID OCR Scanner | Machang Doniel</title>
+  <meta name="description" content="Live Bangladesh National ID (NID) Card OCR scanner. Upload front and back to extract verified information instantly." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .bangla { font-family: 'Hind Siliguri', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800 antialiased flex flex-col selection:bg-emerald-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center font-bold shadow-md shadow-emerald-200 transition-transform group-hover:scale-105">
+          <i data-lucide="scan-line" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h1 class="text-base font-bold text-slate-900 leading-tight">NID Scanner <span class="text-xs px-2 py-0.5 ml-1 bg-emerald-100 text-emerald-800 rounded-full font-semibold">Live</span></h1>
+          <p class="text-xs text-slate-400">Bangladesh Smart & Legacy NID Extractor</p>
+        </div>
+      </a>
+      
+      <div class="flex items-center gap-2">
+        <button onclick="openApiModal()" class="px-3 py-1.5 text-xs font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg flex items-center gap-1.5 transition-colors" title="Configure Backend API URL">
+          <i data-lucide="server" class="w-3.5 h-3.5"></i>
+          <span id="apiStatusLabel">API Settings</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto px-4 py-8 flex-1 w-full space-y-6">
+    
+    <!-- Top Hero / Guide -->
+    <div class="text-center max-w-xl mx-auto mb-2">
+      <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Extract NID Information Instantly</h2>
+      <p class="text-sm text-slate-500 mt-1">Upload the front side (required) and back side (optional for address & blood group). All field detection & OCR runs automatically.</p>
+    </div>
+
+    <!-- Upload Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      <!-- Front Card Upload -->
+      <div class="bg-white rounded-2xl border-2 border-dashed border-slate-300 hover:border-emerald-500 transition-all p-5 flex flex-col items-center justify-center relative cursor-pointer group min-h-[240px] shadow-sm hover:shadow-md" id="dropFront">
+        <input type="file" id="inputFront" accept="image/png, image/jpeg, image/webp" class="absolute inset-0 opacity-0 cursor-pointer z-10" />
+        
+        <div id="previewFrontContainer" class="hidden w-full h-full flex flex-col items-center">
+          <img id="previewFront" class="max-h-44 max-w-full object-contain rounded-xl border border-slate-200 shadow-xs mb-3" />
+          <div class="flex items-center gap-3 z-20">
+            <span id="frontMeta" class="text-xs font-medium text-slate-400"></span>
+            <button type="button" class="text-xs font-semibold text-rose-500 hover:text-rose-600 hover:underline cursor-pointer" onclick="removeImage('front', event)">Remove</button>
+          </div>
+        </div>
+
+        <div id="emptyFront" class="flex flex-col items-center text-center space-y-3 py-4 pointer-events-none">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+            <i data-lucide="id-card" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-slate-800">NID Front Side <span class="text-rose-500">*</span></p>
+            <p class="text-xs text-slate-400 mt-1">Drag and drop or click to upload</p>
+            <span class="inline-block mt-2 text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">JPG, PNG, WebP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back Card Upload -->
+      <div class="bg-white rounded-2xl border-2 border-dashed border-slate-300 hover:border-emerald-500 transition-all p-5 flex flex-col items-center justify-center relative cursor-pointer group min-h-[240px] shadow-sm hover:shadow-md" id="dropBack">
+        <input type="file" id="inputBack" accept="image/png, image/jpeg, image/webp" class="absolute inset-0 opacity-0 cursor-pointer z-10" />
+        
+        <div id="previewBackContainer" class="hidden w-full h-full flex flex-col items-center">
+          <img id="previewBack" class="max-h-44 max-w-full object-contain rounded-xl border border-slate-200 shadow-xs mb-3" />
+          <div class="flex items-center gap-3 z-20">
+            <span id="backMeta" class="text-xs font-medium text-slate-400"></span>
+            <button type="button" class="text-xs font-semibold text-rose-500 hover:text-rose-600 hover:underline cursor-pointer" onclick="removeImage('back', event)">Remove</button>
+          </div>
+        </div>
+
+        <div id="emptyBack" class="flex flex-col items-center text-center space-y-3 py-4 pointer-events-none">
+          <div class="w-14 h-14 rounded-2xl bg-slate-100 text-slate-500 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+            <i data-lucide="credit-card" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-slate-800">NID Back Side <span class="text-slate-400 font-normal">(Optional)</span></p>
+            <p class="text-xs text-slate-400 mt-1">Contains Address & Blood Group</p>
+            <span class="inline-block mt-2 text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">JPG, PNG, WebP</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Action Button -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+      <button id="btnScan" onclick="processOCR()" class="w-full sm:w-auto min-w-[240px] px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 disabled:bg-slate-300 text-white font-bold rounded-xl shadow-lg shadow-emerald-200 transition-all flex items-center justify-center gap-2.5 cursor-pointer disabled:cursor-not-allowed text-sm">
+        <i data-lucide="sparkles" class="w-5 h-5"></i>
+        <span>Scan & Extract NID</span>
+      </button>
+    </div>
+
+    <!-- Error Banner -->
+    <div id="errorAlert" class="hidden p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-sm flex items-start gap-3 shadow-xs">
+      <i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0 text-rose-500 mt-0.5"></i>
+      <div class="flex-1">
+        <p class="font-bold">Error</p>
+        <p id="errorMessage" class="text-xs mt-0.5 leading-relaxed">Failed to process request.</p>
+      </div>
+      <button onclick="document.getElementById('errorAlert').classList.add('hidden')" class="text-rose-400 hover:text-rose-700"><i data-lucide="x" class="w-4 h-4"></i></button>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loadingState" class="hidden bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center justify-center text-center space-y-4">
+      <div class="relative w-16 h-16">
+        <div class="w-16 h-16 border-4 border-emerald-100 rounded-full"></div>
+        <div class="w-16 h-16 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin absolute inset-0"></div>
+      </div>
+      <div>
+        <p class="text-base font-bold text-slate-900">Scanning NID Card...</p>
+        <p class="text-xs text-slate-400 mt-1 max-w-sm mx-auto">Straightening card orientation, locating text fields with YOLO, and executing neural recognition...</p>
+      </div>
+    </div>
+
+    <!-- Extracted Results View (User Only Sees Results) -->
+    <section id="resultsSection" class="hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+            <i data-lucide="check" class="w-4 h-4 stroke-[3]"></i>
+          </div>
+          <h2 class="text-lg font-extrabold text-slate-900">Extracted Information</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="copyAllJSON()" class="text-xs font-semibold text-slate-700 hover:text-emerald-700 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 shadow-2xs transition-colors">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy JSON
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm divide-y divide-slate-100 overflow-hidden">
+        
+        <!-- NID Number Hero Field -->
+        <div class="p-6 bg-gradient-to-r from-emerald-50/60 via-slate-50/40 to-white flex items-center justify-between">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">National ID Number</span>
+            <p id="resNid" class="mono text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 tracking-tight">—</p>
+          </div>
+          <button onclick="copyField('resNid')" class="p-2.5 text-slate-400 hover:text-emerald-600 rounded-xl hover:bg-white shadow-2xs transition-all" title="Copy NID Number">
+            <i data-lucide="copy" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Names Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+          <div class="p-5 flex items-center justify-between hover:bg-slate-50/60 transition-colors">
+            <div>
+              <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">নাম (বাংলা)</span>
+              <p id="resNameBn" class="bangla text-lg font-bold text-slate-900 mt-0.5">—</p>
+            </div>
+            <button onclick="copyField('resNameBn')" class="p-2 text-slate-400 hover:text-emerald-600 rounded-lg hover:bg-white transition-all"><i data-lucide="copy" class="w-4 h-4"></i></button>
+          </div>
+
+          <div class="p-5 flex items-center justify-between hover:bg-slate-50/60 transition-colors">
+            <div>
+              <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Name (English)</span>
+              <p id="resNameEn" class="text-lg font-bold text-slate-900 mt-0.5">—</p>
+            </div>
+            <button onclick="copyField('resNameEn')" class="p-2 text-slate-400 hover:text-emerald-600 rounded-lg hover:bg-white transition-all"><i data-lucide="copy" class="w-4 h-4"></i></button>
+          </div>
+        </div>
+
+        <!-- DOB & Parents -->
+        <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+          <div class="p-5 flex items-center justify-between hover:bg-slate-50/60 transition-colors">
+            <div>
+              <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Date of Birth</span>
+              <p id="resDob" class="mono text-base font-bold text-slate-900 mt-0.5">—</p>
+            </div>
+            <button onclick="copyField('resDob')" class="p-2 text-slate-400 hover:text-emerald-600 rounded-lg hover:bg-white transition-all"><i data-lucide="copy" class="w-4 h-4"></i></button>
+          </div>
+
+          <div class="p-5 flex items-center justify-between hover:bg-slate-50/60 transition-colors">
+            <div>
+              <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">পিতা / স্বামীর নাম</span>
+              <p id="resFather" class="bangla text-base font-bold text-slate-900 mt-0.5">—</p>
+            </div>
+            <button onclick="copyField('resFather')" class="p-2 text-slate-400 hover:text-emerald-600 rounded-lg hover:bg-white transition-all"><i data-lucide="copy" class="w-4 h-4"></i></button>
+          </div>
+
+          <div class="p-5 flex items-center justify-between hover:bg-slate-50/60 transition-colors">
+            <div>
+              <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">মাতার নাম</span>
+              <p id="resMother" class="bangla text-base font-bold text-slate-900 mt-0.5">—</p>
+            </div>
+            <button onclick="copyField('resMother')" class="p-2 text-slate-400 hover:text-emerald-600 rounded-lg hover:bg-white transition-all"><i data-lucide="copy" class="w-4 h-4"></i></button>
+          </div>
+        </div>
+
+        <!-- Blood Group & Back Details -->
+        <div class="p-5 flex items-center justify-between hover:bg-slate-50/60 transition-colors">
+          <div>
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Blood Group</span>
+            <p id="resBlood" class="text-base font-bold text-slate-900 mt-0.5">—</p>
+          </div>
+          <button onclick="copyField('resBlood')" class="p-2 text-slate-400 hover:text-emerald-600 rounded-lg hover:bg-white transition-all"><i data-lucide="copy" class="w-4 h-4"></i></button>
+        </div>
+
+        <!-- Address Field -->
+        <div class="p-5 flex items-start justify-between hover:bg-slate-50/60 transition-colors">
+          <div class="pr-4 flex-1">
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">ঠিকানা (Address from Back)</span>
+            <p id="resAddress" class="bangla text-sm font-semibold text-slate-800 mt-1 whitespace-pre-line leading-relaxed">—</p>
+          </div>
+          <button onclick="copyField('resAddress')" class="p-2 text-slate-400 hover:text-emerald-600 rounded-lg hover:bg-white transition-all mt-1" title="Copy Address">
+            <i data-lucide="copy" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 py-6 mt-12 bg-white text-center text-xs text-slate-400">
+    <p>© <span id="currentYear"></span> Doniel Tripura. Powered by Kona Scanner NID OCR.</p>
+  </footer>
+
+  <!-- API Settings Modal -->
+  <div id="apiModal" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-slate-100 space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+          <i data-lucide="server" class="w-4 h-4 text-emerald-600"></i> Backend API Endpoint
+        </h3>
+        <button onclick="closeApiModal()" class="text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <p class="text-xs text-slate-500 leading-relaxed">
+        Because GitHub Pages runs over HTTPS, your OCR backend API must have an HTTPS URL (e.g., via Cloudflare Tunnel or your SSL domain).
+      </p>
+      <div>
+        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">OCR API URL</label>
+        <input type="url" id="customApiUrl" placeholder="https://your-ocr-backend.domain.com" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 font-mono" />
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button onclick="closeApiModal()" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg">Cancel</button>
+        <button onclick="saveApiUrl()" class="px-4 py-2 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg shadow-sm">Save & Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Default or saved API URL (stored in localStorage)
+    const STORAGE_KEY = 'kona_nid_ocr_api_url';
+    const DEFAULT_API_URL = localStorage.getItem(STORAGE_KEY) || 'https://api.kona-scanner.live';
+
+    document.getElementById('currentYear').innerText = new Date().getFullYear();
+
+    let frontFile = null;
+    let backFile = null;
+    let extractedData = null;
+
+    function getApiUrl() {
+      return localStorage.getItem(STORAGE_KEY) || DEFAULT_API_URL;
+    }
+
+    function openApiModal() {
+      document.getElementById('customApiUrl').value = getApiUrl();
+      document.getElementById('apiModal').classList.remove('hidden');
+    }
+
+    function closeApiModal() {
+      document.getElementById('apiModal').classList.add('hidden');
+    }
+
+    function saveApiUrl() {
+      const val = document.getElementById('customApiUrl').value.trim().replace(/\/+$/, '');
+      if (val) {
+        localStorage.setItem(STORAGE_KEY, val);
+        showToast('API URL updated!');
+      }
+      closeApiModal();
+    }
+
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Attach File Listeners
+    document.getElementById('inputFront').addEventListener('change', (e) => handleFile(e, 'front'));
+    document.getElementById('inputBack').addEventListener('change', (e) => handleFile(e, 'back'));
+
+    function handleFile(event, side) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const isFront = side === 'front';
+      if (isFront) frontFile = file; else backFile = file;
+
+      const preview = document.getElementById(isFront ? 'previewFront' : 'previewBack');
+      const container = document.getElementById(isFront ? 'previewFrontContainer' : 'previewBackContainer');
+      const empty = document.getElementById(isFront ? 'emptyFront' : 'emptyBack');
+      const meta = document.getElementById(isFront ? 'frontMeta' : 'backMeta');
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        preview.src = e.target.result;
+        meta.innerText = `${(file.size / 1024).toFixed(0)} KB • ${file.name}`;
+        container.classList.remove('hidden');
+        empty.classList.add('hidden');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function removeImage(side, event) {
+      event.stopPropagation();
+      event.preventDefault();
+      const isFront = side === 'front';
+      if (isFront) {
+        frontFile = null;
+        document.getElementById('inputFront').value = '';
+        document.getElementById('previewFrontContainer').classList.add('hidden');
+        document.getElementById('emptyFront').classList.remove('hidden');
+      } else {
+        backFile = null;
+        document.getElementById('inputBack').value = '';
+        document.getElementById('previewBackContainer').classList.add('hidden');
+        document.getElementById('emptyBack').classList.remove('hidden');
+      }
+    }
+
+    // Client-side auto resize/compression to ensure fast uploads even on slow mobile data
+    async function compressIfNeeded(file) {
+      return new Promise((resolve) => {
+        if (!file || file.size < 2 * 1024 * 1024) {
+          return resolve(file);
+        }
+        const img = new Image();
+        img.onload = () => {
+          const maxDim = 2400;
+          let { width, height } = img;
+          if (width > maxDim || height > maxDim) {
+            if (width > height) {
+              height = Math.round((height * maxDim) / width);
+              width = maxDim;
+            } else {
+              width = Math.round((width * maxDim) / height);
+              height = maxDim;
+            }
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          canvas.toBlob((blob) => {
+            resolve(blob ? new File([blob], file.name, { type: 'image/jpeg' }) : file);
+          }, 'image/jpeg', 0.88);
+        };
+        img.onerror = () => resolve(file);
+        img.src = URL.createObjectURL(file);
+      });
+    }
+
+    async function processOCR() {
+      const errorAlert = document.getElementById('errorAlert');
+      const errorMessage = document.getElementById('errorMessage');
+      const loading = document.getElementById('loadingState');
+      const resultsSection = document.getElementById('resultsSection');
+      const btnScan = document.getElementById('btnScan');
+
+      errorAlert.classList.add('hidden');
+
+      if (!frontFile && !backFile) {
+        showError("Please upload at least the Front side of the NID card.");
+        return;
+      }
+
+      loading.classList.remove('hidden');
+      resultsSection.classList.add('hidden');
+      btnScan.disabled = true;
+
+      try {
+        const [compFront, compBack] = await Promise.all([
+          compressIfNeeded(frontFile),
+          compressIfNeeded(backFile)
+        ]);
+
+        const formData = new FormData();
+        if (compFront) formData.append("image", compFront, frontFile?.name || "front.jpg");
+        if (compBack) formData.append("back_image", compBack, backFile?.name || "back.jpg");
+
+        const targetUrl = `${getApiUrl()}/api/v1/ocr`;
+        
+        const response = await fetch(targetUrl, {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.ok) {
+          throw new Error(data?.error?.message || `Server returned error (${response.status})`);
+        }
+
+        renderResults(data);
+      } catch (err) {
+        showError(err.message || "Failed to contact OCR API server. Please check your backend URL in Settings.");
+      } finally {
+        loading.classList.add('hidden');
+        btnScan.disabled = false;
+        lucide.createIcons();
+      }
+    }
+
+    function renderResults(data) {
+      extractedData = data;
+      const f = data.fields || {};
+
+      document.getElementById('resNid').innerText = f.nid_number || '—';
+      document.getElementById('resNameBn').innerText = f.name_bangla || '—';
+      document.getElementById('resNameEn').innerText = f.name_english || '—';
+      document.getElementById('resDob').innerText = f.date_of_birth || '—';
+      document.getElementById('resFather').innerText = f.father_name_bangla || f.husband_name_bangla || '—';
+      document.getElementById('resMother').innerText = f.mother_name_bangla || '—';
+      document.getElementById('resBlood').innerText = f.blood_group || data.back?.blood_group || '—';
+      document.getElementById('resAddress').innerText = f.address_bangla || data.back?.address || '—';
+
+      document.getElementById('resultsSection').classList.remove('hidden');
+      document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showError(msg) {
+      const errorAlert = document.getElementById('errorAlert');
+      const errorMessage = document.getElementById('errorMessage');
+      errorMessage.innerText = msg;
+      errorAlert.classList.remove('hidden');
+      errorAlert.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copyField(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      if (text && text !== '—') {
+        navigator.clipboard.writeText(text);
+        showToast("Copied to clipboard!");
+      }
+    }
+
+    function copyAllJSON() {
+      if (!extractedData) return;
+      const cleanJson = {
+        nid_number: extractedData.fields?.nid_number || null,
+        name_bangla: extractedData.fields?.name_bangla || null,
+        name_english: extractedData.fields?.name_english || null,
+        date_of_birth: extractedData.fields?.date_of_birth || null,
+        father_name_bangla: extractedData.fields?.father_name_bangla || null,
+        mother_name_bangla: extractedData.fields?.mother_name_bangla || null,
+        blood_group: extractedData.fields?.blood_group || extractedData.back?.blood_group || null,
+        address: extractedData.fields?.address_bangla || extractedData.back?.address || null
+      };
+      navigator.clipboard.writeText(JSON.stringify(cleanJson, null, 2));
+      showToast("All fields copied as JSON!");
+    }
+
+    function showToast(text) {
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-5 right-5 bg-slate-900 text-white px-4 py-2.5 rounded-xl text-xs font-semibold shadow-xl z-50 transition-all duration-200';
+      toast.innerText = text;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 250);
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
