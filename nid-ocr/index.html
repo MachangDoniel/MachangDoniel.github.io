@@ -273,7 +273,13 @@
   <script>
     // Default or saved API URL (stored in localStorage)
     const STORAGE_KEY = 'kona_nid_ocr_api_url';
-    const DEFAULT_API_URL = 'https://sad-bears-fetch.loca.lt';
+    const DEFAULT_API_URL = 'https://headline-green-removing-improving.trycloudflare.com';
+
+    // Auto-migrate any broken or outdated saved URLs
+    const currentSaved = localStorage.getItem(STORAGE_KEY);
+    if (!currentSaved || currentSaved.includes('loca.lt') || currentSaved.includes('kona-scanner.live')) {
+      localStorage.setItem(STORAGE_KEY, DEFAULT_API_URL);
+    }
 
     document.getElementById('currentYear').innerText = new Date().getFullYear();
 
