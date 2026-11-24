@@ -256,19 +256,24 @@
         <button onclick="closeApiModal()" class="text-slate-400 hover:text-slate-700 cursor-pointer"><i data-lucide="x" class="w-5 h-5"></i></button>
       </div>
       <p class="text-xs text-slate-500 leading-relaxed">
-        Because GitHub Pages runs over HTTPS, your OCR backend API must have an <strong>HTTPS</strong> URL (e.g. from Cloudflare Tunnel or an SSL-enabled reverse proxy).
+        The default 24/7 cloud backend is permanently hosted on Hugging Face Spaces (<strong>https://machang-doniel-nid-ocr.hf.space</strong>). You only need to change this if testing a private self-hosted server.
       </p>
       <div>
         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">OCR API URL</label>
-        <input type="url" id="customApiUrl" placeholder="https://xyz.trycloudflare.com" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 font-mono" />
+        <input type="url" id="customApiUrl" placeholder="https://machang-doniel-nid-ocr.hf.space" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 font-mono" />
       </div>
 
       <div id="apiTestResult" class="hidden"></div>
 
       <div class="flex items-center justify-between pt-2">
-        <button onclick="testApiConnection()" type="button" class="px-3.5 py-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg flex items-center gap-1.5 transition-colors cursor-pointer">
-          <i data-lucide="activity" class="w-3.5 h-3.5"></i> Test Connection
-        </button>
+        <div class="flex gap-2">
+          <button onclick="testApiConnection()" type="button" class="px-3.5 py-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg flex items-center gap-1.5 transition-colors cursor-pointer">
+            <i data-lucide="activity" class="w-3.5 h-3.5"></i> Test
+          </button>
+          <button onclick="resetApiUrl()" type="button" class="px-3 py-2 text-xs font-semibold text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer" title="Reset to Hugging Face default">
+            Reset Default
+          </button>
+        </div>
         <div class="flex gap-2">
           <button onclick="closeApiModal()" class="px-3.5 py-2 text-xs font-semibold text-slate-500 hover:bg-slate-100 rounded-lg cursor-pointer">Cancel</button>
           <button onclick="saveApiUrl()" class="px-4 py-2 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg shadow-sm cursor-pointer">Save & Apply</button>
@@ -339,7 +344,12 @@
     let extractedData = null;
 
     function getApiUrl() {
-      return (localStorage.getItem(STORAGE_KEY) || DEFAULT_API_URL).trim().replace(/\/+$/, '');
+      const saved = localStorage.getItem(STORAGE_KEY);
+      // Auto-ignore stale temporary tunnels or broken hosts
+      if (!saved || !saved.startsWith('http') || saved.includes('trycloudflare') || saved.includes('headline-green') || saved.includes('loca.lt') || saved.includes('kona-scanner.live') || saved.includes('127.0.0.1')) {
+        return DEFAULT_API_URL;
+      }
+      return saved.trim().replace(/\/+$/, '');
     }
 
     async function checkServerHealth() {
@@ -399,12 +409,21 @@
 
     function saveApiUrl() {
       const val = document.getElementById('customApiUrl').value.trim().replace(/\/+$/, '');
-      if (val) {
+      if (val && val !== DEFAULT_API_URL) {
         localStorage.setItem(STORAGE_KEY, val);
-        showToast('API URL saved!');
+        showToast('Custom API URL saved!');
       } else {
         localStorage.removeItem(STORAGE_KEY);
+        showToast('Using Hugging Face cloud backend!');
       }
+      closeApiModal();
+    }
+
+    function resetApiUrl() {
+      localStorage.removeItem(STORAGE_KEY);
+      document.getElementById('customApiUrl').value = DEFAULT_API_URL;
+      document.getElementById('apiTestResult').classList.add('hidden');
+      showToast('Reset to Hugging Face cloud default!');
       closeApiModal();
     }
 
