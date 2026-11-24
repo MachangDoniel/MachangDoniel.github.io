@@ -223,7 +223,12 @@
         <!-- Address Field -->
         <div class="p-5 flex items-start justify-between hover:bg-slate-50/60 transition-colors">
           <div class="pr-4 flex-1">
-            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">ঠিকানা (Address from Back)</span>
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">ঠিকানা (Address from Back)</span>
+              <button id="btnToggleDigits" onclick="toggleAddressDigits()" type="button" class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-200 transition-colors cursor-pointer flex items-center gap-1 shadow-2xs">
+                <i data-lucide="hash" class="w-3 h-3"></i> Digits: English (1209)
+              </button>
+            </div>
             <p id="resAddress" class="bangla text-sm font-semibold text-slate-800 mt-1 whitespace-pre-line leading-relaxed">—</p>
           </div>
           <button onclick="copyField('resAddress')" class="p-2 text-slate-400 hover:text-emerald-600 rounded-lg hover:bg-white transition-all mt-1" title="Copy Address">
@@ -275,13 +280,56 @@
   <!-- JavaScript Logic -->
   <script>
     // Default or saved API URL (stored in localStorage)
+    // Default permanent 24/7 API URL (hosted on Hugging Face Spaces)
     const STORAGE_KEY = 'kona_nid_ocr_api_url';
-    const DEFAULT_API_URL = 'https://makes-conversations-certain-hints.trycloudflare.com';
+    const DEFAULT_API_URL = 'https://machang-doniel-nid-ocr.hf.space';
 
-    // Auto-migrate any broken or outdated saved URLs
+    // Auto-migrate any broken, ephemeral, or outdated saved URLs
     const currentSaved = localStorage.getItem(STORAGE_KEY);
-    if (!currentSaved || currentSaved.includes('headline-green') || currentSaved.includes('loca.lt') || currentSaved.includes('kona-scanner.live')) {
+    if (!currentSaved || currentSaved.includes('trycloudflare') || currentSaved.includes('headline-green') || currentSaved.includes('loca.lt') || currentSaved.includes('kona-scanner.live')) {
       localStorage.setItem(STORAGE_KEY, DEFAULT_API_URL);
+    }
+
+    // Bengali & English digit mappings
+    const BN_TO_EN_DIGITS = { '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9' };
+    const EN_TO_BN_DIGITS = { '0': '০', '1': '১', '2': '২', '3': '৩', '4': '৪', '5': '৫', '6': '৬', '7': '৭', '8': '৮', '9': '৯' };
+
+    let rawAddressText = '';
+    let showEnglishDigits = false;
+
+    function sanitizeBengaliText(str) {
+      if (!str || typeof str !== 'string') return str;
+      // 1. Remove orphaned Hasanta preceding a vowel sign (\u09CD followed by \u09BE-\u09CC)
+      // This eliminates the dotted circle glyph (◌) in misrecognized words like বানমন্◌ি -> বানমনি
+      let cleaned = str.replace(/\u09CD(?=[\u09BE-\u09CC])/g, '');
+      // 2. Remove explicit dotted circle character (\u25CC) if present
+      cleaned = cleaned.replace(/\u25CC/g, '');
+      // 3. Fix common Dhaka neighborhood misreads
+      cleaned = cleaned.replace(/বানমন্[িী]|বানমন[িী]/g, 'ধানমন্ডি');
+      return cleaned;
+    }
+
+    function convertDigits(text, toEnglish = false) {
+      if (!text) return text;
+      if (toEnglish) {
+        return text.replace(/[০-৯]/g, d => BN_TO_EN_DIGITS[d] || d);
+      } else {
+        return text.replace(/[0-9]/g, d => EN_TO_BN_DIGITS[d] || d);
+      }
+    }
+
+    function toggleAddressDigits() {
+      showEnglishDigits = !showEnglishDigits;
+      const btn = document.getElementById('btnToggleDigits');
+      const p = document.getElementById('resAddress');
+      if (showEnglishDigits) {
+        btn.innerHTML = '<i data-lucide="hash" class="w-3 h-3"></i> Digits: বাংলা (১২০৯)';
+        p.innerText = convertDigits(rawAddressText, true);
+      } else {
+        btn.innerHTML = '<i data-lucide="hash" class="w-3 h-3"></i> Digits: English (1209)';
+        p.innerText = rawAddressText;
+      }
+      lucide.createIcons();
     }
 
     document.getElementById('currentYear').innerText = new Date().getFullYear();
@@ -549,16 +597,24 @@
       const f = data.fields || {};
 
       document.getElementById('resNid').innerText = extractVal(f.nid_number);
-      document.getElementById('resNameBn').innerText = extractVal(f.name_bangla);
+      document.getElementById('resNameBn').innerText = sanitizeBengaliText(extractVal(f.name_bangla));
       document.getElementById('resNameEn').innerText = extractVal(f.name_english);
       document.getElementById('resDob').innerText = extractVal(f.date_of_birth);
-      document.getElementById('resFather').innerText = extractVal(f.father_name_bangla || f.husband_name_bangla);
-      document.getElementById('resMother').innerText = extractVal(f.mother_name_bangla);
+      document.getElementById('resFather').innerText = sanitizeBengaliText(extractVal(f.father_name_bangla || f.husband_name_bangla));
+      document.getElementById('resMother').innerText = sanitizeBengaliText(extractVal(f.mother_name_bangla));
       document.getElementById('resBlood').innerText = extractVal(f.blood_group || data.back?.blood_group);
-      document.getElementById('resAddress').innerText = extractVal(f.address_bangla || data.back?.address);
+
+      rawAddressText = sanitizeBengaliText(extractVal(f.address_bangla || data.back?.address));
+      showEnglishDigits = false;
+      const btnDigits = document.getElementById('btnToggleDigits');
+      if (btnDigits) {
+        btnDigits.innerHTML = '<i data-lucide="hash" class="w-3 h-3"></i> Digits: English (1209)';
+      }
+      document.getElementById('resAddress').innerText = rawAddressText;
 
       document.getElementById('resultsSection').classList.remove('hidden');
       document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+      lucide.createIcons();
     }
 
     function showError(msg) {
